@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="insert指令">
+<meta property="og:url" content="https://brooke2010.github.io/2016/04/26/t-sql-insert/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/26/t-sql-insert/1465190798_56349.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/26/t-sql-insert/1465191831_52872.png">
+<meta property="article:published_time" content="2016-04-26T01:54:01.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.952Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="T-SQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2016/04/26/t-sql-insert/1465190798_56349.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2016/04/26/t-sql-insert/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2016/04/26/t-sql-insert/","path":"2016/04/26/t-sql-insert/","title":"insert指令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>insert指令 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2016/04/26/t-sql-insert/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="insert指令 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          insert指令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-04-26 09:54:01" itemprop="dateCreated datePublished" datetime="2016-04-26T09:54:01+08:00">2016-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/T-SQL/" itemprop="url" rel="index"><span itemprop="name">T-SQL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/04/26/t-sql-insert/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/04/26/t-sql-insert/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、INSERT基本語法</p>
+
+<p>INSERT [INTO] table_or_view_name [(column_list)]</p>
+
+<p>VALUES ({ DEFAULT | NULL | expression } [,...n]) [,...n]</p>
+
+<p>&nbsp;</p>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width: 100%;">
+    <tbody>
+        <tr>
+            <td>慣例</td>
+            <td>說明</td>
+        </tr>
+        <tr>
+            <td>大寫</td>
+            <td>Transact-SQL關鍵字</td>
+        </tr>
+        <tr>
+            <td>小寫</td>
+            <td>由使用者提供的Transact-SQL語法參數</td>
+        </tr>
+        <tr>
+            <td>| (分隔號)</td>
+            <td>被分隔號所分隔的所有項目中，可以擇其中一個項目</td>
+        </tr>
+        <tr>
+            <td>[] (中括號)</td>
+            <td>選擇性的語法項目，但不要輸入中括號</td>
+        </tr>
+        <tr>
+            <td>{} (大括號)</td>
+            <td>必要的語法項目，請不要輸入大括號</td>
+        </tr>
+        <tr>
+            <td>[,...n]</td>
+            <td>指出前一個項目可以重複n次，以逗號分隔項目</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p>二、範例</p>
+
+<p>先行準備一張資料表</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">CREATE</span> <span style="color:#800000; font-weight:bold; ">TABLE</span> <span style="color:#808030; ">[</span>dbo<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span><span style="color:#808030; ">[</span>CUSTOMER2<span style="color:#808030; ">]</span> 
+  <span style="color:#808030; ">(</span> 
+     <span style="color:#808030; ">[</span>customer_id<span style="color:#808030; ">]</span> <span style="color:#808030; ">[</span>TINYINT<span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>address<span style="color:#808030; ">]</span>     <span style="color:#808030; ">[</span>NVARCHAR<span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>cell<span style="color:#808030; ">]</span>        <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">NCHAR</span><span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">10</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#800000; font-weight:bold; ">PRIMARY</span> <span style="color:#800000; font-weight:bold; ">KEY</span> <span style="color:#808030; ">(</span>customer_id<span style="color:#808030; ">)</span> 
+  <span style="color:#808030; ">)</span> 
+
+<span style="color:#800000; font-weight:bold; ">go</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>1、不指定column_list的INSERT</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> CUSTOMER2 
+<span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0800123123&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p>或</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> <span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">INTO</span></span> CUSTOMER2 
+<span style="color:#800000; font-weight:bold; ">VALUES</span>      <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0800123123&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p>皆可</p>
+
+<p>&nbsp;</p>
+
+<p>2、指定column_list的INSERT</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> CUSTOMER2 
+       <span style="color:#808030; ">(</span>customer_id<span style="color:#808030; ">,</span>address<span style="color:#808030; ">,</span>cell<span style="color:#808030; ">)</span> 
+<span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0800123123&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>3、給定預設值DEFAULT的INSERT</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> CUSTOMER2 
+       <span style="color:#808030; ">(</span>customer_id<span style="color:#808030; ">,</span>address<span style="color:#808030; ">,</span>cell<span style="color:#808030; ">)</span> 
+<span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">,</span><span style="color:#800000; font-weight:bold; ">DEFAULT</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p><img height="64" src="1465190798_56349.png" width="341" /></p>
+
+<p>&nbsp;</p>
+
+<p>4、同時新增多筆資料的INSERT</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> CUSTOMER2 
+       <span style="color:#808030; ">(</span>customer_id<span style="color:#808030; ">,</span>address<span style="color:#808030; ">,</span>cell<span style="color:#808030; ">)</span> 
+<span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0800000123&#39;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> 
+       <span style="color:#808030; ">(</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0800000124&#39;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> 
+       <span style="color:#808030; ">(</span><span style="color:#008c00; ">3</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0800000125&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>5、結合函數的INSERT</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> CUSTOMER2 
+       <span style="color:#808030; ">(</span>customer_id<span style="color:#808030; ">,</span>address<span style="color:#808030; ">,</span>cell<span style="color:#808030; ">)</span> 
+<span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#bb7977; font-weight:bold; ">Upper</span><span style="color:#808030; ">(</span><span style="color:#0000e6; ">&#39;my address&#39;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0800000123&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p><img height="64" src="1465191831_52872.png" width="340" /></p>
+
+<p>&nbsp;</p>
+
+<p>6、考量INSERT資料表之間的順序問題</p>
+
+<p>先準備父資料表CUSTOMER2與子資料表ORDER2</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">CREATE</span> <span style="color:#800000; font-weight:bold; ">TABLE</span> <span style="color:#808030; ">[</span>dbo<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span><span style="color:#808030; ">[</span>CUSTOMER2<span style="color:#808030; ">]</span> 
+  <span style="color:#808030; ">(</span> 
+     <span style="color:#808030; ">[</span>customer_id<span style="color:#808030; ">]</span> <span style="color:#808030; ">[</span>TINYINT<span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>address<span style="color:#808030; ">]</span>     <span style="color:#808030; ">[</span>NVARCHAR<span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>cell<span style="color:#808030; ">]</span>        <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">NCHAR</span><span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">10</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#800000; font-weight:bold; ">PRIMARY</span> <span style="color:#800000; font-weight:bold; ">KEY</span> <span style="color:#808030; ">(</span>customer_id<span style="color:#808030; ">)</span> 
+  <span style="color:#808030; ">)</span> 
+
+<span style="color:#800000; font-weight:bold; ">go</span>
+
+<span style="color:#800000; font-weight:bold; ">CREATE</span> <span style="color:#800000; font-weight:bold; ">TABLE</span> <span style="color:#808030; ">[</span>dbo<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span><span style="color:#808030; ">[</span>ORDER2<span style="color:#808030; ">]</span> 
+  <span style="color:#808030; ">(</span> 
+     <span style="color:#808030; ">[</span>order_id<span style="color:#808030; ">]</span>    <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">SMALLINT</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>customer_id<span style="color:#808030; ">]</span> <span style="color:#808030; ">[</span>TINYINT<span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">REFERENCES</span> CUSTOMER2<span style="color:#808030; ">(</span>customer_id<span style="color:#808030; ">)</span>
+     <span style="color:#800000; font-weight:bold; ">ON</span> <span style="color:#800000; font-weight:bold; ">UPDATE</span> <span style="color:#800000; font-weight:bold; ">CASCADE</span> 
+     <span style="color:#800000; font-weight:bold; ">ON</span> <span style="color:#800000; font-weight:bold; ">DELETE</span> <span style="color:#800000; font-weight:bold; ">CASCADE</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>outitem<span style="color:#808030; ">]</span>     <span style="color:#808030; ">[</span>DATETIME2<span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">7</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#800000; font-weight:bold; ">PRIMARY</span> <span style="color:#800000; font-weight:bold; ">KEY</span> <span style="color:#808030; ">(</span><span style="color:#808030; ">[</span>order_id<span style="color:#808030; ">]</span><span style="color:#808030; ">)</span> 
+  <span style="color:#808030; ">)</span> 
+
+<span style="color:#800000; font-weight:bold; ">go</span>
+</pre>
+
+<p>假設父資料表裡沒有資料，但子資料表的FK卻硬要新增一筆資料則會出錯，</p>
+
+<p>FK可以為null但不可以捏造父資料表所沒有的PK</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> ORDER2 
+<span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#008c00; "><span style="background-color:#FFFF00;">1</span></span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0001-1-1&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p>錯誤訊息如下</p>
+
+<p>訊息 547，層級 16，狀態 0，行 4<br />
+The INSERT statement conflicted with the FOREIGN KEY constraint &quot;FK__ORDER2__customer__673F4B05&quot;. The conflict occurred in database &quot;testDB&quot;, table &quot;dbo.CUSTOMER2&quot;, column &#39;customer_id&#39;.<br />
+The statement has been terminated.</p>
+
+<p>&nbsp;</p>
+
+<p>7、透過SQL statement的INSERT</p>
+
+<p>先準備一個內含值的資料表</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">CREATE</span> <span style="color:#800000; font-weight:bold; ">TABLE</span> <span style="color:#808030; ">[</span>dbo<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span><span style="color:#808030; ">[</span>BOOK_DATA<span style="color:#808030; ">]</span> 
+  <span style="color:#808030; ">(</span> 
+     <span style="color:#808030; ">[</span>book_no<span style="color:#808030; ">]</span>            <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">INT</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>publish_company_no<span style="color:#808030; ">]</span> <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">INT</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>book_name<span style="color:#808030; ">]</span>          <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">VARCHAR</span><span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">30</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>publish_date<span style="color:#808030; ">]</span>       <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">DATE</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#808030; ">[</span>amount<span style="color:#808030; ">]</span>             <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">INT</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NOT</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span> 
+     <span style="color:#800000; font-weight:bold; ">PRIMARY</span> <span style="color:#800000; font-weight:bold; ">KEY</span> <span style="color:#808030; ">(</span><span style="color:#808030; ">[</span>book_no<span style="color:#808030; ">]</span><span style="color:#808030; ">)</span> 
+  <span style="color:#808030; ">)</span> 
+
+<span style="color:#800000; font-weight:bold; ">go</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> <span style="color:#808030; ">[</span>BOOK_DATA<span style="color:#808030; ">]</span> 
+<span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;SQL SERVER&#39;</span><span style="color:#808030; ">,</span><span style="color:#0000e6; ">&#39;0001-1-1&#39;</span><span style="color:#808030; ">,</span><span style="color:#008c00; ">10</span><span style="color:#808030; ">)</span> 
+
+<span style="color:#800000; font-weight:bold; ">go</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>(1)、SELECT...INTO...</p>
+
+<p>此語法可以從已存在的資料表篩選出想要的資料，</p>
+
+<p>並根據select column_list預先自動建立COPY_BOOK_DATA資料表(<span style="background-color:#FFFF00;">該資料表先前不存在</span>)，</p>
+
+<p>然後將剛剛篩選出的資料放進COPY_BOOK_DATA資料表裡。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">SELECT</span> book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount 
+<span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">INTO</span></span><span style="background-color:#FFFF00;">   COPY_BOOK_DATA</span> 
+<span style="color:#800000; font-weight:bold; ">FROM</span>   BOOK_DATA
+</pre>
+
+<p>&nbsp;</p>
+
+<p>(2)、INSERT...SELECT...</p>
+
+<p>此語法可以從已存在的資料表篩選出想要的資料，並根據select column_list將已篩選出的資料，</p>
+
+<p>放進<span style="background-color:#FFFF00;">先前已存在</span>的資料表COPY_BOOK_DATA2</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> COPY_BOOK_DATA2 
+<span style="color:#800000; font-weight:bold; ">SELECT</span> book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount 
+<span style="color:#800000; font-weight:bold; ">FROM</span>   BOOK_DATA
+</pre>
+
+<p>等同於</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> COPY_BOOK_DATA2 <span style="color:#808030; ">(</span>book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">SELECT</span> book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount 
+<span style="color:#800000; font-weight:bold; ">FROM</span>   BOOK_DATA
+</pre>
+
+<p>Tips：</p>
+
+<p>可以先利用SELECT...INTO...配合WHERE 1 = 0 的矛盾條件創立COPY_BOOK_DATA2資料表，</p>
+
+<p>然後再使用INSERT...SELECT... insert資料</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">SELECT</span> book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount
+<span style="color:#800000; font-weight:bold; ">INTO</span> COPY_BOOK_DATA2
+<span style="color:#800000; font-weight:bold; ">FROM</span> BOOK_DATA
+<span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">WHERE</span></span><span style="background-color:#FFFF00;"> </span><span style="color:#008c00; "><span style="background-color:#FFFF00;">1</span></span><span style="background-color:#FFFF00;"> </span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="background-color:#FFFF00;"> </span><span style="color:#008c00; "><span style="background-color:#FFFF00;">0</span></span>
+
+<span style="color:#800000; font-weight:bold; ">go</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> COPY_BOOK_DATA2 
+<span style="color:#800000; font-weight:bold; ">SELECT</span> book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount 
+<span style="color:#800000; font-weight:bold; ">FROM</span>   BOOK_DATA
+</pre>
+
+<p>&nbsp;</p>
+
+<p>8、透過execute_statement的INSERT</p>
+
+<p>(1)、透過執行「預存程序」的INSERT</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> COPY_BOOK_DATA2 
+       <span style="color:#808030; ">(</span>book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount<span style="color:#808030; ">)</span> 
+<span style="color:#800000; font-weight:bold; ">EXEC</span> Book_data_procedure
+</pre>
+
+<p>&nbsp;</p>
+
+<p>(2)、透過執行「SQL字串」的INSERT</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">INSERT</span> COPY_BOOK_DATA2 <span style="color:#808030; ">(</span>book_no<span style="color:#808030; ">,</span>publish_company_no<span style="color:#808030; ">,</span>book_name<span style="color:#808030; ">,</span>publish_date<span style="color:#808030; ">,</span>amount<span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">exec</span> <span style="color:#808030; ">(</span><span style="color:#0000e6; ">&#39;SELECT book_no,publish_company_no,book_name,publish_date,amount FROM BOOK_DATA&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p>&nbsp;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/T-SQL/" rel="tag"># T-SQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/04/22/database-design/" rel="prev" title="資料庫設計與規劃">
+                  <i class="fa fa-angle-left"></i> 資料庫設計與規劃
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/05/02/sql-server-user-database/" rel="next" title="SQL SERVER系統或使用者資料庫物件">
+                  SQL SERVER系統或使用者資料庫物件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

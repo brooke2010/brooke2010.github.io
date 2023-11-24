@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料庫設計與規劃">
+<meta property="og:url" content="https://brooke2010.github.io/2016/04/22/database-design/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1463797578_26116.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1463792635_78164.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1463792716_15964.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1463879628_71952.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464057359_46785.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464057590_30937.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1463921010_36046.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1463924034_9706.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464049998_82993.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464057165_91917.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464168023_66579.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464170381_78073.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464326672_68811.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464326949_98075.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/04/22/database-design/1464330001_1431.png">
+<meta property="article:published_time" content="2016-04-22T01:55:57.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.259Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="DATABASE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2016/04/22/database-design/1463797578_26116.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2016/04/22/database-design/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2016/04/22/database-design/","path":"2016/04/22/database-design/","title":"資料庫設計與規劃"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>資料庫設計與規劃 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2016/04/22/database-design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="資料庫設計與規劃 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          資料庫設計與規劃
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-04-22 09:55:57" itemprop="dateCreated datePublished" datetime="2016-04-22T09:55:57+08:00">2016-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DATABASE/" itemprop="url" rel="index"><span itemprop="name">DATABASE</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/04/22/database-design/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/04/22/database-design/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、正規化</p>
+
+<p>一開始先提關係表示法，以利後續說明。</p>
+
+<p><img height="301" src="1463797578_26116.png" width="448" /></p>
+
+<p>&nbsp;</p>
+
+<p>1、第一正規化(1NF)：去除多值屬性，關連表內的所有屬性值必須是單元值。</p>
+
+<p>例如：</p>
+
+<p><img height="147" src="1463792635_78164.png" width="401" /></p>
+
+<p>圖一、不符合1NF</p>
+
+<p>&nbsp;</p>
+
+<p><img height="146" src="1463792716_15964.png" width="287" /></p>
+
+<p>圖二、符合1NF</p>
+
+<p>&nbsp;</p>
+
+<p>2、第二正規化(2NF)：把部份相依關係導正成完全相依。非候選鍵的屬性只功能相依於候選鍵的一部份稱之為部份相依。</p>
+
+<p><img height="393" src="1463879628_71952.png" width="365" /></p>
+
+<p>圖三、為原本的部份相依關係(虛線為遞移相依性暫不討論)</p>
+
+<p>&nbsp;</p>
+
+<p><img height="335" src="1464057359_46785.png" width="358" /></p>
+
+<p>圖四、理想的完全相依關係，為兩PK(no，order id)共同決定所有非候選鍵的屬性</p>
+
+<p>&nbsp;</p>
+
+<p><img height="400" src="1464057590_30937.png" width="819" /></p>
+
+<p>圖五、將其分拆成兩個關連表，以完成理想的完全相依關係</p>
+
+<p>&nbsp;</p>
+
+<p>3、第三正規化(3NF)：去除遞移相依性(間接相依性)而成為直接相依性。讓其成為具有不屬於候選鍵的屬性之間，不可以有任何功能相依性。</p>
+
+<p><img height="194" src="1463921010_36046.png" width="209" /></p>
+
+<p>圖六、上圖為根據圖五作2NF後的關連表</p>
+
+<p>&nbsp;</p>
+
+<p>根據圖六我們發現city&rarr;rank有遞移相依性，</p>
+
+<p>例如我們只想在圖六關連表單純新增一筆city為「新北市」、rank城市等級為「20」的紀錄，</p>
+
+<p>則必須還要no、name的值也一併輸入，否則新增會產生錯誤。</p>
+
+<p>因此將圖六關連表分拆成兩個表格以處理掉遞移相依性，完成後如圖七</p>
+
+<p><img height="221" src="1463924034_9706.png" width="665" /></p>
+
+<p>圖七</p>
+
+<p>&nbsp;</p>
+
+<p>4、廣義第三正規化(BCNF)：前提符合3NF時，如果主鍵是由多個欄位組成，則主鍵中的部份欄位不可以相依於其他非主鍵的欄位。也就是說，非主鍵的欄位不可以決定部份主鍵欄位。</p>
+
+<p>先來看另一例子圖八的相依性關係，name屬性值不能重復，name為候選鍵，</p>
+
+<p>其中no與order id可決定quantity屬性，而name屬性可決定no屬性。</p>
+
+<p><img height="347" src="1464049998_82993.png" width="244" /></p>
+
+<p>圖八</p>
+
+<p>由圖八可知，no相依於name，擁有「非完整候選鍵」功能相依性問題(非主鍵的欄位不可以決定部份主鍵欄位)。</p>
+
+<p>為了讓其符合BCNF，我們可將其拆成(<u>no</u>,name)、(<u>no</u>,<u>order id</u>,quantity)或</p>
+
+<p>(<u>name</u>,no)、(<u>name</u>,<u>order id</u>,quantity)關連表皆可，下圖為拆成(<u>no</u>,name)、(<u>no</u>,<u>order id</u>,quantity)關連表。</p>
+
+<p><img height="382" src="1464057165_91917.png" width="692" /></p>
+
+<p>圖九</p>
+
+<p>註：如果候選鍵只有一個的話，那麼BCNF便是原本的3NF。</p>
+
+<p>&nbsp;</p>
+
+<p>5、第四正規化(4NF)：前提符合BCNF時，移除多重值相依性(MVD)稱之為4NF。</p>
+
+<p>參考圖十另一個例子，一個學生可以屬於多個系別(修輔系)，</p>
+
+<p>而某課程也可以是多個系別的必修課(共同必修科目)，</p>
+
+<p>學生要獲得該系學位而與必修課程產生連結。</p>
+
+<p>因此以上三個屬性複合起來便構成了唯一的候選鍵(主鍵)</p>
+
+<p><img height="189" src="1464168023_66579.png" width="428" /></p>
+
+<p>圖十</p>
+
+<p>但我們發現它也包含了許多重複資料，</p>
+
+<p>如果電機系(EE)來了一位學生Mike則勢必要在關連表加入兩筆必修科目資料，</p>
+
+<p>如果電機系有30門必修科目，則該位學生就要一次新增30筆資料，就很麻煩了。</p>
+
+<p>因此要想辦法移除上述的多重值相依問題。關連表分拆如圖十一。</p>
+
+<p><img height="294" src="1464170381_78073.png" width="865" /></p>
+
+<p>圖十一</p>
+
+<p>&nbsp;</p>
+
+<p>6、第五正規化(5NF、PJ/NF)：移除「合併相依」性後稱之為5NF。</p>
+
+<p>先考慮圖十二關連表，(no,id,sid)構成了整個關連表的主鍵，</p>
+
+<p>而且不含任何功能相依性與多重值相依性，所以是4NF。</p>
+
+<p><img height="95" src="1464326672_68811.png" width="83" /></p>
+
+<p>圖十二</p>
+
+<p>&nbsp;</p>
+
+<p>但是將此關聯表分別對(no,id)、(id,sid)、(sid,no)做投影，得到圖十三，三個關連表，</p>
+
+<p>如果再做自然合併的話，就可以得到圖十二關連表。</p>
+
+<p><img height="190" src="1464326949_98075.png" width="405" /></p>
+
+<p>圖十三</p>
+
+<p>&nbsp;</p>
+
+<p>一個關連表如果可以不失真的分割成三個關連表則稱作3-decomposible，</p>
+
+<p>而這種3-decomposible的特性則稱為合併相依性(Join Dependency，簡稱 JD)。</p>
+
+<p>既然已經知道圖十二是具有合併相依性，則將其去除合併相依性後得到圖十三，</p>
+
+<p>我們稱圖十三符合5NF。</p>
+
+<p>理論上，只要取得關連表的所有候選鍵及所有合併相依性，</p>
+
+<p>就能辨別關連表是否為5NF。然而，要找出關連表的所有合併相依性並不是一件容易的事，</p>
+
+<p>所以至今為止，仍然沒有一個明確的方法可以幫助我們判斷一個4NF的關連表不是5NF，</p>
+
+<p>不過，幸好像這樣是4NF卻不是5NF的關連表並不多見。</p>
+
+<p>另外還有一種正規化型式，稱為Domain-Key Normal From(DK/NF)，相關說明就請自行找資料了。</p>
+
+<p>最後附上正規化型式之間的關係給大家參考</p>
+
+<p><img height="451" src="1464330001_1431.png" width="651" /></p>
+
+<p>&nbsp;</p>
+
+<p>二、參考作法：</p>
+
+<p>1、根據需求所得到的資訊，決定屬性與資料表名稱</p>
+
+<p>2、決定屬性與資料表間的相依關係</p>
+
+<p>3、決定PK與FK</p>
+
+<p>4、一個子資料表只有n個FK(弱實體)時，可合成一個PK(視情況)，可不用再特地多加個辦識屬性(視情況)。</p>
+
+<p>5、如果兩個實體具有N：M的關係時，其中間必須要再多一個實體，形成1：N和M：1的關係。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://www.mysql.tw/2013/03/entity-relationship-model.html">實體關係模型(Entity-relationship model)</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://onedrive.live.com/redir?resid=8BDC1DA593D2C4ED!601&amp;authkey=!ADE09_EYI1MJGGo&amp;ithint=file%2cpdf">資料庫設計與實體關聯模型</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DATABASE/" rel="tag"># DATABASE</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/04/21/database-create-relation/" rel="prev" title="建立關連性">
+                  <i class="fa fa-angle-left"></i> 建立關連性
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/04/26/t-sql-insert/" rel="next" title="insert指令">
+                  insert指令 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

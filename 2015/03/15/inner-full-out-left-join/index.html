@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="inner join、full out join、left join">
+<meta property="og:url" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/2015416143231568.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/201531531826918.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/201531531845246.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460625344_5088.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460626762_08629.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/20153153192449.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460626497_25626.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/201531531921762.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460626659_36863.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/201531532021590.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460627194_6449.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/201541615143411.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460626861_93904.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/2015416144830135.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460626557_15874.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/2015416145358612.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460627089_5822.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/2015416145410860.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/1460834690_72137.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/20153153228965.png">
+<meta property="article:published_time" content="2015-03-15T07:00:18.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.547Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="T-SQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/2015416143231568.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/","path":"2015/03/15/inner-full-out-left-join/","title":"inner join、full out join、left join"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>inner join、full out join、left join | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2015/03/15/inner-full-out-left-join/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="inner join、full out join、left join | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          inner join、full out join、left join
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-03-15 15:00:18" itemprop="dateCreated datePublished" datetime="2015-03-15T15:00:18+08:00">2015-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/T-SQL/" itemprop="url" rel="index"><span itemprop="name">T-SQL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2015/03/15/inner-full-out-left-join/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/15/inner-full-out-left-join/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p><img border="0" src="2015416143231568.png" /></p>
+
+<p style="margin-left: 200px;"><span style="color:#0000ff;">圖片來源為FB的MSDN小編</span></p>
+
+<p>由於在網路上討論join的文章雜亂煩多，我是有看沒有懂，</p>
+
+<p>故，我還是自己親自跑實例比較明瞭(自己親自跑一遍就通了)。</p>
+
+<p>&nbsp;</p>
+
+<p>一、一開始先建立資料</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">CREATE</span> <span style="color:#800000; font-weight:bold; ">TABLE</span> <span style="color:#808030; ">[</span>dbo<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span><span style="color:#808030; ">[</span>table_a<span style="color:#808030; ">]</span>
+  <span style="color:#808030; ">(</span>
+     <span style="color:#808030; ">[</span>id_a<span style="color:#808030; ">]</span>   <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">FLOAT</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span>
+     <span style="color:#808030; ">[</span>name_a<span style="color:#808030; ">]</span> <span style="color:#808030; ">[</span>NVARCHAR<span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NULL</span>
+  <span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">ON</span> <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">PRIMARY</span><span style="color:#808030; ">]</span>
+
+<span style="color:#800000; font-weight:bold; ">go</span> 
+
+<span style="color:#800000; font-weight:bold; ">CREATE</span> <span style="color:#800000; font-weight:bold; ">TABLE</span> <span style="color:#808030; ">[</span>dbo<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span><span style="color:#808030; ">[</span>table_b<span style="color:#808030; ">]</span>
+  <span style="color:#808030; ">(</span>
+     <span style="color:#808030; ">[</span>id_b<span style="color:#808030; ">]</span>   <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">FLOAT</span><span style="color:#808030; ">]</span> <span style="color:#800000; font-weight:bold; ">NULL</span><span style="color:#808030; ">,</span>
+     <span style="color:#808030; ">[</span>name_b<span style="color:#808030; ">]</span> <span style="color:#808030; ">[</span>NVARCHAR<span style="color:#808030; ">]</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">NULL</span>
+  <span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">ON</span> <span style="color:#808030; ">[</span><span style="color:#800000; font-weight:bold; ">PRIMARY</span><span style="color:#808030; ">]</span>
+
+<span style="color:#800000; font-weight:bold; ">go</span> 
+
+<span style="color:#696969; ">--dbo.Table_a</span>
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_a <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;a&#39;</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_a <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;b&#39;</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_a <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">3</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;c&#39;</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_a <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">4</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;d&#39;</span><span style="color:#808030; ">)</span>
+
+<span style="color:#696969; ">--dbo.Table_b</span>
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_b <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;aa&#39;</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_b <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;bb&#39;</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_b <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;cc&#39;</span><span style="color:#808030; ">)</span>
+
+<span style="color:#800000; font-weight:bold; ">INSERT</span> dbo<span style="color:#808030; ">.</span>Table_b <span style="color:#800000; font-weight:bold; ">VALUES</span> <span style="color:#808030; ">(</span><span style="color:#008c00; ">6</span><span style="color:#808030; ">,</span> N<span style="color:#0000e6; ">&#39;dd&#39;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>二、先列出 table_a 與 table_b 的資料</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> table_a
+</pre>
+
+<p><img border="0" src="201531531826918.png" /></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_b
+</pre>
+
+<p><img border="0" src="201531531845246.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>三，主要join方式&nbsp;</p>
+
+<p><img height="231" src="1460625344_5088.png" width="320" /></p>
+
+<p style="margin-left: 80px;"><span style="color:#0000ff;">個人製作的註記簡圖</span></p>
+
+<p>&nbsp;</p>
+
+<p>1、inner join</p>
+
+<p><img height="158" src="1460626762_08629.png" width="171" /></p>
+
+<blockquote>
+<p>不管兩 table 的關係是一對一、一對多、多對一、多對多，</p>
+
+<p>只要兩 table 所指定的屬性的 join 條件符合，其組合就會列出來。</p>
+</blockquote>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">join</span> Table_b <span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+</pre>
+
+<p>和</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">inner</span> <span style="color:#800000; font-weight:bold; ">join</span> Table_b <span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+</pre>
+
+<p>的結果是一樣的</p>
+
+<p><img border="0" src="20153153192449.png" /></p>
+
+<p>還有一個語法跟inner join是蠻相似的，就是NATURAL JOIN，</p>
+
+<p>其兩資料表之間同名的欄位會被自動結合在一起。</p>
+
+<p>不過在SQL SERVER則是不支援這種語法，如想了解請參考</p>
+
+<p><a href="http://webdesign.kerthis.com/sql/sql_natural_join" rel="noopener" target="_blank">NATURAL JOIN 關鍵字 (SQL NATURAL JOIN Keyword) － 自然連接</a></p>
+
+<p>&nbsp;</p>
+
+<p>2、left outer join 等於 left join</p>
+
+<p><img height="156" src="1460626497_25626.png" width="164" /></p>
+
+<p>除了上述的</p>
+
+<blockquote>
+<p>不管兩 table 的關係是一對一、一對多、多對一、多對多，</p>
+
+<p>只要兩 table 所指定的屬性的 join 條件符合，其組合就會列出來。</p>
+</blockquote>
+
+<p>還要加上&nbsp;Table_a 有的組合，但&nbsp;Table_b 沒有的地方 (因為所指定的屬性的 join 條件不符合)；</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">left</span> <span style="color:#800000; font-weight:bold; ">join</span> Table_b <span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+</pre>
+
+<p><img border="0" src="201531531921762.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>3、full outer join 等於 full join</p>
+
+<p><img height="147" src="1460626659_36863.png" width="259" /></p>
+
+<p>除了上述的</p>
+
+<blockquote>
+<p>不管兩 table 的關係是一對一、一對多、多對一、多對多，</p>
+
+<p>只要兩 table 所指定的屬性的 join 條件符合，其組合就會列出來。</p>
+</blockquote>
+
+<p>還要加上&nbsp;Table_a 與&nbsp;Table_b&nbsp;所指定的屬性的 join 條件不符合的情況，也就是說，</p>
+
+<p>還要加上&nbsp;Table_a 有的組合，但&nbsp;Table_b 沒有的地方 (因為所指定的屬性的 join 條件不符合)；</p>
+
+<p>再加上 Table_b&nbsp;有的組合，但&nbsp;Table_a&nbsp;沒有的地方 (因為所指定的屬性的 join 條件不符合)。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">full</span> <span style="color:#800000; font-weight:bold; ">join</span> Table_b
+<span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+</pre>
+
+<p><img border="0" src="201531532021590.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>4、full outer join&nbsp;but a.Key is null or b.Key is null</p>
+
+<p><img height="152" src="1460627194_6449.png" width="295" /></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">full</span> <span style="color:#800000; font-weight:bold; ">outer</span> <span style="color:#800000; font-weight:bold; ">join</span> Table_b
+<span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+<span style="color:#800000; font-weight:bold; ">where</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#800000; font-weight:bold; ">is</span> <span style="color:#800000; font-weight:bold; ">null</span> <span style="color:#800000; font-weight:bold; ">or</span> Table_b<span style="color:#808030; ">.</span>id_b <span style="color:#800000; font-weight:bold; ">is</span> <span style="color:#800000; font-weight:bold; ">null</span>
+</pre>
+
+<p><img border="0" src="201541615143411.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>5、left outer join but b.Key is null</p>
+
+<p><span style="color:#808030; "><img height="168" src="1460626861_93904.png" width="165" /></span></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">left</span> <span style="color:#800000; font-weight:bold; ">outer</span> <span style="color:#800000; font-weight:bold; ">join</span> Table_b <span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+<span style="color:#800000; font-weight:bold; ">where</span> Table_b<span style="color:#808030; ">.</span>id_b <span style="color:#800000; font-weight:bold; ">is</span> <span style="color:#800000; font-weight:bold; ">null</span>
+</pre>
+
+<p><img border="0" src="2015416144830135.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>6、right outer join等於right join</p>
+
+<p><img height="147" src="1460626557_15874.png" width="164" /></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">right</span> <span style="color:#800000; font-weight:bold; ">join</span> Table_b <span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+</pre>
+
+<p><img border="0" src="2015416145358612.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>7、right outer join&nbsp;but a.Key is null</p>
+
+<p><img height="168" src="1460627089_5822.png" width="165" /></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a
+<span style="color:#800000; font-weight:bold; ">right</span> <span style="color:#800000; font-weight:bold; ">outer</span> <span style="color:#800000; font-weight:bold; ">join</span> Table_b <span style="color:#800000; font-weight:bold; ">on</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#808030; ">=</span> Table_b<span style="color:#808030; ">.</span>id_b
+<span style="color:#800000; font-weight:bold; ">where</span> Table_a<span style="color:#808030; ">.</span>id_a <span style="color:#800000; font-weight:bold; ">is</span> <span style="color:#800000; font-weight:bold; ">null</span>
+</pre>
+
+<p><img border="0" src="2015416145410860.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>8、笛卡爾積、交叉合併cross join</p>
+
+<p><img height="269" src="1460834690_72137.png" width="418" /></p>
+
+<p>將 Table_a 裡的每一個資料去跟 Table_b 裡的每一個資料組合，</p>
+
+<p>例如 Table_a 裡有四筆資料，而 Table_b 裡也有四筆資料，其將會有 4 * 4 = 16 種組合。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">select</span> <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">from</span> Table_a <span style="color:#808030; ">,</span>Table_b
+</pre>
+
+<p><img border="0" src="20153153228965.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>小結：感覺使用圓餅來解說似乎也不是那麼直覺好理解，也有人用較直覺的資料列方圖來表示，</p>
+
+<p>個人覺得使用三度空間的立體圖來表示會不會好一點？╮(╯_╰)╭</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a href="http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/" rel="noopener" target="_blank">A Visual Explanation of SQL Joins</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/T-SQL/" rel="tag"># T-SQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/03/13/static-class-member-method-property/" rel="prev" title="靜態類別、靜態成員、靜態方法、靜態屬性">
+                  <i class="fa fa-angle-left"></i> 靜態類別、靜態成員、靜態方法、靜態屬性
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/03/19/razor/" rel="next" title="Razor語法@的編解碼說明">
+                  Razor語法@的編解碼說明 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

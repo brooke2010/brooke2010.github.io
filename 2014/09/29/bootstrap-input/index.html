@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(文章已過時)Bootstrap3.2.0-元件樣式input(input-group)、textarea、checkbox、inline checkbox、radio buttons、inline radio button、select、form-control-static、size、jumbotron">
+<meta property="og:url" content="https://brooke2010.github.io/2014/09/29/bootstrap-input/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2014/09/29/bootstrap-input/1452686029_17381.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/09/29/bootstrap-input/1477559313_4014.png">
+<meta property="article:published_time" content="2014-09-29T00:58:46.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.120Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="Bootstrap">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2014/09/29/bootstrap-input/1452686029_17381.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2014/09/29/bootstrap-input/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2014/09/29/bootstrap-input/","path":"2014/09/29/bootstrap-input/","title":"(文章已過時)Bootstrap3.2.0-元件樣式input(input-group)、textarea、checkbox、inline checkbox、radio buttons、inline radio button、select、form-control-static、size、jumbotron"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>(文章已過時)Bootstrap3.2.0-元件樣式input(input-group)、textarea、checkbox、inline checkbox、radio buttons、inline radio button、select、form-control-static、size、jumbotron | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2014/09/29/bootstrap-input/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="(文章已過時)Bootstrap3.2.0-元件樣式input(input-group)、textarea、checkbox、inline checkbox、radio buttons、inline radio button、select、form-control-static、size、jumbotron | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          (文章已過時)Bootstrap3.2.0-元件樣式input(input-group)、textarea、checkbox、inline checkbox、radio buttons、inline radio button、select、form-control-static、size、jumbotron
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2014-09-29 08:58:46" itemprop="dateCreated datePublished" datetime="2014-09-29T08:58:46+08:00">2014-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Bootstrap/" itemprop="url" rel="index"><span itemprop="name">Bootstrap</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2014/09/29/bootstrap-input/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/09/29/bootstrap-input/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、input</p>
+
+<p><a href="201492945121435.png" /></a></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width, initial-scale=1&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">link</span><span style="color:#274796; "> </span><span style="color:#074726; ">rel</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;stylesheet&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;container&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">h2</span><span style="color:#a65700; ">&gt;</span>Form control: input<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">h2</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>The form below contains two input elements; one of type text and one of type password:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> role</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form&quot;</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form-group&quot;</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;usr&quot;</span><span style="color:#a65700; ">&gt;</span>Name:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">input</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">type</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;text&quot;</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;form-control&quot;</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">id</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;usr&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form-group&quot;</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;pwd&quot;</span><span style="color:#a65700; ">&gt;</span>Password:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;password&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form-control&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;pwd&quot;</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>最基本的Bootstrap與input元素配合如上樣式，</p>
+
+<p>Bootstrap並沒有特別對input元素加任何樣式。</p>
+
+<p>form-group與form-control樣式參考如下</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">.</span>form-group <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">margin-bottom</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">15</span><span style="color:#006600; ">px</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<pre>
+<code class="language-css">.form-control &#123;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+&#125;</code></pre>
+
+<p>&nbsp;</p>
+
+<p>二、input style 2</p>
+
+<p><img height="160" src="1452686029_17381.png" width="403" /></p>
+
+<p>再來看跟input-group與input-group-addon樣式如何配合</p>
+
+<pre>
+<code class="language-html">&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;Form control: input&lt;/h2&gt;
+        &lt;p&gt;The form below contains two input elements; one of type text and one of type password:&lt;/p&gt;
+        &lt;form role="form"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;div class="input-group"&gt;
+                    &lt;input type="text" name="your-name" value="" size="40" id="name" class="form-control" placeholder="您的稱呼"&gt;
+                    &lt;span class="input-group-addon" id="basic-addon1"&gt;先生&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>跟input-group有關的樣式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">.</span>input-group <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">position</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">relative</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">display</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">table</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">border-collapse</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">separate</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<p>跟input-group底下form-control有關的樣式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">.</span>input-group <span style="color:#808030; ">.</span>form-control<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span><span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-addon<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span><span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn<span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn-group <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn<span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>dropdown-toggle<span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">not</span><span style="color:#800080; ">(</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span><span style="color:#800080; ">)</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">not</span><span style="color:#800080; ">(</span><span style="color:#808030; ">.</span>dropdown-toggle<span style="color:#800080; ">)</span><span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn-group<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">not</span><span style="color:#800080; ">(</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span><span style="color:#800080; ">)</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">border-top-right-radius</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">border-bottom-right-radius</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">.</span>input-group-addon<span style="color:#808030; ">,</span> <span style="color:#808030; ">.</span>input-group-btn<span style="color:#808030; ">,</span> <span style="color:#808030; ">.</span>input-group <span style="color:#808030; ">.</span>form-control <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">display</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">table-cell</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">.</span>input-group <span style="color:#808030; ">.</span>form-control <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">position</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">relative</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">z-index</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">2</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">float</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">left</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">width</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">100</span><span style="color:#006600; ">%</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">margin-bottom</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<p>跟input-group-addon有關的樣式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">.</span>input-group-addon<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span> <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">border-left</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">.</span>input-group <span style="color:#808030; ">.</span>form-control<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span><span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-addon<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span><span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn<span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn-group <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn<span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">last-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>dropdown-toggle<span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">not</span><span style="color:#800080; ">(</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span><span style="color:#800080; ">)</span><span style="color:#808030; ">,</span>
+<span style="color:#808030; ">.</span>input-group-btn<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn-group<span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">not</span><span style="color:#800080; ">(</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">first-child</span><span style="color:#800080; ">)</span> <span style="color:#808030; ">&gt;</span> <span style="color:#808030; ">.</span>btn <span style="color:#800080; ">{</span>
+    <span style="color:#bb7977; font-weight:bold; ">border-top-left-radius</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+    <span style="color:#bb7977; font-weight:bold; ">border-bottom-left-radius</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<pre>
+<code class="language-css">.input-group-addon &#123;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px
+&#125;</code></pre>
+
+<pre>
+<code class="language-css">.input-group-addon,.input-group-btn &#123;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle
+&#125;</code></pre>
+
+<pre>
+<code class="language-css">.input-group-addon,.input-group-btn,.input-group .form-control &#123;
+    display: table-cell
+&#125;</code></pre>
+
+<p>使用input-group時會與input-group-addon配合，才能達到上圖呈現。</p>
+
+<p>範例：<a class="jsbin-embed" target="_blank" rel="noopener" href="http://jsbin.com/joxamitemobu/1/embed?html,output">input-group</a>、<script src="http://static.jsbin.com/js/embed.js"></script><a class="jsbin-embed" target="_blank" rel="noopener" href="http://jsbin.com/joxamitemobu/3/embed?html,output">input-group-btn</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+
+<p>&nbsp;</p>
+
+<p>三、textarea</p>
+
+<p><a href="201492945411782.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Form control: textarea<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>The form below contains a textarea for comments:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;comment&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Comment:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&lt;</span></span><span style="color: rgb(128, 0, 0); font-weight: bold;"><span style="background-color:#ffff00;">textarea</span></span><span style="color: rgb(39, 71, 150);"><span style="background-color:#ffff00;"> </span></span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;form-control&quot;</span></span><span style="color: rgb(39, 71, 150);"><span style="background-color:#ffff00;"> </span></span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">rows</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;5&quot;</span></span><span style="color: rgb(39, 71, 150);"><span style="background-color:#ffff00;"> </span></span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">id</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;comment&quot;</span></span><span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&gt;</span></span><span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&lt;/</span></span><span style="color: rgb(128, 0, 0); font-weight: bold;"><span style="background-color:#ffff00;">textarea</span></span><span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&gt;</span></span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>也有resize:none樣式可用</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width, initial-scale=1&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">link</span><span style="color:#274796; "> </span><span style="color:#074726; ">rel</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;stylesheet&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;container&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">h2</span><span style="color:#a65700; ">&gt;</span>Form control: textarea<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">h2</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>The form below contains a textarea for comments:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> role</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form&quot;</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form-group&quot;</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;comment&quot;</span><span style="color:#a65700; ">&gt;</span>Comment:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">textarea</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form-control&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">rows</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;5&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;comment&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; "><span style="background-color:#FFFF00;">style</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;</span></span><span style="color:#bb7977; font-weight:bold; "><span style="background-color:#FFFF00;">resize</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">:</span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">none</span></span><span style="color:#800080; "><span style="background-color:#FFFF00;">;</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;</span></span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">textarea</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><img height="302" src="1477559313_4014.png" width="380" /></p>
+
+<p>&nbsp;</p>
+
+<p>四、checkbox</p>
+
+<p><a href="201492971834800.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Form control: checkbox<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>The form below contains three checkboxes<span style="color: rgb(0, 140, 0);">.</span> The last option is disabled:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&lt;</span></span><span style="color: rgb(128, 0, 0); font-weight: bold;"><span style="background-color:#ffff00;">div</span></span><span style="color: rgb(39, 71, 150);"><span style="background-color:#ffff00;"> </span></span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;checkbox&quot;</span></span><span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&gt;</span></span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">value</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">value</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox <span style="background-color:#ffff00;">disabled</span>&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">value</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">disabled</span></span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>五、checkbox style 2</p>
+
+<p><a href="201492972433540.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Form control: inline checkbox<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>The form below contains three inline checkboxes:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;checkbox-inline&quot;</span></span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">value</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">1</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox-inline&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">value</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">2</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox-inline&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;checkbox&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">value</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">3</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>六、radio</p>
+
+<p><a href="201492973240736.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Form control: radio buttons<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>The form below contains three radio buttons<span style="color: rgb(0, 140, 0);">.</span> The last option is disabled:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&lt;</span></span><span style="color: rgb(128, 0, 0); font-weight: bold;"><span style="background-color:#ffff00;">div</span></span><span style="color: rgb(39, 71, 150);"><span style="background-color:#ffff00;"> </span></span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;radio&quot;</span></span><span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&gt;</span></span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;optradio&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;optradio&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio disabled&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;optradio&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">disabled</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>七、radio style 2</p>
+
+<p><a href="20149297353946.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Form control: inline radio buttons<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>The form below contains three inline radio buttons:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&lt;</span></span><span style="color: rgb(128, 0, 0); font-weight: bold;"><span style="background-color:#ffff00;">label</span></span><span style="color: rgb(39, 71, 150);"><span style="background-color:#ffff00;"> </span></span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;radio-inline&quot;</span></span><span style="color: rgb(166, 87, 0);"><span style="background-color:#ffff00;">&gt;</span></span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;optradio&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">1</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio-inline&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;optradio&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">2</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio-inline&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;radio&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;optradio&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Option <span style="color: rgb(0, 140, 0);">3</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>八、select</p>
+
+<p><a href="201492974237160.png" /></a></p>
+
+<pre style="font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Form control: select<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>The form below contains two dropdown menus (select lists):<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Select list (select one):<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;form-control&quot;</span></span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">4</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel2&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Mutiple select list (hold shift to select more than one):<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(39, 71, 150);"> </span><span style="background-color: rgb(255, 255, 0);"><font color="#074726">multiple</font></span> <span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel2&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">4</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">5</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>九、form-control-static</p>
+
+<p><a href="201492991611263.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Horizontal form with static control<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-horizontal&quot;</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;control-label col-sm-2&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;email&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Email:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;form-control-static&quot;</span></span><span style="color: rgb(166, 87, 0);">&gt;</span>someone@example<span style="color: rgb(0, 140, 0);">.</span>com<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;control-label col-sm-2&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;pwd&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Password:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;password&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;form-control&quot;</span></span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;pwd&quot;</span><span style="color: rgb(39, 71, 150);"> placeholder</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;Enter password&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-offset-2 col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">button</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;submit&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;btn btn-default&quot;</span></span><span style="color: rgb(166, 87, 0);">&gt;</span>Submit<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">button</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>十、control states</p>
+
+<p><a href="201492992016111.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Horizontal form: control states<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-horizontal&quot;</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;
+</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Focused<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;focusedInput&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">value</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;Click to focus...&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;
+</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputPassword&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Disabled<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;disabledInput&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> placeholder</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;Disabled input here...&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">disabled</span></span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;
+</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">fieldset</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">disabled</span></span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;disabledTextInput&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Disabled input and select list (Fieldset disabled)<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;disabledTextInput&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> placeholder</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;Disabled input&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;disabledSelect&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;disabledSelect&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>Disabled select<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">fieldset</span><span style="color: rgb(166, 87, 0);">&gt;
+</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group <span style="background-color:#ffff00;">has-success</span> <span style="background-color:#ffff00;">has-feedback</span>&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputSuccess&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Input with success and glyphicon<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputSuccess&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;<span style="background-color:#ffff00;">glyphicon</span> <span style="background-color:#ffff00;">glyphicon-ok</span> <span style="background-color:#ffff00;">form-control-feedback</span>&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group has-warning has-feedback&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputWarning&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Input with warning and glyphicon<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputWarning&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;glyphicon glyphicon-warning-sign form-control-feedback&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group has-error has-feedback&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputError&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Input with error and glyphicon<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputError&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;glyphicon glyphicon-remove form-control-feedback&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<div>Bootstrap Form Control States</div>
+
+<div>INPUT FOCUS: When an input receives focus, the outline of the input is removed and a box-shadow is applied</div>
+
+<div>DISABLED INPUTS: If you need to disable an input, add the disabled attribute</div>
+
+<div>DISABLED FIELDSETS: Add the disabled attribute to a &lt;fieldset&gt; to disable all the controls within</div>
+
+<div>READONLY INPUTS: Add the readonly attribute to an input to prevent user input</div>
+
+<div>VALIDATION STATES: Bootstrap includes validation styles for error, warning, and success messages. To use, add .has-warning, .has-error, or .has-success to the parent element</div>
+
+<div>ICONS: You can add feedback icons with the .has-feedback class and the right icon</div>
+
+<div>HIDDEN LABELS: Add the .sr-only class on the label for form controls with no visible label</div>
+
+<p>&nbsp;</p>
+
+<p>十一、input sizing</p>
+
+<p><a href="201492994433717.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Input Sizing<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>The form below shows input elements with different heights using .input-lg and .input-sm:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputdefault&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Default input<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputdefault&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputlg&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>input-lg<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control <span style="background-color:#ffff00;">input-lg</span>&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputlg&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputsm&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>input-sm<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control <span style="background-color:#ffff00;">input-sm</span>&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;inputsm&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Default select list<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">4</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel2&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>input-lg<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control <span style="background-color:#ffff00;">input-lg</span>&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel2&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel3&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>input-sm<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control <span style="background-color:#ffff00;">input-sm</span>&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sel3&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">option</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">select</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>十二、input sizing style 2</p>
+
+<p><a href="201492994841399.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>Input Sizing<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h2</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>You can quickly size labels and form controls within a Horizontal form by adding .form-group-lg or .form-group-sm to the div class=&quot;form-group&quot; element:<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-horizontal&quot;</span><span style="color: rgb(39, 71, 150);"> role</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group <span style="background-color:#ffff00;">form-group-lg</span>&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;lg&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>form-group-lg<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;lg&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-group <span style="background-color:#ffff00;">form-group-sm</span>&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-2 control-label&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">for</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sm&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>form-group-sm<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">label</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;col-sm-10&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">input</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;form-control&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">type</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;text&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;sm&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+                <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">form</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>十三、jumbotron</p>
+
+<p><a href="201492910756560.png" /></a></p>
+
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(0, 74, 67);">&lt;!DOCTYPE html&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+  <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(166, 87, 0);">&gt;</span>Bootstrap Case<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">charset</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;utf-8&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">name</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;viewport&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">content</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">link</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">rel</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;stylesheet&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">href</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+  <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+  <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+      <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);"><span style="background-color:#ffff00;">class</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">=</span></span><span style="color: rgb(0, 0, 230);"><span style="background-color:#ffff00;">&quot;jumbotron&quot;</span></span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h1</span><span style="color: rgb(166, 87, 0);">&gt;</span>My first Bootstrap website!<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h1</span><span style="color: rgb(166, 87, 0);">&gt;</span>      
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>This page will grow as we add more and more components from Bootstrap<span style="color: rgb(0, 140, 0);">...</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>      
+      <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">class</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+      <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>This is a paragraph<span style="color: rgb(0, 140, 0);">.</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>      
+      <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>This is another paragraph<span style="color: rgb(0, 140, 0);">.</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>      
+      <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>This is a paragraph<span style="color: rgb(0, 140, 0);">.</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>      
+      <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>This is another paragraph<span style="color: rgb(0, 140, 0);">.</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">script</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+  <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://www.dotblogs.com.tw/brooke/2014/09/28/146729">Bootstrap Forms三種layout</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://getbootstrap.com/components/#input-groups">http://getbootstrap.com/components/#input-groups</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Bootstrap/" rel="tag"># Bootstrap</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/09/29/menu-nav-for-ul-tag/" rel="prev" title="menu nav 導航 for ul tag">
+                  <i class="fa fa-angle-left"></i> menu nav 導航 for ul tag
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/09/30/Sublime-Text3-SublimeHighlight/" rel="next" title="於Sublime Text 3 使用SublimeHighlight複製程式碼格式顏色">
+                  於Sublime Text 3 使用SublimeHighlight複製程式碼格式顏色 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

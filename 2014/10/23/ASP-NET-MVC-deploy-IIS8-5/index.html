@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My ASP.NET MVC to IIS8.5 部屬到完成所遇到的問題">
+<meta property="og:url" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141024162743460.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141024163328897.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141024164048303.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141024164957475.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141024165415381.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/2014102315283866.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141023232321631.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/2014102323485238.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141023235043569.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/201410232355596.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/201410240511822.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/2014102405358475.png">
+<meta property="og:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141024171541319.png">
+<meta property="article:published_time" content="2014-10-23T00:08:06.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:53.725Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="IIS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/20141024162743460.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/","path":"2014/10/23/ASP-NET-MVC-deploy-IIS8-5/","title":"My ASP.NET MVC to IIS8.5 部屬到完成所遇到的問題"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>My ASP.NET MVC to IIS8.5 部屬到完成所遇到的問題 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="My ASP.NET MVC to IIS8.5 部屬到完成所遇到的問題 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          My ASP.NET MVC to IIS8.5 部屬到完成所遇到的問題
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2014-10-23 08:08:06" itemprop="dateCreated datePublished" datetime="2014-10-23T08:08:06+08:00">2014-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:53" itemprop="dateModified" datetime="2023-11-24T13:45:53+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/IIS/" itemprop="url" rel="index"><span itemprop="name">IIS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2014/10/23/ASP-NET-MVC-deploy-IIS8-5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/23/ASP-NET-MVC-deploy-IIS8-5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一開始於本機IIS new 一個名為GuestBook站台詳細設定如下</p>
+
+<p><img border="0" src="20141024162743460.png" /></p>
+
+<p>你會發現該站台的application pool為GuestBook</p>
+
+<p><img border="0" src="20141024163328897.png" /></p>
+
+<p>此名稱將會關連到LoginName為IIS APPPOOL\GuestBook</p>
+
+<p>&nbsp;</p>
+
+<p>再來確認一下專案的connection String</p>
+
+<p>檢查Web.config將會使用GuestBookContextConnection</p>
+
+<p>&lt;add name=&quot;GuestBookContextConnection&quot; connectionString=&quot;Data Source=50BW\SQLEXPRESS;</p>
+
+<p>Initial Catalog=MyGuestBook.Models.GuestBookContext;</p>
+
+<p>Integrated Security=True;</p>
+
+<p>MultipleActiveResultSets=True;</p>
+
+<p>Application Name=EntityFramework&quot;</p>
+
+<p>&nbsp; &nbsp; &nbsp; providerName=&quot;System.Data.SqlClient&quot; /&gt;</p>
+
+<p><img border="0" src="20141024164048303.png" /></p>
+
+<p>GuestBookContext.cs將會使用GuestBookContextConnection連線參數</p>
+
+<p><img border="0" src="20141024164957475.png" /></p>
+
+<p>完成後，讓我們把專案Run起來。</p>
+
+<p>卻發現找不到網頁內容</p>
+
+<p><img border="0" src="20141024165415381.png" /></p>
+
+<p>檢查發現IIS指錯實體路徑，重新修正後再啟動。</p>
+
+<p>卻出現CREATE DATABASE 的權限遭拒錯誤，這時候真的就卡住了，</p>
+
+<p>================================================================</p>
+
+<p>&#39;/&#39; 應用程式中發生伺服器錯誤。</p>
+
+<p>於資料庫 &#39;master&#39; 中，CREATE DATABASE 的權限遭拒。</p>
+
+<p>描述: 在執行目前 Web 要求的過程中發生未處理的例外狀況。請檢閱堆疊追蹤以取得錯誤的詳細資訊，以及在程式碼中產生的位置。&nbsp;</p>
+
+<p>例外狀況詳細資訊: System.Data.SqlClient.SqlException: 於資料庫 &#39;master&#39; 中，CREATE DATABASE 的權限遭拒。</p>
+
+<p>================================================================</p>
+
+<p>因為你不知道哪個東東(帳戶)沒有create db 的權限，</p>
+
+<p>解決辦法下面會說明</p>
+
+<p>&nbsp;</p>
+
+<p>先把問題簡單化，弄個只有讀取DB的專案來測試。</p>
+
+<p>將一個簡單的MVC留言板專案經由IIS放進本機站台裡，但出現錯誤訊息</p>
+
+<p>================================================================</p>
+
+<p>&#39;/&#39; 應用程式中發生伺服器錯誤。</p>
+
+<p>無法開啟登入所要求的資料庫 &quot;MyGuestBook.Models.GuestBookContext&quot;。登入失敗。</p>
+
+<p>使用者 &#39;IIS APPPOOL\GuestBook&#39; 的登入失敗。</p>
+
+<p>&nbsp;</p>
+
+<p>描述: 在執行目前 Web 要求的過程中發生未處理的例外狀況。請檢閱堆疊追蹤以取得錯誤的詳細資訊，以及在程式碼中產生的位置。&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>例外狀況詳細資訊: System.Data.SqlClient.SqlException: 無法開啟登入所要求的資料庫 &quot;MyGuestBook.Models.GuestBookContext&quot;。登入失敗。</p>
+
+<p>使用者 &#39;IIS APPPOOL\GuestBook&#39; 的登入失敗。</p>
+
+<p>================================================================</p>
+
+<p><img border="0" src="2014102315283866.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>解決方法：</p>
+
+<p>先拜讀保哥的<a target="_blank" rel="noopener" href="http://blog.miniasp.com/post/2009/09/09/Introduce-IIS-75-Application-Pool-Identity-and-Virtual-Account.aspx">介紹 IIS 7.5 的應用程式集區與新增的「虛擬帳戶」特性</a></p>
+
+<p>知其可能與「應用程式集區(Application Pool)與身份識別(Identity)的關係」後</p>
+
+<p>(其實還有更決定性的文章<a target="_blank" rel="noopener" href="http://vmiv.blogspot.tw/2013/06/publish-aspnet-mvc-4-app-to-iis8.html">Publish ASP.NET MVC 4 App to IIS8</a>)，</p>
+
+<p>則在MSSMS裡新增一個登入角色，登入名稱就設為IIS APPPOOL\GuestBook，直接按確定新增即可。</p>
+
+<p><img border="0" src="20141023232321631.png" /></p>
+
+<p>以下為我所嘗試失敗的新增方式</p>
+
+<p><img border="0" src="2014102323485238.png" /></p>
+
+<p>另一失敗畫面</p>
+
+<p><img border="0" src="20141023235043569.png" /></p>
+
+<p>另外也可錄製SQL Server Profiler去查RUN起來的網站LoginName為何，下圖例子為IIS APPPOOL\MyLogin</p>
+
+<p><img border="0" src="201410232355596.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>如果MVC專案裡有需要create db時，可能會遇到以下問題</p>
+
+<p>================================================================</p>
+
+<p>&#39;/&#39; 應用程式中發生伺服器錯誤。</p>
+
+<p>於資料庫 &#39;master&#39; 中，CREATE DATABASE 的權限遭拒。</p>
+
+<p>描述: 在執行目前 Web 要求的過程中發生未處理的例外狀況。請檢閱堆疊追蹤以取得錯誤的詳細資訊，以及在程式碼中產生的位置。&nbsp;</p>
+
+<p>例外狀況詳細資訊: System.Data.SqlClient.SqlException: 於資料庫 &#39;master&#39; 中，CREATE DATABASE 的權限遭拒。</p>
+
+<p><img border="0" src="201410240511822.png" /></p>
+
+<p>================================================================</p>
+
+<p>則需要在登入屬性中的伺服器角色另外勾選dbcreator</p>
+
+<p><img border="0" src="2014102405358475.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>設定完後，再重新RUN網站</p>
+
+<p><img border="0" src="20141024171541319.png" /></p>
+
+<p>成功!!太令人感動了。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://vmiv.blogspot.tw/2013/06/publish-aspnet-mvc-4-app-to-iis8.html">Publish ASP.NET MVC 4 App to IIS8</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://blog.miniasp.com/post/2009/09/09/Introduce-IIS-75-Application-Pool-Identity-and-Virtual-Account.aspx">介紹 IIS 7.5 的應用程式集區與新增的「虛擬帳戶」特性</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://neo-tech-tw.blogspot.tw/2013/04/iis-apppooldefaultapppool.html">&#39;IIS APPPOOL\DefaultAppPool&#39; 的登入失敗的問題所在及如何解決</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://hopeyoung1208.blogspot.tw/2012/08/aspnet-mvc.html">[ASP.Net MVC] 網站部署 - 基礎</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://blog.sanc.idv.tw/2014/08/aspnet-web-deploymvciis.html">ASP.NET MVC - 使用Web Deploy佈署MVC應用程式到IIS</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://www.google.com.tw/search?q=mvc+deploy+to+iis&amp;num=100&amp;source=lnt&amp;tbs=ctr:countryTW&amp;cr=countryTW&amp;sa=X&amp;ei=hStJVPLaA42l8AWGyYBw&amp;ved=0CBQQpwU&amp;biw=1920&amp;bih=933">mvc deploy to iis</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/zh-tw/library/ms188659.aspx">伺服器層級角色</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/IIS/" rel="tag"># IIS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/10/21/jQuery-data-0/" rel="prev" title="使用jQuery的.data()來設定與取得資料">
+                  <i class="fa fa-angle-left"></i> 使用jQuery的.data()來設定與取得資料
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/10/25/jQuery-UI-modal/" rel="next" title="[jQuery UI] 網頁跳出視窗功能 modal">
+                  [jQuery UI] 網頁跳出視窗功能 modal <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

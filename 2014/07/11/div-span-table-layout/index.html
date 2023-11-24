@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="div與span的差異，div與table的Layout探討">
+<meta property="og:url" content="https://brooke2010.github.io/2014/07/11/div-span-table-layout/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2014-07-11T02:44:00.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.280Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2014/07/11/div-span-table-layout/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2014/07/11/div-span-table-layout/","path":"2014/07/11/div-span-table-layout/","title":"div與span的差異，div與table的Layout探討"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>div與span的差異，div與table的Layout探討 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Main Title of Web Page</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#header"><span class="nav-number">2.</span> <span class="nav-text">Main Title of Web Page</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2014/07/11/div-span-table-layout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="div與span的差異，div與table的Layout探討 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          div與span的差異，div與table的Layout探討
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2014-07-11 10:44:00" itemprop="dateCreated datePublished" datetime="2014-07-11T10:44:00+08:00">2014-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2014/07/11/div-span-table-layout/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/07/11/div-span-table-layout/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>1.div與span皆是Block element，兩者用途機盡相同。</p>
+
+<p>都是用來做切割網頁區塊，為有不同的地方就是</p>
+
+<p>&lt;div&gt;會占用一行，而&lt;span&gt;不會</p>
+
+<p>例如：</p>
+
+<div>aaa</div>
+
+<div>bbb</div>
+
+<p><span>ccc</span> <span>ddd</span></p>
+
+<p>&nbsp;</p>
+
+<p><span>網頁原始碼為</span></p>
+
+<div>
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>aaa<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>bbb<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(166, 87, 0);">&gt;</span>ccc<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(166, 87, 0);">&gt;</span>ddd<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>2.再來看&lt;div&gt;與&lt;table&gt;的Layout有何不同</p>
+
+<p>(1)使用Table方式</p>
+
+<div>
+<table cellpadding="0" cellspacing="0" style="color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-size: medium; width: 500px;">
+    <tbody>
+        <tr>
+            <td colspan="2" style="background-color: rgb(255, 165, 0);">
+            <h1 style="margin: 0px; padding: 0px;">Main Title of Web Page</h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 200px; vertical-align: top; background-color: rgb(255, 215, 0);"><b>Menu</b><br />
+            HTML<br />
+            CSS<br />
+            JavaScript</td>
+            <td style="height: 200px; width: 400px; vertical-align: top; background-color: rgb(238, 238, 238);">Content goes here</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; background-color: rgb(255, 165, 0);">Copyright ? W3Schools.com</td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">table</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;"><span style="background-color:#ffff00;">width</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">:</span></span><span style="color: rgb(0, 140, 0);"><span style="background-color:#ffff00;">500</span></span><span style="color: rgb(0, 102, 0);"><span style="background-color:#ffff00;">px</span></span><span style="color: rgb(128, 0, 128);"><span style="background-color:#ffff00;">;</span></span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">cellpadding</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;0&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">cellspacing</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;0&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">tr</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">colspan</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;2&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">FFA500</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h1</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">margin</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">0</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">padding</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">0</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Main Title of Web Page<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h1</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">tr</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">tr</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">FFD700</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;"><span style="background-color:#ffff00;">width</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">:</span></span><span style="color: rgb(0, 140, 0);"><span style="background-color:#ffff00;">200</span></span><span style="color: rgb(0, 102, 0);"><span style="background-color:#ffff00;">px</span></span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">vertical-align</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(7, 71, 38);">top</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">b</span><span style="color: rgb(166, 87, 0);">&gt;</span>Menu<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">b</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            HTML<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            CSS<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            JavaScript
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">eeeeee</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">200</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;"><span style="background-color:#ffff00;">width</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">:</span></span><span style="color: rgb(0, 140, 0);"><span style="background-color:#ffff00;">400</span></span><span style="color: rgb(0, 102, 0);"><span style="background-color:#ffff00;">px</span></span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">vertical-align</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(7, 71, 38);">top</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            Content goes here
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">tr</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">tr</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">colspan</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;2&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">FFA500</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">text-align</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+            Copyright � W3Schools<span style="color: rgb(0, 140, 0);">.</span>com
+        <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">td</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">tr</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">table</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre>
+</div>
+
+<p>結果：這整個Table的寬度是500px，底下的左區塊為200px，右區塊為400px，</p>
+
+<p>但在&lt;table&gt;底下左右區塊會由200+400=600px整合成500px，</p>
+
+<p>而且還不好得知600px所被吃掉的100px怎麼分配給左右區塊的?這是件很奇怪的事情。</p>
+
+<p>&nbsp;</p>
+
+<p>(2)使用Div方式</p>
+</div>
+
+<div id="container" style="width:500px">
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;">Main Title of Web Page</h1>
+</div>
+
+<div id="menu" style="background-color:#FFD700;height:200px;width:200px;float:left;"><b>Menu</b><br />
+HTML<br />
+CSS<br />
+JavaScript</div>
+
+<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">Content goes here</div>
+
+<div id="footer2" style="background-color:#FFA500;clear:both;text-align:center;">Copyright � W3Schools.com</div>
+</div>
+
+<div>
+<pre style="color: rgb(0, 0, 0); font-size: medium;">
+<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;container&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;"><span style="background-color:#ffff00;">width</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">:</span></span><span style="color: rgb(0, 140, 0);"><span style="background-color:#ffff00;">500</span></span><span style="color: rgb(0, 102, 0);"><span style="background-color:#ffff00;">px</span></span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;header&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">FFA500</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h1</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">margin-bottom</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">0</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>Main Title of Web Page<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">h1</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;menu&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">FFD700</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">200</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;"><span style="background-color:#ffff00;">width</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">:</span></span><span style="color: rgb(0, 140, 0);"><span style="background-color:#ffff00;">200</span></span><span style="color: rgb(0, 102, 0);"><span style="background-color:#ffff00;">px</span></span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">float</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(7, 71, 38);">left</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">b</span><span style="color: rgb(166, 87, 0);">&gt;</span>Menu<span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">b</span><span style="color: rgb(166, 87, 0);">&gt;</span><span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        HTML<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        CSS<span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        JavaScript
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;content&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">EEEEEE</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">200</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;"><span style="background-color:#ffff00;">width</span></span><span style="color: rgb(128, 128, 48);"><span style="background-color:#ffff00;">:</span></span><span style="color: rgb(0, 140, 0);"><span style="background-color:#ffff00;">400</span></span><span style="color: rgb(0, 102, 0);"><span style="background-color:#ffff00;">px</span></span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">float</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(7, 71, 38);">left</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        Content goes here
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+    <span style="color: rgb(166, 87, 0);">&lt;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">id</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;footer2&quot;</span><span style="color: rgb(39, 71, 150);"> </span><span style="color: rgb(7, 71, 38);">style</span><span style="color: rgb(128, 128, 48);">=</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">FFA500</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">clear</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(7, 71, 38);">both</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(187, 121, 119); font-weight: bold;">text-align</span><span style="color: rgb(128, 128, 48);">:</span><span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span><span style="color: rgb(0, 0, 230);">&quot;</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+        Copyright � W3Schools<span style="color: rgb(0, 140, 0);">.</span>com
+    <span style="color: rgb(166, 87, 0);">&lt;/</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span>
+
+<p><span style="color: rgb(166, 87, 0);">&lt;&#x2F;</span><span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(166, 87, 0);">&gt;</span></pre></p>
+</div>
+
+<p>討論：整個&lt;div&gt;寬度為500px，左區塊故意設定200px，右區塊為400px，</p>
+
+<p>左右區塊加起來為600px，超過500px，如上很容易得知版面不協調，也知道如何作調整。</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://www.subcide.com/articles/creating-a-css-layout-from-scratch/">Creating a CSS layout from scratch</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.wowbox.com.tw/blog/article.asp?id=2957">十步學會用CSS版面規劃</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/07/05/localhost-password-rule/" rel="prev" title="修改本機驗證密碼規則的方法">
+                  <i class="fa fa-angle-left"></i> 修改本機驗證密碼規則的方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/07/11/HTML-list/" rel="next" title="HTML學習-list">
+                  HTML學習-list <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

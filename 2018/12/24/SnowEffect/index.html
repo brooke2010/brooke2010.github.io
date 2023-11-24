@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Snow Effect">
+<meta property="og:url" content="https://brooke2010.github.io/2018/12/24/SnowEffect/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2018/12/24/SnowEffect/1545643857_72039.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/12/24/SnowEffect/1545643906_90251.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/12/24/SnowEffect/1545643934_41635.png">
+<meta property="article:published_time" content="2018-12-24T09:37:13.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.748Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="前端特效">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2018/12/24/SnowEffect/1545643857_72039.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2018/12/24/SnowEffect/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2018/12/24/SnowEffect/","path":"2018/12/24/SnowEffect/","title":"Snow Effect"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Snow Effect | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2018/12/24/SnowEffect/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Snow Effect | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Snow Effect
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-24 17:37:13" itemprop="dateCreated datePublished" datetime="2018-12-24T17:37:13+08:00">2018-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E7%89%B9%E6%95%88/" itemprop="url" rel="index"><span itemprop="name">前端特效</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/12/24/SnowEffect/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/24/SnowEffect/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>準備素材</p>
+
+<p>snow1.png</p>
+
+<p><img height="13" src="1545643857_72039.png" width="24" /></p>
+
+<p>snow2.png</p>
+
+<p><img height="14" src="1545643906_90251.png" width="24" /></p>
+
+<p>snow3.png</p>
+
+<p><img height="3" src="1545643934_41635.png" width="15" /></p>
+
+<p>&nbsp;</p>
+
+<p>範例程式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#808030; ">#</span>snowflakeContainer <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">position</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">absolute</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">left</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">top</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>snowflake <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">position</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">fixed</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">z-index</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">1003</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;snowflakeContainer&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">z-index</span><span style="color:#808030; ">:</span><span style="color:#008c00; ">1003</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;snowflake&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">opacity</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1.07059</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">font-size</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">36.016</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">transform</span><span style="color:#808030; ">:</span><span style="color:#274796; "> translate3d</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">238</span><span style="color:#006600; ">px</span><span style="color:#808030; ">,</span><span style="color:#274796; "> </span><span style="color:#008c00; ">352</span><span style="color:#006600; ">px</span><span style="color:#808030; ">,</span><span style="color:#274796; "> </span><span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">img</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;1545643857_72039.png&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;snowflake&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">opacity</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1.07059</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">font-size</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">36.016</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">transform</span><span style="color:#808030; ">:</span><span style="color:#274796; "> translate3d</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">238</span><span style="color:#006600; ">px</span><span style="color:#808030; ">,</span><span style="color:#274796; "> </span><span style="color:#008c00; ">352</span><span style="color:#006600; ">px</span><span style="color:#808030; ">,</span><span style="color:#274796; "> </span><span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">img</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;1545643906_90251.png&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;snowflake&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">opacity</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1.07059</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">font-size</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">36.016</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">transform</span><span style="color:#808030; ">:</span><span style="color:#274796; "> translate3d</span><span style="color:#808030; ">(</span><span style="color:#008c00; ">238</span><span style="color:#006600; ">px</span><span style="color:#808030; ">,</span><span style="color:#274796; "> </span><span style="color:#008c00; ">352</span><span style="color:#006600; ">px</span><span style="color:#808030; ">,</span><span style="color:#274796; "> </span><span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">img</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;1545643934_41635.png&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// To learn more about this effect, go to: http://www.kirupa.com/html5/the_falling_snow_effect.htm</span>
+        <span style="color:#696969; ">//</span>
+
+        <span style="color:#696969; ">// The star of every good animation</span>
+        <span style="color:#800000; font-weight:bold; ">var</span> requestAnimationFrame <span style="color:#808030; ">=</span> window<span style="color:#808030; ">.</span>requestAnimationFrame <span style="color:#808030; ">||</span>
+            window<span style="color:#808030; ">.</span>mozRequestAnimationFrame <span style="color:#808030; ">||</span>
+            window<span style="color:#808030; ">.</span>webkitRequestAnimationFrame <span style="color:#808030; ">||</span>
+            window<span style="color:#808030; ">.</span>msRequestAnimationFrame<span style="color:#800080; ">;</span>
+
+        <span style="color:#800000; font-weight:bold; ">var</span> transforms <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">transform</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+            <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">msTransform</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+            <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">webkitTransform</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+            <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">mozTransform</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+            <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">oTransform</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#800000; font-weight:bold; ">var</span> transformProperty <span style="color:#808030; ">=</span> getSupportedPropertyName<span style="color:#808030; ">(</span>transforms<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#696969; ">// Array to store our Snowflake objects</span>
+        <span style="color:#800000; font-weight:bold; ">var</span> snowflakes <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#696969; ">// Global variables to store our browser&#39;s window size</span>
+        <span style="color:#800000; font-weight:bold; ">var</span> browserWidth<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">var</span> browserHeight<span style="color:#800080; ">;</span>
+
+        <span style="color:#696969; ">// Specify the number of snowflakes you want visible</span>
+        <span style="color:#800000; font-weight:bold; ">var</span> numberOfSnowflakes <span style="color:#808030; ">=</span> <span style="color:#008c00; ">30</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#696969; ">// Flag to reset the position of the snowflakes</span>
+        <span style="color:#800000; font-weight:bold; ">var</span> resetPosition <span style="color:#808030; ">=</span> <span style="color:#0f4d75; ">false</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// It all starts here...</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> setup<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            window<span style="color:#808030; ">.</span>addEventListener<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">DOMContentLoaded</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> generateSnowflakes<span style="color:#808030; ">,</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            window<span style="color:#808030; ">.</span>addEventListener<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">resize</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> setResetFlag<span style="color:#808030; ">,</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        setup<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// Vendor prefix management</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> getSupportedPropertyName<span style="color:#808030; ">(</span>properties<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">var</span> i <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i <span style="color:#808030; ">&lt;</span> properties<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">length</span><span style="color:#800080; ">;</span> i<span style="color:#808030; ">++</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">typeof</span> document<span style="color:#808030; ">.</span>body<span style="color:#808030; ">.</span>style<span style="color:#808030; ">[</span>properties<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">!=</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">undefined</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                    <span style="color:#800000; font-weight:bold; ">return</span> properties<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+                <span style="color:#800080; ">}</span>
+            <span style="color:#800080; ">}</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#0f4d75; ">null</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// Constructor for our Snowflake object</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> Snowflake<span style="color:#808030; ">(</span>element<span style="color:#808030; ">,</span> speed<span style="color:#808030; ">,</span> xPos<span style="color:#808030; ">,</span> yPos<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+
+            <span style="color:#696969; ">// set initial snowflake properties</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>element <span style="color:#808030; ">=</span> element<span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>speed <span style="color:#808030; ">=</span> speed<span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>xPos <span style="color:#808030; ">=</span> xPos<span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>yPos <span style="color:#808030; ">=</span> yPos<span style="color:#800080; ">;</span>
+
+            <span style="color:#696969; ">// declare variables used for snowflake&#39;s motion</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>counter <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>sign <span style="color:#808030; ">=</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">random</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">&lt;</span> <span style="color:#008000; ">0.5</span> <span style="color:#800080; ">?</span> <span style="color:#008c00; ">1</span> <span style="color:#800080; ">:</span> <span style="color:#808030; ">-</span><span style="color:#008c00; ">1</span><span style="color:#800080; ">;</span>
+
+            <span style="color:#696969; ">// setting an initial opacity and size for our snowflake</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>element<span style="color:#808030; ">.</span>style<span style="color:#808030; ">.</span>opacity <span style="color:#808030; ">=</span> <span style="color:#008000; ">.1</span> <span style="color:#808030; ">+</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">random</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>element<span style="color:#808030; ">.</span>style<span style="color:#808030; ">.</span>fontSize <span style="color:#808030; ">=</span> <span style="color:#008c00; ">12</span> <span style="color:#808030; ">+</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">random</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> <span style="color:#008c00; ">50</span> <span style="color:#808030; ">+</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">px</span><span style="color:#800000; ">&quot;</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// The function responsible for actually moving our snowflake</span>
+        <span style="color:#696969; ">//</span>
+        Snowflake<span style="color:#808030; ">.</span><span style="color:#797997; ">prototype</span><span style="color:#808030; ">.</span>update <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span> <span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+
+            <span style="color:#696969; ">// using some trigonometry to determine our x and y position</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>counter <span style="color:#808030; ">+=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>speed <span style="color:#808030; ">/</span> <span style="color:#008c00; ">5000</span><span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>xPos <span style="color:#808030; ">+=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>sign <span style="color:#808030; ">*</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>speed <span style="color:#808030; ">*</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">cos</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>counter<span style="color:#808030; ">)</span> <span style="color:#808030; ">/</span> <span style="color:#008c00; ">40</span><span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>yPos <span style="color:#808030; ">+=</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">sin</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>counter<span style="color:#808030; ">)</span> <span style="color:#808030; ">/</span> <span style="color:#008c00; ">40</span> <span style="color:#808030; ">+</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>speed <span style="color:#808030; ">/</span> <span style="color:#008c00; ">30</span><span style="color:#800080; ">;</span>
+
+            <span style="color:#696969; ">// setting our snowflake&#39;s position</span>
+            setTranslate3DTransform<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>element<span style="color:#808030; ">,</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">round</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>xPos<span style="color:#808030; ">)</span><span style="color:#808030; ">,</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">round</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>yPos<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+            <span style="color:#696969; ">// if snowflake goes below the browser window, move it back to the top</span>
+            <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>yPos <span style="color:#808030; ">&gt;</span> browserHeight<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>yPos <span style="color:#808030; ">=</span> <span style="color:#808030; ">-</span><span style="color:#008c00; ">50</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// A performant way to set your snowflake&#39;s position</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> setTranslate3DTransform<span style="color:#808030; ">(</span>element<span style="color:#808030; ">,</span> xPosition<span style="color:#808030; ">,</span> yPosition<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">var</span> val <span style="color:#808030; ">=</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">translate3d(</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">+</span> xPosition <span style="color:#808030; ">+</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">px, </span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">+</span> yPosition <span style="color:#808030; ">+</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">px</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">+</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">, 0)</span><span style="color:#800000; ">&quot;</span><span style="color:#800080; ">;</span>
+            element<span style="color:#808030; ">.</span>style<span style="color:#808030; ">[</span>transformProperty<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> val<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// The function responsible for creating the snowflake</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> generateSnowflakes<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+
+            <span style="color:#696969; ">// get our snowflake element from the DOM and store it</span>
+            <span style="color:#800000; font-weight:bold; ">var</span> originalSnowflake <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.snowflake</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+            <span style="color:#696969; ">// access our snowflake element&#39;s parent container</span>
+            <span style="color:#800000; font-weight:bold; ">var</span> snowflakeContainer <span style="color:#808030; ">=</span> originalSnowflake<span style="color:#808030; ">.</span>parentNode<span style="color:#800080; ">;</span>
+
+            <span style="color:#696969; ">// get our browser&#39;s size</span>
+            browserWidth <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>documentElement<span style="color:#808030; ">.</span>clientWidth<span style="color:#800080; ">;</span>
+            browserHeight <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>documentElement<span style="color:#808030; ">.</span>clientHeight<span style="color:#800080; ">;</span>
+
+            <span style="color:#696969; ">// create each individual snowflake</span>
+            <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">var</span> i <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i <span style="color:#808030; ">&lt;</span> numberOfSnowflakes<span style="color:#800080; ">;</span> i<span style="color:#808030; ">++</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+
+                <span style="color:#696969; ">// clone our original snowflake and add it to snowflakeContainer</span>
+                originalSnowflake <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>querySelectorAll<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.snowflake</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span> <span style="color:#808030; ">|</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">random</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> <span style="color:#008c00; ">3</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+                <span style="color:#800000; font-weight:bold; ">var</span> snowflakeClone <span style="color:#808030; ">=</span> originalSnowflake<span style="color:#808030; ">.</span>cloneNode<span style="color:#808030; ">(</span><span style="color:#0f4d75; ">true</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                snowflakeContainer<span style="color:#808030; ">.</span>appendChild<span style="color:#808030; ">(</span>snowflakeClone<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+                <span style="color:#696969; ">// set our snowflake&#39;s initial position and related properties</span>
+                <span style="color:#800000; font-weight:bold; ">var</span> initialXPos <span style="color:#808030; ">=</span> getPosition<span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">,</span> browserWidth<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                <span style="color:#800000; font-weight:bold; ">var</span> initialYPos <span style="color:#808030; ">=</span> getPosition<span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">,</span> browserHeight<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                <span style="color:#800000; font-weight:bold; ">var</span> speed <span style="color:#808030; ">=</span> <span style="color:#008c00; ">5</span> <span style="color:#808030; ">+</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">random</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> <span style="color:#008c00; ">40</span><span style="color:#800080; ">;</span>
+
+                <span style="color:#696969; ">// create our Snowflake object</span>
+                <span style="color:#800000; font-weight:bold; ">var</span> snowflakeObject <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> Snowflake<span style="color:#808030; ">(</span>snowflakeClone<span style="color:#808030; ">,</span>
+                    speed<span style="color:#808030; ">,</span>
+                    initialXPos<span style="color:#808030; ">,</span>
+                    initialYPos<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                snowflakes<span style="color:#808030; ">.</span>push<span style="color:#808030; ">(</span>snowflakeObject<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+
+            <span style="color:#696969; ">// remove the original snowflake because we no longer need it visible</span>
+            snowflakeContainer<span style="color:#808030; ">.</span>removeChild<span style="color:#808030; ">(</span>document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">.snowflake</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            snowflakeContainer<span style="color:#808030; ">.</span>removeChild<span style="color:#808030; ">(</span>document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">.snowflake</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            snowflakeContainer<span style="color:#808030; ">.</span>removeChild<span style="color:#808030; ">(</span>document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">.snowflake</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+
+            <span style="color:#696969; ">// call the moveSnowflakes function every 30 milliseconds</span>
+            moveSnowflakes<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// Responsible for moving each snowflake by calling its update function</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> moveSnowflakes<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">var</span> i <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i <span style="color:#808030; ">&lt;</span> snowflakes<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">length</span><span style="color:#800080; ">;</span> i<span style="color:#808030; ">++</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                <span style="color:#800000; font-weight:bold; ">var</span> snowflake <span style="color:#808030; ">=</span> snowflakes<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+                snowflake<span style="color:#808030; ">.</span>update<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+
+            <span style="color:#696969; ">// Reset the position of all the snowflakes to a new value</span>
+            <span style="color:#800000; font-weight:bold; ">if</span> <span style="color:#808030; ">(</span>resetPosition<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                browserWidth <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>documentElement<span style="color:#808030; ">.</span>clientWidth<span style="color:#800080; ">;</span>
+                browserHeight <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>documentElement<span style="color:#808030; ">.</span>clientHeight<span style="color:#800080; ">;</span>
+
+                <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">var</span> i <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i <span style="color:#808030; ">&lt;</span> snowflakes<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">length</span><span style="color:#800080; ">;</span> i<span style="color:#808030; ">++</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                    <span style="color:#800000; font-weight:bold; ">var</span> snowflake <span style="color:#808030; ">=</span> snowflakes<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+
+                    snowflake<span style="color:#808030; ">.</span>xPos <span style="color:#808030; ">=</span> getPosition<span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">,</span> browserWidth<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                    snowflake<span style="color:#808030; ">.</span>yPos <span style="color:#808030; ">=</span> getPosition<span style="color:#808030; ">(</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">,</span> browserHeight<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                <span style="color:#800080; ">}</span>
+
+                resetPosition <span style="color:#808030; ">=</span> <span style="color:#0f4d75; ">false</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+
+            requestAnimationFrame<span style="color:#808030; ">(</span>moveSnowflakes<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// This function returns a number between (maximum - offset) and (maximum + offset)</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> getPosition<span style="color:#808030; ">(</span>offset<span style="color:#808030; ">,</span> size<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">round</span><span style="color:#808030; ">(</span><span style="color:#808030; ">-</span><span style="color:#008c00; ">1</span> <span style="color:#808030; ">*</span> offset <span style="color:#808030; ">+</span> <span style="color:#797997; ">Math</span><span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">random</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">*</span> <span style="color:#808030; ">(</span>size <span style="color:#808030; ">+</span> <span style="color:#008c00; ">2</span> <span style="color:#808030; ">*</span> offset<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#696969; ">//</span>
+        <span style="color:#696969; ">// Trigger a reset of all the snowflakes&#39; positions</span>
+        <span style="color:#696969; ">//</span>
+        <span style="color:#800000; font-weight:bold; ">function</span> setResetFlag<span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            resetPosition <span style="color:#808030; ">=</span> <span style="color:#0f4d75; ">true</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2018-12-24 09:34:10 UTC -->
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://www.kirupa.com/html5/the_falling_snow_effect.htm">The Falling Snow Effect</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E7%89%B9%E6%95%88/" rel="tag"># 前端特效</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/24/css-grid/" rel="prev" title="Grid">
+                  <i class="fa fa-angle-left"></i> Grid
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/12/24/execCommand-copy/" rel="next" title="execCommand("copy")">
+                  execCommand("copy") <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

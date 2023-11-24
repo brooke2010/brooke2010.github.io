@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EditorFor、DisplayNameFor、DisplayFor的使用">
+<meta property="og:url" content="https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/1466884113_33764.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/1466887282_58859.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/1466888370_26024.png">
+<meta property="article:published_time" content="2016-06-26T01:14:58.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.084Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="MVC Helper Extension">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/1466884113_33764.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/","path":"2016/06/26/EditorFor-DisplayNameFor-DisplayFor/","title":"EditorFor、DisplayNameFor、DisplayFor的使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>EditorFor、DisplayNameFor、DisplayFor的使用 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="EditorFor、DisplayNameFor、DisplayFor的使用 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EditorFor、DisplayNameFor、DisplayFor的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-06-26 09:14:58" itemprop="dateCreated datePublished" datetime="2016-06-26T09:14:58+08:00">2016-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MVC-Helper-Extension/" itemprop="url" rel="index"><span itemprop="name">MVC Helper Extension</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/06/26/EditorFor-DisplayNameFor-DisplayFor/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/26/EditorFor-DisplayNameFor-DisplayFor/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>先準備範例model</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">namespace</span> WebApplication1.Models
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> PERSON
+    &#123;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">int</span> no &#123; <span style="color:#0000ff;">get</span>; <span style="color:#0000ff;">set</span>; &#125;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">string</span> name &#123; <span style="color:#0000ff;">get</span>; <span style="color:#0000ff;">set</span>; &#125;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">string</span> cell &#123; <span style="color:#0000ff;">get</span>; <span style="color:#0000ff;">set</span>; &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>&nbsp;</p>
+
+<p>一、<a href="https://msdn.microsoft.com/zh-tw/library/system.web.mvc.html.editorextensions.editorfor(v=vs.118).aspx" rel="noopener" target="_blank">EditorFor</a></p>
+
+<p>EditorFor是用來顯示DadaBinding過來的屬性值，</p>
+
+<p>EditorFor有六種多載方法，請參考以下範例。</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> MvcHtmlString EditorFor&lt;TModel, TValue&gt;(
+    <span style="color:#0000ff;">this</span> HtmlHelper&lt;TModel&gt; html,
+    Expression&lt;Func&lt;TModel, TValue&gt;&gt; expression
+)</code></pre>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> MvcHtmlString EditorFor&lt;TModel, TValue&gt;(
+    <span style="color:#0000ff;">this</span> HtmlHelper&lt;TModel&gt; html,
+    Expression&lt;Func&lt;TModel, TValue&gt;&gt; expression,
+    <span style="background-color:#FFFF00;">Object additionalViewData</span>
+)</code></pre>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> MvcHtmlString EditorFor&lt;TModel, TValue&gt;(
+    <span style="color:#0000ff;">this</span> HtmlHelper&lt;TModel&gt; html,
+    Expression&lt;Func&lt;TModel, TValue&gt;&gt; expression,
+    <span style="color:#0000ff;">string</span> templateName
+)</code></pre>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> MvcHtmlString EditorFor&lt;TModel, TValue&gt;(
+    <span style="color:#0000ff;">this</span> HtmlHelper&lt;TModel&gt; html,
+    Expression&lt;Func&lt;TModel, TValue&gt;&gt; expression,
+    <span style="color:#0000ff;">string</span> templateName,
+    Object additionalViewData
+)</code></pre>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> MvcHtmlString EditorFor&lt;TModel, TValue&gt;(
+    <span style="color:#0000ff;">this</span> HtmlHelper&lt;TModel&gt; html,
+    Expression&lt;Func&lt;TModel, TValue&gt;&gt; expression,
+    <span style="color:#0000ff;">string</span> templateName,
+    <span style="color:#0000ff;">string</span> htmlFieldName
+)</code></pre>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> MvcHtmlString EditorFor&lt;TModel, TValue&gt;(
+    <span style="color:#0000ff;">this</span> HtmlHelper&lt;TModel&gt; html,
+    Expression&lt;Func&lt;TModel, TValue&gt;&gt; expression,
+    <span style="color:#0000ff;">string</span> templateName,
+    <span style="color:#0000ff;">string</span> htmlFieldName,
+    Object additionalViewData
+)</code></pre>
+
+<p>Controller 跟上例一樣不傳任何物件至 VIEW，而 View 也是使用 PERSON 模型，如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">@model WebApplication1.Models.PERSON
+
+@Html.EditorFor(model =&gt; model.no, <span style="color:#0000ff;">new</span> &#123; htmlAttributes = <span style="color:#0000ff;">new</span> &#123; @<span style="color:#0000ff;">class</span> = <span style="color:#a31515;">&quot;form-control&quot;</span> &#125; &#125;)</code></pre>
+
+<p>「new { htmlAttributes = new { @class = &quot;form-control&quot; } }」將為 object additionalViewData。</p>
+
+<p>執行後發現是EditorFor方法自動會轉譯為input標籤如下</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">input</span></span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form-control text-box single-line&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">data</span><span style="color:#274796; ">-val</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;true&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">data</span><span style="color:#274796; ">-val-number</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;The field no must be a number.&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">data</span><span style="color:#274796; ">-val-</span><span style="color:#074726; ">required</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;no 欄位必要項。&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; "><span style="background-color:#FFFF00;">id</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;no&quot;</span></span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;no&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;number&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><a class="fancybox fancybox.image" data-fancybox="default" href="1466884113_33764.png" itemprop="url" itemscope="" itemtype="http://schema.org/ImageObject" rel="default"><img height="386" src="1466884113_33764.png" width="712" /></a></p>
+
+<p>&nbsp;</p>
+
+<p>EditorFor 也可以放 readonly 屬性</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">@Html.EditorFor(model =&gt; model.Cus_ID, <span style="color:#0000ff;">new</span> &#123; htmlAttributes = <span style="color:#0000ff;">new</span> &#123; @<span style="color:#0000ff;">class</span> = <span style="color:#a31515;">&quot;form-control form-control-sm&quot;</span>, @<span style="color:#0000ff;">readonly</span> = <span style="color:#a31515;">&quot;readonly&quot;</span> &#125; &#125;)</code></pre>
+
+<p>&nbsp;</p>
+
+<p>EditorFor 也可以放 value 屬性</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">@Html.EditorFor(model =&gt; model.Sale_ID, <span style="color:#0000ff;">new</span> &#123; htmlAttributes = <span style="color:#0000ff;">new</span> &#123; @<span style="color:#0000ff;">class</span> = <span style="color:#a31515;">&quot;form-control form-control-sm&quot;</span>, @Value = <span style="color:#a31515;">&quot;&quot;</span> &#125; &#125;)</code></pre>
+
+<p>&nbsp;</p>
+
+<p>EditorFor 也可以放 required 屬性</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">@Html.EditorFor(model =&gt; model.Receipt_Total_Original, <span style="color:#0000ff;">new</span> &#123; htmlAttributes = <span style="color:#0000ff;">new</span> &#123; @<span style="color:#0000ff;">class</span> = <span style="color:#a31515;">&quot;form-control form-control-sm&quot;</span>, @required = <span style="color:#a31515;">&quot;required&quot;</span> &#125; &#125;)</code></pre>
+
+<p>&nbsp;</p>
+
+<p>EditorFor 也可以放&nbsp;placeholder&nbsp;屬性</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">@Html.EditorFor(model =&gt; model.Contact_Tel, <span style="color:#0000ff;">new</span> &#123; htmlAttributes = <span style="color:#0000ff;">new</span> &#123; @<span style="color:#0000ff;">class</span> = <span style="color:#a31515;">&quot;form-control form-control-sm&quot;</span>, placeholder = <span style="color:#a31515;">&quot;電話&quot;</span> &#125; &#125;)</code></pre>
+
+<p>&nbsp;</p>
+
+<p>EditorFor 也可以放&nbsp;type 屬性</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">@Html.EditorFor(model =&gt; model.Contact_ID, <span style="color:#0000ff;">new</span> &#123; htmlAttributes = <span style="color:#0000ff;">new</span> &#123; type = <span style="color:#a31515;">&quot;hidden&quot;</span> &#125; &#125;)</code></pre>
+
+<p>&nbsp;</p>
+
+<p>二、<a href="https://msdn.microsoft.com/zh-tw/library/system.web.mvc.html.displaynameextensions.displaynamefor(v=vs.118).aspx" rel="noopener" target="_blank">DisplayNameFor</a></p>
+
+<p>Controller跟上例一樣不傳任何物件至VIEW，或要傳也可以，</p>
+
+<p>因為DisplayNameFor方法跟Controller要不要傳沒有關係。</p>
+
+<p>View改成</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@model IEnumerable<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">WebApplication1</span><span style="color:#008c00; ">.</span><span style="color:#274796; ">Models</span><span style="color:#008c00; ">.</span><span style="color:#274796; ">PERSON</span><span style="color:#a65700; ">&gt;</span>
+
+@Html<span style="color:#008c00; ">.</span>DisplayNameFor(model =&gt; model<span style="color:#008c00; ">.</span>no)
+</pre>
+
+<p>或</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@model WebApplication1<span style="color:#008c00; ">.</span>Models<span style="color:#008c00; ">.</span>PERSON
+
+@Html<span style="color:#008c00; ">.</span>DisplayNameFor(model =&gt; model<span style="color:#008c00; ">.</span>no)
+</pre>
+
+<p>都是可以達成目地的</p>
+
+<p><a class="fancybox fancybox.image" data-fancybox="default" href="1466887282_58859.png" itemprop="url" itemscope="" itemtype="http://schema.org/ImageObject" rel="default"><img height="498" src="1466887282_58859.png" width="621" /></a></p>
+
+<p>由結果可以發現DisplayNameFor方法就是單純秀出屬性名稱而已，</p>
+
+<p>最常跟table與th標籤配合，範例可參考DisplayFor解說。</p>
+
+<p>&nbsp;</p>
+
+<p>三、<a href="https://msdn.microsoft.com/zh-tw/library/system.web.mvc.html.displayextensions.displayfor(v=vs.118).aspx" rel="noopener" target="_blank">DisplayFor</a></p>
+
+<p>Controller準備如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+<span style="color:#0000ff;">using</span> System.Collections.Generic;
+<span style="color:#0000ff;">using</span> System.Linq;
+<span style="color:#0000ff;">using</span> System.Web;
+<span style="color:#0000ff;">using</span> System.Web.Mvc;
+<span style="color:#0000ff;">using</span> WebApplication1.Models;
+
+<span style="color:#0000ff;">namespace</span> WebApplication1.Controllers
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> HomeController : Controller
+    &#123;
+        List&lt;PERSON&gt; aPERSON = <span style="color:#0000ff;">new</span> List&lt;PERSON&gt;();
+        <span style="color:#0000ff;">public</span> ActionResult Index()
+        &#123;
+            aPERSON.Add(<span style="color:#0000ff;">new</span> PERSON() &#123; no = 1, name = <span style="color:#a31515;">&quot;Bill&quot;</span>, cell = <span style="color:#a31515;">&quot;0800-000-000&quot;</span> &#125;);
+
+            <span style="color:#0000ff;">return</span> View(<span style="background-color:#FFFF00;">aPERSON</span>);
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>Vew</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="background-color:#FFFF00;">@model IEnumerable</span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#5f5035; "><span style="background-color:#FFFF00;">WebApplication1</span></span><span style="color:#008c00; "><span style="background-color:#FFFF00;">.</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;">Models</span></span><span style="color:#008c00; "><span style="background-color:#FFFF00;">.</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;">PERSON</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;table&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+            @Html<span style="color:#008c00; ">.</span>DisplayNameFor(model =<span style="color:#a65700; ">&gt;</span> model<span style="color:#008c00; ">.</span>no)
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+            @Html<span style="color:#008c00; ">.</span>DisplayNameFor(model =<span style="color:#a65700; ">&gt;</span> model<span style="color:#008c00; ">.</span>name)
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+            @Html<span style="color:#008c00; ">.</span>DisplayNameFor(model =<span style="color:#a65700; ">&gt;</span> model<span style="color:#008c00; ">.</span>cell)
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+
+    @foreach (var item in Model)
+    {
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                <span style="background-color:#FFFF00;">@Html</span><span style="color:#008c00; "><span style="background-color:#FFFF00;">.</span></span><span style="background-color:#FFFF00;">DisplayFor(modelItem =</span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span><span style="background-color:#FFFF00;"> item</span><span style="color:#008c00; "><span style="background-color:#FFFF00;">.</span></span><span style="background-color:#FFFF00;">no)</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                @Html<span style="color:#008c00; ">.</span>DisplayFor(modelItem =<span style="color:#a65700; ">&gt;</span> item<span style="color:#008c00; ">.</span>name)
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                @Html<span style="color:#008c00; ">.</span>DisplayFor(modelItem =<span style="color:#a65700; ">&gt;</span> item<span style="color:#008c00; ">.</span>cell)
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+    }
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>結果如下</p>
+
+<p><a class="fancybox fancybox.image" data-fancybox="default" href="1466888370_26024.png" itemprop="url" itemscope="" itemtype="http://schema.org/ImageObject" rel="default"><img height="193" src="1466888370_26024.png" width="597" /></a></p>
+
+<p>注意其模型宣告為IEnumerable型態，而用foreach配合DisplayFor方法來秀出每一筆記錄，</p>
+
+<p>常跟table標籤、DisplayNameFor方法一起呈現。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MVC-Helper-Extension/" rel="tag"># MVC Helper Extension</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/06/21/ViewModel/" rel="prev" title="ViewModel">
+                  <i class="fa fa-angle-left"></i> ViewModel
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/07/10/Ajax-Shorthand-Methods/" rel="next" title="Ajax-Shorthand Methods">
+                  Ajax-Shorthand Methods <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

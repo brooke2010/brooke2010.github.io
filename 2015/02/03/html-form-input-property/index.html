@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="介紹HTML FORM 中的各種INPUT屬性值，所對應可用的屬性的操作方式">
+<meta property="og:url" content="https://brooke2010.github.io/2015/02/03/html-form-input-property/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2015/02/03/html-form-input-property/1476589793_29327.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/02/03/html-form-input-property/1476596889_79244.png">
+<meta property="article:published_time" content="2015-02-03T07:47:36.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.529Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2015/02/03/html-form-input-property/1476589793_29327.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2015/02/03/html-form-input-property/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2015/02/03/html-form-input-property/","path":"2015/02/03/html-form-input-property/","title":"介紹HTML FORM 中的各種INPUT屬性值，所對應可用的屬性的操作方式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>介紹HTML FORM 中的各種INPUT屬性值，所對應可用的屬性的操作方式 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2015/02/03/html-form-input-property/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="介紹HTML FORM 中的各種INPUT屬性值，所對應可用的屬性的操作方式 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          介紹HTML FORM 中的各種INPUT屬性值，所對應可用的屬性的操作方式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-02-03 15:47:36" itemprop="dateCreated datePublished" datetime="2015-02-03T15:47:36+08:00">2015-02-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2015/02/03/html-form-input-property/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/02/03/html-form-input-property/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、HTML</p>
+
+<p>&lt;form&gt;Tag裡面還包含著&lt;input&gt;Tag，其&lt;input&gt; type可為&lt;input type=&quot;text&quot;&gt;</p>
+
+<p>或password、submit、radio、checkbox、buttun、hidden、...等等。</p>
+
+<p>部分未提到的type property演示如下</p>
+
+<p>1、type=&quot;file&quot;</p>
+
+<form action="" enctype="multipart/form-data" method="post"><code class="language-cpp"><input name="file" type="file" /> <input type="submit" />&nbsp;</code></form>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">enctype</span><span style="color:#808030; ">=</span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;multipart/form-data&quot;</span></span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;file&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;file&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>後端為</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">[HttpPost]
+<span style="color:#0000ff;">public</span> ActionResult Index(<span style="background-color:#FFFF00;">HttpPostedFileBase</span> file)
+&#123;
+    <span style="color:#0000ff;">if</span> (file.ContentLength &gt; 0)
+    &#123;
+        <span style="color:#0000ff;">var</span> fileName = Path.GetFileName(file.FileName);
+       
+        <span style="color:#0000ff;">var</span> path = System.IO.Path.Combine(Server.MapPath(<span style="color:#a31515;">&quot;~/&quot;</span>), fileName);
+        file.SaveAs(path);
+    &#125;
+
+    <span style="color:#0000ff;">return</span> Content(<span style="color:#a31515;">&quot;儲存成功&quot;</span>);
+&#125;</code></pre>
+
+<p>&nbsp;</p>
+
+<p>(1)、如前端不使用form元素而使用BeginForm() Helper來產生其方法請參考</p>
+
+<p><a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2016/10/04/161319">HttpPostedFileBase的「三、上傳至資料庫」</a></p>
+
+<p>&nbsp;</p>
+
+<p>(2)、前端使用Ajax.BeginForm()時</p>
+
+<p>使用Ajax.BeginForm()配合type=&quot;file&quot;時，不能使用&lt;script src=&quot;~/Scripts/jquery.unobtrusive-ajax.js&quot;&gt;&lt;/script&gt;，</p>
+
+<p>否則於後端將無法匹配到來至前端所上傳的檔案，</p>
+
+<p>注意form的屬性都必須要加上enctype = &quot;multipart/form-data&quot;屬性;</p>
+
+<p>不能使用jquery.unobtrusive-ajax.js套件那不是很奇怪嗎？</p>
+
+<p>不知是不是Helper的bug？所以將先改由jQuery的Ajax技術來做。</p>
+
+<p>&nbsp;</p>
+
+<p>(3)、由jQuery的Ajax技術來做</p>
+
+<p>Model與Controller的準備請參考<a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2016/10/04/161319">HttpPostedFileBase的「三、上傳至資料庫」</a>，</p>
+
+<p>而前端改由ajax技術，如下</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;formUpLoad&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">enctype</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;multipart/form-data&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;file&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;file&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">button</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;btnUpLoad&quot;</span><span style="color:#a65700; ">&gt;</span>上傳<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">button</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;download&quot;</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+@section scripts{
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        $<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">#btnUpLoad</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>on<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">click</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">function</span> myfunction<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            $<span style="color:#808030; ">.</span>ajax<span style="color:#808030; ">(</span><span style="color:#800080; ">{</span>
+                url<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">@Url.Action(</span><span style="color:#800000; ">&quot;</span>UpLoadToDB<span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">)</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                method<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">post</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                data<span style="color:#800080; ">:</span> <span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">new</span></span><span style="background-color:#FFFF00;"> FormData</span><span style="color:#808030; "><span style="background-color:#FFFF00;">(</span></span><span style="background-color:#FFFF00;">$</span><span style="color:#808030; "><span style="background-color:#FFFF00;">(</span></span><span style="color:#800000; "><span style="background-color:#FFFF00;">&#39;</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">#formUpLoad</span></span><span style="color:#800000; "><span style="background-color:#FFFF00;">&#39;</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">)</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">[</span></span><span style="color:#008c00; "><span style="background-color:#FFFF00;">0</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">]</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">)</span></span><span style="color:#808030; ">,</span>
+                <span style="color:#696969; ">//data: $(&quot;#formUpLoad&quot;).serialize(),</span>
+                dataType<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">json</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                cache<span style="color:#800080; ">:</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">,</span>
+                async<span style="color:#800080; ">:</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">,</span>
+                contentType<span style="color:#800080; ">:</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">,</span>
+                processData<span style="color:#800080; ">:</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">,</span>
+                success<span style="color:#800080; ">:</span> <span style="color:#800000; font-weight:bold; ">function</span> <span style="color:#808030; ">(</span>data<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                    $<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">#download</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>append<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">&lt;a href=&quot;@Url.Action(&quot;DownLoadFromDB&quot;)</span><span style="color:#800000; ">&#39;</span> <span style="color:#808030; ">+</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">/</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">+</span> data <span style="color:#808030; ">+</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#800000; ">&#39;</span> <span style="color:#808030; ">+</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">&gt;下載&lt;/a&gt;</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                <span style="color:#800080; ">}</span>
+            <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+}
+</pre>
+
+<p>特別要注意的事：</p>
+
+<p>(a)、使用ajax技術來上傳檔案時，會跟new FormData()配合。</p>
+
+<p>(b)、$(&#39;#formUpLoad&#39;)是個object型態的object，而$(&#39;#formUpLoad&#39;)[0]為取HTMLFormElement型態的object</p>
+
+<p><img height="210" src="1476589793_29327.png" width="399" /></p>
+
+<p>(c)、由於是上傳檔案，processData要設為false，表示不需要對其數據做處理，</p>
+
+<p>而一般的text文字傳遞則processData要設為true。</p>
+
+<p>(d)、如果只是一般的text文字傳遞，data屬性你會使用「data: $(&quot;#formUpLoad&quot;).serialize()」。</p>
+
+<p>(e)、如果檔案可以多選的情況要如何新增一個FormData？</p>
+
+<p>也是一樣的，用$(&#39;#formUpLoad&#39;)[0]來取HTMLFormElement型態的object即可。</p>
+
+<p><img height="179" src="1476596889_79244.png" width="431" /></p>
+
+<p>&nbsp;</p>
+
+<p>(4)、accept</p>
+
+<p>當type=&quot;file&quot;時，還可以設定檔案上傳所接受的種類</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">enctype</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;multipart/form-data&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;file&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;file&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; "><span style="background-color:#FFFF00;">accept</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;image/*&quot;</span></span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>如上例，表示只接受圖檔上傳而已，還可指定其他參數值，請參考下表</p>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width: 100%;">
+    <tbody>
+        <tr>
+            <td style="width:92px">Value</td>
+            <td>Description</td>
+        </tr>
+        <tr>
+            <td><em>file_extension</em></td>
+            <td>A file extension starting with the STOP character, e.g: .gif, .jpg, .png, .doc</td>
+        </tr>
+        <tr>
+            <td>audio/*</td>
+            <td>All sound files are accepted</td>
+        </tr>
+        <tr>
+            <td>video/*</td>
+            <td>All video files are accepted</td>
+        </tr>
+        <tr>
+            <td>image/*</td>
+            <td>All image files are accepted</td>
+        </tr>
+        <tr>
+            <td><i>media_type</i></td>
+            <td>A valid media type, with no parameters. Look at&nbsp;<a href="http://www.iana.org/assignments/media-types/" target="_blank">IANA Media Types</a>&nbsp;for a complete list of standard media types</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p>2、type=&quot;reset&quot;</p>
+
+<form action="http://www.dotblogs.com.tw/brooke/Admin/EditPosts.aspx">Email:&nbsp;<input name="email" type="text" /><br />
+Pin:&nbsp;<input name="pin" type="text" /><br />
+<input type="reset" value="Reset" />&nbsp;<input type="submit" value="Submit" />&nbsp;</form>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#a65700; ">&gt;</span>
+        Email: <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;email&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+        Pin: <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;pin&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;reset&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Reset&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Submit&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>此功能會清除已輸入文字的欄位</p>
+
+<p>&nbsp;</p>
+
+<p>3、type=&quot;image&quot;</p>
+
+<form action="" method="post">First name: <input name="fname" type="text" /><br />
+Last name: <input name="lname" type="text" /><br />
+<input alt="Submit" height="48" src="http://www.w3schools.com/tags/img_submit.gif" type="image" width="48" />&nbsp;</form>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#a65700; ">&gt;</span>
+        First name: <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fname&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+        Last name: <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;lname&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;image&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;http://www.w3schools.com/tags/img_submit.gif&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; "><span style="background-color:#FFFF00;">alt</span></span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Submit&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">width</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;48&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#074726; ">height</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;48&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>後端為</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;">[HttpPost]
+<span style="color:#0000ff;">public</span> ActionResult Index(<span style="color:#0000ff;">string</span> fname, <span style="color:#0000ff;">string</span> lname, <span style="color:#0000ff;">string</span> x, <span style="color:#0000ff;">string</span> y)
+&#123;
+    <span style="color:#0000ff;">return</span> Content(fname + <span style="color:#a31515;">&quot; &quot;</span> + lname + <span style="color:#a31515;">&quot; &quot;</span> + x + <span style="color:#a31515;">&quot; &quot;</span> + y);
+&#125;</code></pre>
+
+<p>此功能為帶有圖片的submit按鈕，除了可替代submit功能之外，</p>
+
+<p>還可以回傳滑鼠在圖片所點選的相對位置，</p>
+
+<p>例如點選圖片左上角與右下角所出現的數值就會不一樣。</p>
+
+<p>&nbsp;</p>
+
+<p>而黃色框alt屬性的功用為，當圖案無法顯示時，</p>
+
+<p>則會保留區域，顯示alt屬性值來替代該圖案。</p>
+
+<p>&nbsp;</p>
+
+<p>二、HTML5</p>
+
+<p>另外html5也新增了一些type如range、</p>
+
+<p>部分未提到的type property演示如下</p>
+
+<p>1、color</p>
+
+<form action="" method="post"><code class="language-cpp">Select your favorite color: <input name="favcolor" type="color" value="#ff0000" /> <input type="submit" />&nbsp;</code></form>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#a65700; ">&gt;</span>
+        Select your favorite color:
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;color&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;favcolor&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;#ff0000&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>如果選擇紅色其後端可接收到的字串為#ff0000</p>
+
+<p>&nbsp;</p>
+
+<p>2、date、month、week、time、datetime-local</p>
+
+<form action="" method="post">Birthday (date and time): <input name="bdaytime" type="datetime-local" /> <input type="submit" value="Send" />&nbsp;</form>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#a65700; ">&gt;</span>
+        Birthday (date and time):
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;datetime-local&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;bdaytime&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Send&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>此以datatime-local為例，此功能類似一個日期選擇器供使用者點選日期，</p>
+
+<p>傳到後端可用string來接他，例如後端所接到的字串為</p>
+
+<p>2015-02-03T01:00或2015-02-03T13:00</p>
+
+<p>注意：this types not support IE and firefox</p>
+
+<p>&nbsp;</p>
+
+<p>3、email</p>
+
+<form action="" method="post">E-mail: <input name="email" type="email" /> <input type="submit" />&nbsp;</form>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#a65700; ">&gt;</span>
+        E-mail:
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;email&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;email&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>如果輸入aaa@aaa.com.tw則後端接收到的字串為aaa@aaa.com.tw，</p>
+
+<p>並且在post前會自動驗證是否為email格式，</p>
+
+<p>如果不想做驗證則可在form tag間加入novalidate property即可</p>
+
+<p>如：&lt;form action=&quot;&quot; method=&quot;post&quot; novalidate&gt;</p>
+
+<p>&nbsp;</p>
+
+<p>4、url</p>
+
+<form action="">Add your homepage: <input name="homepage" type="url" /> <input type="submit" />&nbsp;</form>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#a65700; ">&gt;</span>
+        Add your homepage:
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;url&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;homepage&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>如果輸入http:www.yahoo.com.tw則後端接收到的字串為http:www.yahoo.com.tw，</p>
+
+<p>並且在post前會自動驗證是否為url格式，</p>
+
+<p>如果不想做驗證則可在form tag間加入novalidate property即可</p>
+
+<p>如：&lt;form action=&quot;&quot; method=&quot;post&quot; novalidate&gt;</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://www.w3schools.com/tags/att_input_type.asp">HTML &lt;input&gt; type Attribute</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://kevintsengtw.blogspot.tw/2013/03/aspnet-mvc.html">ASP.NET MVC - 檔案上傳的基本操作</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/02/02/attr-prop-diff/" rel="prev" title=".attr() 與 .prop() 的差異">
+                  <i class="fa fa-angle-left"></i> .attr() 與 .prop() 的差異
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/02/04/Directory-DirectoryInfo-File-FileInfo-Path/" rel="next" title="System.IO命名空間底下的Directory、DirectoryInfo、File、FileInfo、Path類別">
+                  System.IO命名空間底下的Directory、DirectoryInfo、File、FileInfo、Path類別 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

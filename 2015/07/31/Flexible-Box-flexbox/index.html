@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flexible Box - flexbox">
+<meta property="og:url" content="https://brooke2010.github.io/2015/07/31/Flexible-Box-flexbox/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2015/07/31/Flexible-Box-flexbox/1519430000_60982.png">
+<meta property="article:published_time" content="2015-07-31T04:57:45.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.145Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2015/07/31/Flexible-Box-flexbox/1519430000_60982.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2015/07/31/Flexible-Box-flexbox/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2015/07/31/Flexible-Box-flexbox/","path":"2015/07/31/Flexible-Box-flexbox/","title":"Flexible Box - flexbox"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Flexible Box - flexbox | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2015/07/31/Flexible-Box-flexbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Flexible Box - flexbox | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flexible Box - flexbox
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-07-31 12:57:45" itemprop="dateCreated datePublished" datetime="2015-07-31T12:57:45+08:00">2015-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2015/07/31/Flexible-Box-flexbox/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/31/Flexible-Box-flexbox/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>Flexible Box是CSS3的新東西，最主要的目的是提供一個工具，讓開發者對網頁佈局更便利。</p>
+
+<p>&nbsp;</p>
+
+<p>display</p>
+
+<p>在CSS3中對display還增加了兩個種方式可設定，分別為flex與inline-flex，</p>
+
+<p>單看display內屬性值的比較，你可以把flex看成是block一樣的作用，可以把inline-flex看成是inline-block一樣的作用，</p>
+
+<pre style="color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+&lt;!DOCTYPE <span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> charset=&quot;utf-8&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;author&quot; content=&quot;Brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;copyright&quot; content=&quot;Brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>Brookes&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">display</span><span style="color: rgb(128, 128, 48);">:</span> flex<span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">c00</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>inline-flex <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">display</span><span style="color: rgb(128, 128, 48);">:</span> inline-flex<span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">069</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>display<span style="color: rgb(128, 0, 128);">:</span>flex&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(128, 128, 48);">&gt;</span>test&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">br</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;inline-flex&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>display<span style="color: rgb(128, 0, 128);">:</span>inline-flex&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(128, 128, 48);">&gt;</span>test&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">span</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span></pre>
+
+<p>使用display:flex;或display:inline-flex;其目的在於把該元素宣告成flexible items，</p>
+
+<p>才可以使用flex的進階功能。</p>
+
+<p>&nbsp;</p>
+
+<p>一、在父元素設定上的 flex 效果</p>
+
+<p>1、flex-direction</p>
+
+<p>flex-direction可以決定flexbox內容元素的排列方向與順序，</p>
+
+<p>其值可為row(預設值)、row-reverse、column、column-reverse</p>
+
+<p>a、row：使用flex-direction為row的元素，其子元素的排列方向為由左開始排到右</p>
+
+<p>b、row-reverse：使用flex-direction為row-reverse的元素，其子元素的排列方向為由右開始排到左</p>
+
+<p>c、column：使用flex-direction為column的元素，其子元素的排列方向為由上開始排到下</p>
+
+<p>d、column-reverse：使用flex-direction為column-reverse的元素，其子元素的排列方向為由下開始排到上</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#274796; "> </span><span style="color:#074726; ">lang</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;en&quot;</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;author&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Brookes&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;copyright&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Brookes&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>Brookes<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#808030; ">.</span>row <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">row</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>row-reverse <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> row-reverse<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>column <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> column<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>column-reverse <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> column-reverse<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>flex <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">display</span><span style="color:#808030; ">:</span> flex<span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">width</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">120</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">120</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span> <span style="color:#074726; ">solid</span> <span style="color:#008c00; ">#</span><span style="color:#008000; ">000</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>flex-item <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">width</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">30</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">30</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">text-align</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">center</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">line-height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">30</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>item1 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">blue</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>item2 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>item3 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">green</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex row&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex row-reverse&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex column&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex column-reverse&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-item item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>Tips：</p>
+
+<p>a、row 與 row-reverse 的水平排列控制屬性是 justify-content，垂直排列控制屬性是 align-items。</p>
+
+<p>b、column 與 column-reverse 的水平排列控制屬性是 align-items，垂直排列控制屬性是 justify-content。</p>
+
+<p>&nbsp;</p>
+
+<p>2、justify-content</p>
+
+<p>與 align-items 屬性相對，</p>
+
+<p>justify-content可以決定flexbox內容元素的排列分部，</p>
+
+<p>其值可為flex-start(預設值)、flex-end、center、space-between、space-around</p>
+
+<p>a、flex-start：靠左排列(main-start)</p>
+
+<p>b、flex-end：靠右排列(main-end)</p>
+
+<p>c、center：水平往中央靠攏</p>
+
+<p>d、space-between：子元素與空白間距也平均排列，而左右元素會貼靠在父元素的邊界(main-start與main-end)</p>
+
+<p>e、space-around：子元素與空白間距也平均排列，每個子元素的都會有等寬的左右間距。</p>
+
+<pre style="color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+&lt;!DOCTYPE <span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> charset=&quot;utf-8&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;author&quot; content=&quot;Brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;copyright&quot; content=&quot;Brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>Brookes&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex-start<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex-end<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>center<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>space-between<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>space-around <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">display</span><span style="color: rgb(128, 128, 48);">:</span> flex<span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">width</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">300</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">60</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">margin</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">10</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">border</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(7, 71, 38);">solid</span> <span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">000</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-start <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(0, 132, 132);">justify-content</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">flex-start</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-end <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(0, 132, 132);">justify-content</span><span style="color: rgb(128, 128, 48);">:</span> flex-end<span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>center <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(0, 132, 132);">justify-content</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>space-between <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(0, 132, 132);">justify-content</span><span style="color: rgb(128, 128, 48);">:</span> space-between<span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>space-around <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(0, 132, 132);">justify-content</span><span style="color: rgb(128, 128, 48);">:</span> space-around<span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-item <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">width</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">50</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">50</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">text-align</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">line-height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">50</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>item1 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">blue</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>item2 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">red</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>item3 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">green</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-start&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-end&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;<span style="color: rgb(128, 0, 0); font-weight: bold;">center</span>&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;space-between&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;space-around&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>3、align-items</p>
+
+<p>與&nbsp;justify-content 屬性相對，</p>
+
+<p>align-items可以決定flexbox內容元素的排列位置，</p>
+
+<p>a、flex-start：靠上排列(cross-start)</p>
+
+<p>b、flex-end：靠下排列(cross-end)</p>
+
+<p>c、center：垂直往中央靠攏</p>
+
+<p>d、stretch：為預設值。所有子元素內容高度延伸至占滿父元素空間。</p>
+
+<p>e、baseline：以各元素文字為基線，如下圖。<s>以最高子元素的基線作為對齊標準。</s></p>
+
+<p><img height="256" src="1519430000_60982.png" width="630" /></p>
+
+<pre style="color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span> lang=&quot;en&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> charset=&quot;UTF-8&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;author&quot; content=&quot;brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;copyright&quot; content=&quot;brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>brookes&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex-start<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex-end<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>center<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>stretch<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>baseline <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">display</span><span style="color: rgb(128, 128, 48);">:</span> inline-flex<span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">width</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">100</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">120</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">margin</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">5</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">border</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(7, 71, 38);">solid</span> <span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">000</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">vertical-align</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">top</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-start <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-items</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">flex-start</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-end <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-items</span><span style="color: rgb(128, 128, 48);">:</span> flex-end<span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>center <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-items</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>stretch <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-items</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 132, 132);">stretch</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>baseline <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-items</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">baseline</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-item <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">width</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">30</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">text-align</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>item1 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">padding</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">30</span> <span style="color: rgb(0, 140, 0);">0</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">red</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>item2 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">padding</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">20</span> <span style="color: rgb(0, 140, 0);">0</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">blue</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>item3 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">padding</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">40</span> <span style="color: rgb(0, 140, 0);">0</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">green</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-start&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-end&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;<span style="color: rgb(128, 0, 0); font-weight: bold;">center</span>&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;stretch&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;baseline&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-item item3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>4、align-content</p>
+
+<p>先前已介紹align-items(垂直排列)與justify-content(水平排列)，</p>
+
+<p><s>那如果想要同時擁有垂直與水平排列的特性則要使用align-content，</s></p>
+
+<p>align-content 是針對「多列」的排列方法，</p>
+
+<p>其值可為flex-start(預設值)、flex-end、center、space-between、space-around、stretch</p>
+
+<p>a、flex-start：靠上排列(cross-start)</p>
+
+<p>b、flex-end：靠下排列(cross-end)</p>
+
+<p>c、center：水平垂直置中</p>
+
+<p>d、space-between：子元素與空白間距也平均排列，而左右元素會貼靠在父元素的邊界(main-start與main-end)</p>
+
+<p>e、space-around：子元素與空白間距也平均排列，每個子元素的都會有等寬的左右間距。</p>
+
+<p>f、stretch：所有子元素內容高度延伸至占滿父元素空間。</p>
+
+<pre style="color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span> lang=&quot;en&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> charset=&quot;UTF-8&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;author&quot; content=&quot;brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;copyright&quot; content=&quot;brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>brookes&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex-start<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex-end<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>center<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>space-between<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>space-around<span style="color: rgb(128, 128, 48);">,</span>
+        <span style="color: rgb(128, 128, 48);">.</span>stretch <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">display</span><span style="color: rgb(128, 128, 48);">:</span> inline-flex<span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">flex-wrap</span><span style="color: rgb(128, 128, 48);">:</span> wrap<span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">width</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">180</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">160</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">margin</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">5</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(0, 140, 0);">5</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(0, 140, 0);">40</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">border</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(7, 71, 38);">solid</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">vertical-align</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">top</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-start <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-content</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">flex-start</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>flex-end <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-content</span><span style="color: rgb(128, 128, 48);">:</span> flex-end<span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>center <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-content</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>space-between <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-content</span><span style="color: rgb(128, 128, 48);">:</span> space-between<span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>space-around <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-content</span><span style="color: rgb(128, 128, 48);">:</span> space-around<span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>stretch <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">align-content</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 132, 132);">stretch</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>align-content <span style="color: rgb(128, 128, 48);">&gt;</span> <span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">padding</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">15</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">margin</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">lightblue</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-start align-content&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>4&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>5&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>6&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex-end align-content&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>4&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>5&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>6&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;<span style="color: rgb(128, 0, 0); font-weight: bold;">center</span> align-content&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>4&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>5&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>6&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;space-between align-content&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>4&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>5&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>6&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;space-around align-content&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>4&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>5&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>6&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;stretch align-content&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>4&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>5&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>6&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>5、flex-wrap</p>
+
+<p>用來讓子元素們換行，其值可為nowrap(預設值，單行)、wrap(多行)、wrap-reverse(多行，但內容元素反向排列)，</p>
+
+<p>範例可參考上例。</p>
+
+<p>&nbsp;</p>
+
+<p>6、flex-flow 簡寫</p>
+
+<p>flex-flow 是 flex-direction 和 flex-wrap 的簡寫，文法如下：</p>
+
+<p>flex-flow: flex-direction flex-wrap|initial|inherit;</p>
+
+<p>&nbsp;</p>
+
+<p>二、在子元素設定上的 flex 效果</p>
+
+<p>1、order</p>
+
+<p>這個屬性可用來強制指定排列順序。</p>
+
+<pre style="color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span> lang=&quot;en&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> charset=&quot;UTF-8&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;author&quot; content=&quot;brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">meta</span> name=&quot;copyright&quot; content=&quot;brookes&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>brookes&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">title</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        <span style="color: rgb(128, 128, 48);">.</span>flex <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">display</span><span style="color: rgb(128, 128, 48);">:</span> flex<span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">width</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">180</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">60</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">margin</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">5</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(0, 140, 0);">5</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(0, 140, 0);">40</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">border</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(0, 102, 0);">px</span> <span style="color: rgb(7, 71, 38);">solid</span> <span style="color: rgb(0, 140, 0);">#</span><span style="color: rgb(0, 128, 0);">000</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">vertical-align</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">top</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>item <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">width</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">50</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">60</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">text-align</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(7, 71, 38);">center</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">line-height</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">50</span><span style="color: rgb(0, 102, 0);">px</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>order1 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">order</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">1</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">blue</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>order2 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">order</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">2</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">red</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>order3 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">order</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">3</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">green</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>order4 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">order</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">4</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">yellow</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>order5 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">order</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">5</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">gray</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 128, 48);">.</span>order6 <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">order</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(0, 140, 0);">6</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">lightblue</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;flex&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;item order2&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>1&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;item order4&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>2&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;item order6&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>3&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;item order1&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>4&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;item order3&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>5&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span> class=&quot;item order5&quot;<span style="color: rgb(128, 128, 48);">&gt;</span>6&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">div</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span></pre>
+
+<p>&nbsp;</p>
+
+<p>2、align-self</p>
+
+<p>引用w3cSchool的範例</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#808030; ">.</span>flex-container <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">display</span><span style="color:#808030; ">:</span> flex<span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">200</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">#</span><span style="color:#008000; ">f1f1f1</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">align-items</span><span style="color:#808030; ">:</span> flex-end<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+            <span style="color:#808030; ">.</span>flex-container <span style="color:#808030; ">&gt;</span> <span style="color:#800000; font-weight:bold; ">div</span> <span style="color:#800080; ">{</span>
+                <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">DodgerBlue</span><span style="color:#800080; ">;</span>
+                <span style="color:#bb7977; font-weight:bold; ">color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">white</span><span style="color:#800080; ">;</span>
+                <span style="color:#bb7977; font-weight:bold; ">width</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">100</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+                <span style="color:#bb7977; font-weight:bold; ">margin</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">10</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+                <span style="color:#bb7977; font-weight:bold; ">text-align</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">center</span><span style="color:#800080; ">;</span>
+                <span style="color:#bb7977; font-weight:bold; ">line-height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">75</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+                <span style="color:#bb7977; font-weight:bold; ">font-size</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">30</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex-container&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">align-self</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#074726; ">center</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">4</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>An item with the align-self property set to <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">em</span><span style="color:#a65700; ">&gt;</span>center<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">em</span><span style="color:#a65700; ">&gt;</span> will center align the item<span style="color:#008c00; ">.</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>The align-self property overrides the align-items property of the container<span style="color:#008c00; ">.</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>align-self 的設定與 align-items 相同，但align-self 的作用在於個別指定&nbsp;align-items 的方式，</p>
+
+<p>亦可覆寫已經套用align-items的屬性。</p>
+
+<p>&nbsp;</p>
+
+<p>三、展示範例</p>
+
+<p>個人製作了此範例來展示在&nbsp;CSS 的</p>
+
+<p>display、justify-content、align-items、flex-direction 屬性交互作用下所呈現的效果。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;author&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Brooke&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;copyright&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;Brooke&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>Brooke<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#808030; ">.</span>row <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">row</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>row-reverse <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> row-reverse<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>column <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> column<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>column-reverse <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">flex-direction</span><span style="color:#808030; ">:</span> column-reverse<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>flex <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">display</span><span style="color:#808030; ">:</span> flex<span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">width</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">120</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">120</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span> <span style="color:#074726; ">solid</span> <span style="color:#008c00; ">#</span><span style="color:#008000; ">000</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>item1 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">blue</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>item2 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>item3 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">green</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">legend</span><span style="color:#a65700; ">&gt;</span>display<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">legend</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;display&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">checked</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex&quot;</span><span style="color:#a65700; ">&gt;</span>flex<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;inline-flex&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;display&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;inline-flex&quot;</span><span style="color:#a65700; ">&gt;</span>inline-flex<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">legend</span><span style="color:#a65700; ">&gt;</span>justify-content<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">legend</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-flex-start&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">checked</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-flex-start&quot;</span><span style="color:#a65700; ">&gt;</span>flex-start<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-flex-end&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-flex-end&quot;</span><span style="color:#a65700; ">&gt;</span>flex-end<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-center&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-center&quot;</span><span style="color:#a65700; ">&gt;</span>center<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-space-between&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-space-between&quot;</span><span style="color:#a65700; ">&gt;</span>space-between<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-space-around&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;justify-content-space-around&quot;</span><span style="color:#a65700; ">&gt;</span>space-around<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">legend</span><span style="color:#a65700; ">&gt;</span>align-items<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">legend</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-flex-start&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-flex-start&quot;</span><span style="color:#a65700; ">&gt;</span>flex-start<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-flex-end&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-flex-end&quot;</span><span style="color:#a65700; ">&gt;</span>flex-end<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-center&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-center&quot;</span><span style="color:#a65700; ">&gt;</span>center<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-stretch&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">checked</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-stretch&quot;</span><span style="color:#a65700; ">&gt;</span>stretch<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;radio&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-baseline&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#274796; "> </span><span style="color:#074726; ">for</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;align-items-baseline&quot;</span><span style="color:#a65700; ">&gt;</span>baseline<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex row&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex row-reverse&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex column&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;flex column-reverse&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#800000; font-weight:bold; ">var</span> styles <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span>
+            <span style="color:#800080; ">{</span>
+                name<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">display</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                tuple<span style="color:#800080; ">:</span> <span style="color:#808030; ">[</span><span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">flex</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">flex</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">inline-flex</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">inline-flex</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">]</span>
+            <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+            <span style="color:#800080; ">{</span>
+                name<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">justifyContent</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                tuple<span style="color:#800080; ">:</span> <span style="color:#808030; ">[</span><span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">justify-content-flex-start</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">flex-start</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">justify-content-flex-end</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">flex-end</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">justify-content-center</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">center</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">justify-content-space-between</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">space-between</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">justify-content-space-around</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">space-around</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">]</span>
+            <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+            <span style="color:#800080; ">{</span>
+                name<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">alignItems</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                tuple<span style="color:#800080; ">:</span> <span style="color:#808030; ">[</span><span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">align-items-flex-start</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">flex-start</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">align-items-flex-end</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">flex-end</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">align-items-center</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">center</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">align-items-stretch</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">stretch</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+                <span style="color:#800080; ">{</span>
+                    id<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">align-items-baseline</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                    value<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">baseline</span><span style="color:#800000; ">&quot;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">]</span>
+            <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+        <span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">var</span> k <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> k <span style="color:#808030; ">&lt;</span> styles<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">length</span><span style="color:#800080; ">;</span> k<span style="color:#808030; ">++</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">var</span> i <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i <span style="color:#808030; ">&lt;</span> styles<span style="color:#808030; ">[</span>k<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>tuple<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">length</span><span style="color:#800080; ">;</span> i<span style="color:#808030; ">++</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">function</span> <span style="color:#808030; ">(</span>i<span style="color:#808030; ">,</span> k<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                    document<span style="color:#808030; ">.</span>getElementById<span style="color:#808030; ">(</span>styles<span style="color:#808030; ">[</span>k<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>tuple<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>id<span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>addEventListener<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">click</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">function</span> myfunction<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                        <span style="color:#800000; font-weight:bold; ">var</span> flexes <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>getElementsByClassName<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">flex</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                        <span style="color:#800000; font-weight:bold; ">for</span> <span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">var</span> j <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> j <span style="color:#808030; ">&lt;</span> flexes<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">length</span><span style="color:#800080; ">;</span> j<span style="color:#808030; ">++</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                            flexes<span style="color:#808030; ">[</span>j<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>style<span style="color:#808030; ">[</span>styles<span style="color:#808030; ">[</span>k<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>name<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> styles<span style="color:#808030; ">[</span>k<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>tuple<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>value<span style="color:#800080; ">;</span>
+                        <span style="color:#800080; ">}</span>
+                    <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#808030; ">(</span>i<span style="color:#808030; ">,</span> k<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800080; ">}</span>
+        <span style="color:#800080; ">}</span>
+
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://www.w3.org/TR/css3-flexbox/#box-model">Flex Layout Box Model and Terminology</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://css.doyoe.com/">CSS参考手册</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://flexbox.help/">Test CSS Flexbox Rules Live</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/css/css3_flexbox.asp">CSS Flexible Box Layout Module</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/cssref/css3_pr_flex.asp">CSS flex Property</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background">A Complete Guide to Flexbox</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/07/29/width-min-width-max-width/" rel="prev" title="CSS width與min-width與max-width">
+                  <i class="fa fa-angle-left"></i> CSS width與min-width與max-width
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/08/02/nuget-command/" rel="next" title="基本NuGet指令">
+                  基本NuGet指令 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

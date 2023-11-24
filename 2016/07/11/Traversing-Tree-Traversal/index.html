@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Traversing-Tree Traversal">
+<meta property="og:url" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579231675_16205.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579243775_78597.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579394970_12915.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579351761_34504.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579239865_86876.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579241006_50411.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579241812_189.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579243375_55647.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579243469_28444.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579243591_80906.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579233054_7692.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579233663_13565.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579239586_0131.png">
+<meta property="article:published_time" content="2016-07-11T12:34:18.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.789Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="jQuery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/1579231675_16205.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/","path":"2016/07/11/Traversing-Tree-Traversal/","title":"Traversing-Tree Traversal"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Traversing-Tree Traversal | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2016/07/11/Traversing-Tree-Traversal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Traversing-Tree Traversal | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Traversing-Tree Traversal
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-11 20:34:18" itemprop="dateCreated datePublished" datetime="2016-07-11T20:34:18+08:00">2016-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/jQuery/" itemprop="url" rel="index"><span itemprop="name">jQuery</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/11/Traversing-Tree-Traversal/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/11/Traversing-Tree-Traversal/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>用於巡覽上下前後元素的方法有</p>
+
+<p>.children()、.siblings()、.closest()、.find()、</p>
+
+<p>.offsetParent()、.parent()、.parents()、.parentsUntil()、</p>
+
+<p>.prev()、.prevAll()、.prevUntil()、</p>
+
+<p>.next()、.nextAll()、.nextUntil()</p>
+
+<p>&nbsp;</p>
+
+<p>一、.children()</p>
+
+<p>.children( [ Selector selector ] )</p>
+
+<p>選取底下一層的子元素。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-1&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-i&quot;</span><span style="color:#a65700; ">&gt;</span>I<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-ii&quot;</span><span style="color:#a65700; ">&gt;</span>
+            II
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-2&quot;</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;item-a&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>A<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;item-b&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+                    B
+                    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-3&quot;</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;item-c&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>C<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-iii&quot;</span><span style="color:#a65700; ">&gt;</span>III<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">ul.level-2</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>children<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-17 03:21:01 UTC -->
+
+<p>結果為</p>
+
+<p><img height="176" src="1579231675_16205.png" width="666" /></p>
+
+<p>&nbsp;</p>
+
+<p>二、.siblings()</p>
+
+<p>找出同層的所有兄弟元素(不包含自已)。</p>
+
+<p>.siblings( [ Selector selector ] )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;first-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;second-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;third-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;fourth-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">4</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fifth-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">5</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.fifth-item</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>siblings<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-17 06:48:27 UTC -->
+
+<p>結果為</p>
+
+<p><img height="168" src="1579243775_78597.png" width="904" /></p>
+
+<p>&nbsp;</p>
+
+<p>三、.closest()</p>
+
+<p>從自身(也包含自己)往上找尋指定條件最接近的父元素或祖先元素。</p>
+
+<p>有四種多載方法</p>
+
+<p>.closest( Selector&nbsp;selector )</p>
+
+<p>.closest( jQuery&nbsp;selection )</p>
+
+<p>.closest( Element&nbsp;element )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-1&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-i&quot;</span><span style="color:#a65700; ">&gt;</span>I<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;item-ii&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+            II
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-2&quot;</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-a&quot;</span><span style="color:#a65700; ">&gt;</span>A<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-b&quot;</span><span style="color:#a65700; ">&gt;</span>
+                    B
+                    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-3&quot;</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-c&quot;</span><span style="color:#a65700; ">&gt;</span>C<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-iii&quot;</span><span style="color:#a65700; ">&gt;</span>III<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.item-a</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>closest<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.item-ii</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-19 00:48:12 UTC -->
+
+<p>結果為</p>
+
+<p><img height="106" src="1579394970_12915.png" width="548" /></p>
+
+<p>&nbsp;</p>
+
+<p>四、.find()</p>
+
+<p>根據 selector 所找出的結果，再利用 .find(selector) 繼續二次向下找尋。</p>
+
+<p>.find( Selector selector )</p>
+
+<p>.find( Element element ) Type: Element or jQuery</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-1&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-i&quot;</span><span style="color:#a65700; ">&gt;</span>I<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-ii&quot;</span><span style="color:#a65700; ">&gt;</span>
+            II
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-2&quot;</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-a&quot;</span><span style="color:#a65700; ">&gt;</span>A<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-b&quot;</span><span style="color:#a65700; ">&gt;</span>
+                    B
+                    <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">ul</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;level-3&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                    <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;/</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">ul</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+                <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-c&quot;</span><span style="color:#a65700; ">&gt;</span>C<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-iii&quot;</span><span style="color:#a65700; ">&gt;</span>III<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-18 12:41:07 UTC -->
+
+<p>&nbsp;</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">ul.level-2</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>find<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.level-3</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-18 12:58:27 UTC -->
+
+<p>結果為</p>
+
+<p><img height="260" src="1579351761_34504.png" width="560" /></p>
+
+<p>&nbsp;</p>
+
+<p>可以跟 <a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2016/07/11/174737">.filter()</a> 方法比較</p>
+
+<p>&nbsp;</p>
+
+<p>五、.offsetParent()</p>
+
+<p>請參考<a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2016/07/11/173057">Offset</a>的第二項。</p>
+
+<p>&nbsp;</p>
+
+<p>六、.parent()</p>
+
+<p>根據原本的集合往上找尋父元素。</p>
+
+<p>.parent( [ Selector selector ] )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-1&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-i&quot;</span><span style="color:#a65700; ">&gt;</span>I<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-ii&quot;</span><span style="color:#a65700; ">&gt;</span>
+            II
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-2&quot;</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-a&quot;</span><span style="color:#a65700; ">&gt;</span>A<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;item-b&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+                    B
+                    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-3&quot;</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-c&quot;</span><span style="color:#a65700; ">&gt;</span>C<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-iii&quot;</span><span style="color:#a65700; ">&gt;</span>III<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.level-3</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>parent<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><!--Created using ToHtml.com on 2020-01-17 05:43:00 UTC --></p>
+
+<p>結果為</p>
+
+<p><img height="107" src="1579239865_86876.png" width="556" /></p>
+
+<p>&nbsp;</p>
+
+<p>七、.parents()</p>
+
+<p>根據原本的集合往上找尋所有n層父元素。</p>
+
+<p>.parents( [ Selector selector ] )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">html</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">body</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+    <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">ul</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;level-1&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-i&quot;</span><span style="color:#a65700; ">&gt;</span>I<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;item-ii&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+            II
+            <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">ul</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;level-2&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-a&quot;</span><span style="color:#a65700; ">&gt;</span>A<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-b&quot;</span><span style="color:#a65700; ">&gt;</span>
+                    B
+                    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-3&quot;</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-c&quot;</span><span style="color:#a65700; ">&gt;</span>C<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-iii&quot;</span><span style="color:#a65700; ">&gt;</span>III<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.item-a</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>parents<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><!--Created using ToHtml.com on 2020-01-17 06:03:47 UTC --></p>
+
+<p>結果為</p>
+
+<p><img height="187" src="1579241006_50411.png" width="796" /></p>
+
+<p>&nbsp;</p>
+
+<p>八、.parentsUntil()</p>
+
+<p>根據原本的集合往上找尋所有n層父元素，直到指定截止條件為止。</p>
+
+<p>多載方法為</p>
+
+<p>.parentsUntil( [ Selector&nbsp;selector ] [, Selector&nbsp;filter ] )</p>
+
+<p>.parentsUntil( [&nbsp;Element&nbsp;element ] [, Selector&nbsp;filter ] )&nbsp;Element&nbsp;Type: Element or jQuery</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-1&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-i&quot;</span><span style="color:#a65700; ">&gt;</span>I<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;item-ii&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+            II
+            <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">ul</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;level-2&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-a&quot;</span><span style="color:#a65700; ">&gt;</span>A<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-b&quot;</span><span style="color:#a65700; ">&gt;</span>
+                    B
+                    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;level-3&quot;</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-1&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-2&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-3&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-c&quot;</span><span style="color:#a65700; ">&gt;</span>C<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;item-iii&quot;</span><span style="color:#a65700; ">&gt;</span>III<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.item-a</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>parentsUntil<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.level-1</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><!--Created using ToHtml.com on 2020-01-17 06:15:47 UTC --></p>
+
+<p>結果為</p>
+
+<p><img height="125" src="1579241812_189.png" width="595" /></p>
+
+<p>注意，selector參數為截止條件，filter參數為根據selector參數產生出來的集合，</p>
+
+<p>再由filter參數取出需要的元素。</p>
+
+<p>&nbsp;</p>
+
+<p>九、.prev()</p>
+
+<p>根據原本的集合，往前找尋前一位兄弟元素。</p>
+
+<p>.prev( [ Selector selector ] )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;first-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;second-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;third-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fourth-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">4</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fifth-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">5</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.third-item</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>prev<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><!--Created using ToHtml.com on 2020-01-17 06:41:50 UTC --></p>
+
+<p>結果為</p>
+
+<p><img height="106" src="1579243375_55647.png" width="583" /></p>
+
+<p>&nbsp;</p>
+
+<p>十、.prevAll()</p>
+
+<p>根據原本的集合，往前找尋所有兄弟元素。</p>
+
+<p>.prevAll( [ Selector selector ] )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;first-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;second-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;third-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fourth-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">4</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fifth-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">5</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.third-item</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>prevAll<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><!--Created using ToHtml.com on 2020-01-17 06:43:31 UTC --></p>
+
+<p>結果為</p>
+
+<p><img height="127" src="1579243469_28444.png" width="646" /></p>
+
+<p>&nbsp;</p>
+
+<p>十一、.prevUntil()</p>
+
+<p>根據原本的集合，往前找尋所有兄弟元素，直到截止條件為止。</p>
+
+<p>.prevUntil( [ Selector selector ] [, Selector filter ] )</p>
+
+<p>.prevUntil( [ Element element ] [, Selector filter ] ) Element Type: Element or jQuery</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;first-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;second-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;third-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;fourth-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">4</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fifth-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">5</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.fifth-item</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>prevUntil<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.third-item</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><!--Created using ToHtml.com on 2020-01-17 06:45:36 UTC --></p>
+
+<p>結果為</p>
+
+<p><img height="105" src="1579243591_80906.png" width="588" /></p>
+
+<p>注意，selector參數為截止條件，filter參數為根據selector參數產生出來的集合，</p>
+
+<p>再由filter參數取出需要的元素。</p>
+
+<p>&nbsp;</p>
+
+<p>十二、.next()</p>
+
+<p>根據原本的集合，取得下一個元素。</p>
+
+<p>.next( [ Selector selector ] )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;first-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;second-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;third-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;fourth-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">4</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fifth-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">5</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.third-item</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>next<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-17 03:49:27 UTC -->
+
+<p>結果為</p>
+
+<p><img height="108" src="1579233054_7692.png" width="584" /></p>
+
+<p>&nbsp;</p>
+
+<p>十三、.nextAll()</p>
+
+<p>根據原本的集合，取得以後的元素(不包含本身)。</p>
+
+<p>.nextAll( [&nbsp;Selector selector ] )</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;</span><span style="color:#274796; "></span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integrity</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;</span><span style="color:#274796; "> crossorigin</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;anonymous&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;first-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;second-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;third-item&quot;</span><span style="color:#a65700; ">&gt;</span>list item <span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;fourth-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">4</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">li</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">class</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;fifth-item&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>list item <span style="color:#008c00; ">5</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">li</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">ul</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">li.third-item</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>nextAll<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>       
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-17 04:00:05 UTC -->
+
+<p>結果為</p>
+
+<p><img height="125" src="1579233663_13565.png" width="652" /></p>
+
+<p>&nbsp;</p>
+
+<p>十四、.nextUntil()</p>
+
+<p>根據原本的集合，(不包含本身)往後一直取到指定的截止元素為止。</p>
+
+<p>.nextUntil( [ Selector selector ] [, Selector filter ] )</p>
+
+<p>.nextUntil( [ element element ] [, Selector filter ] ) element Type: Element or jQuery</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!doctype html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#274796; "> </span><span style="color:#074726; ">lang</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;en&quot;</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>nextUntil demo<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-1.10.2.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dl</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dt</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;term-1&quot;</span><span style="color:#a65700; ">&gt;</span>term <span style="color:#008c00; ">1</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dt</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">1</span>-a<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">1</span>-b<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">1</span>-c<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">1</span>-d<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dt</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;term-2&quot;</span><span style="color:#a65700; ">&gt;</span>term <span style="color:#008c00; ">2</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dt</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">2</span>-a<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">2</span>-b<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">2</span>-c<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dt</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;term-3&quot;</span><span style="color:#a65700; ">&gt;</span>term <span style="color:#008c00; ">3</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dt</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">3</span>-a<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>definition <span style="color:#008c00; ">3</span>-b<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dd</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">dl</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        $<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">#term-2</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span>
+          <span style="color:#808030; ">.</span>nextUntil<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">dt</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span>
+            <span style="color:#808030; ">.</span>css<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">background-color</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">red</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+        <span style="color:#800000; font-weight:bold; ">var</span> term3 <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>getElementById<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">term-3</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        $<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">#term-1</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span>
+          <span style="color:#808030; ">.</span>nextUntil<span style="color:#808030; ">(</span>term3<span style="color:#808030; ">,</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">dd</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span>
+            <span style="color:#808030; ">.</span>css<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">color</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">green</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>注意，selector參數為截止條件，filter參數為根據selector參數產生出來的集合，</p>
+
+<p>再由filter參數取出需要的元素。</p>
+
+<p>執行畫面為</p>
+
+<p><img height="214" src="1579239586_0131.png" width="144" /></p>
+
+<p>&nbsp;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/07/11/Utilities/" rel="prev" title="Utilities">
+                  <i class="fa fa-angle-left"></i> Utilities
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/07/11/Traversing-Miscellaneous-Traversing/" rel="next" title="Traversing-Miscellaneous Traversing">
+                  Traversing-Miscellaneous Traversing <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

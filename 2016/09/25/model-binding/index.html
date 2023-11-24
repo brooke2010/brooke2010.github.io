@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Model Binding-模型繫結的方法">
+<meta property="og:url" content="https://brooke2010.github.io/2016/09/25/model-binding/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2016/09/25/model-binding/1474885560_72036.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/09/25/model-binding/1475029716_83303.png">
+<meta property="article:published_time" content="2016-09-25T11:59:06.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.653Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="ASP.NET MVC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2016/09/25/model-binding/1474885560_72036.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2016/09/25/model-binding/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2016/09/25/model-binding/","path":"2016/09/25/model-binding/","title":"Model Binding-模型繫結的方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Model Binding-模型繫結的方法 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2016/09/25/model-binding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Model Binding-模型繫結的方法 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Model Binding-模型繫結的方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-09-25 19:59:06" itemprop="dateCreated datePublished" datetime="2016-09-25T19:59:06+08:00">2016-09-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/09/25/model-binding/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/25/model-binding/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、簡單模型繫結</p>
+
+<p>其實就是如何將前端的參數傳遞到後端，並且參數成功地被後端所接收。</p>
+
+<p>Controller為</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System.Web.Mvc;
+
+<span style="color:#0000ff;">namespace</span> WebApplication1.Controllers
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> HomeController : Controller
+    &#123;
+        [HttpGet]
+        <span style="color:#0000ff;">public</span> ActionResult Index()
+        &#123;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+
+        [HttpPost]
+        <span style="color:#0000ff;">public</span> ActionResult Index(<span style="color:#0000ff;">string</span> myId, <span style="color:#0000ff;">string</span> myName)
+        &#123;
+            ViewBag.MYID = myId;
+            ViewBag.MYNAME = myName;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>View為</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@{
+    ViewBag<span style="color:#008c00; ">.</span>Title = &quot;Home Page&quot;;
+}
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;@Url.Action(&quot;</span><span style="color:#274796; ">Index</span><span style="color:#0000e6; ">&quot;)&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>ID:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myId&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myId&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>NAME:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myName&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myName&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;送出&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">button</span><span style="color:#a65700; ">&gt;</span>ajax送出<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">button</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">hr</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>@ViewBag<span style="color:#008c00; ">.</span>MYID<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>@ViewBag<span style="color:#008c00; ">.</span>MYNAME<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+
+@section scripts{
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#696969; ">//jQuery1.10.2</span>
+        $<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">button</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>on<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">click</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">function</span> myfunction<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">var</span> myId <span style="color:#808030; ">=</span> $<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">#myId</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>val<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">var</span> myName <span style="color:#808030; ">=</span> $<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">#myName</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>val<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            $<span style="color:#808030; ">.</span>ajax<span style="color:#808030; ">(</span><span style="color:#800080; ">{</span>
+                url<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">@Url.Action(</span><span style="color:#800000; ">&quot;</span>Index<span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">)</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                type<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">post</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                data<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">myId=</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">+</span> myId <span style="color:#808030; ">+</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">&amp;myName=</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">+</span> myName<span style="color:#808030; ">,</span>
+                cache<span style="color:#800080; ">:</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">,</span>
+                async<span style="color:#800080; ">:</span> <span style="color:#0f4d75; ">false</span><span style="color:#808030; ">,</span>
+                dataType<span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">html</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+                success<span style="color:#800080; ">:</span> <span style="color:#800000; font-weight:bold; ">function</span> <span style="color:#808030; ">(</span>data<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+                    <span style="color:#800000; font-weight:bold; ">alert</span><span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">seccess</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+                <span style="color:#800080; ">}</span>
+            <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+}
+</pre>
+
+<p>此範例提供了兩種型式的參數傳遞方法，</p>
+
+<p>一種是普遍的form表單傳遞；另一種是ajax方法傳遞，</p>
+
+<p>這兩種都可以成功地把參數傳到後端，差別的是，</p>
+
+<p>「form表單傳遞」可以成功地把資料經由ViewBag送到前端顯示，</p>
+
+<p>而「ajax方法傳遞」卻不行，我認為是用途不同吧，</p>
+
+<p>ajax技術是局部更新，會繞過ASP.NET MVC生命執行週期吧？？？</p>
+
+<p>所以不會再傳回其他的ActionResult？？？，ViewBag就算有資料也不會顯示出來。</p>
+
+<p>&nbsp;</p>
+
+<p>二、FormCollection</p>
+
+<p>也可以使用FormCollection類別來取得資料，</p>
+
+<p>承上例改寫Controller內容如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System.Web.Mvc;
+
+<span style="color:#0000ff;">namespace</span> WebApplication1.Controllers
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> HomeController : Controller
+    &#123;
+        [HttpGet]
+        <span style="color:#0000ff;">public</span> ActionResult Index()
+        &#123;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+
+        [HttpPost]
+        <span style="color:#0000ff;">public</span> ActionResult Index(<span style="background-color:#FFFF00;">FormCollection form</span>)
+        &#123;
+            ViewBag.MYID = <span style="background-color:#FFFF00;">form[</span><span style="color:#a31515;"><span style="background-color:#FFFF00;">&quot;myId&quot;</span></span><span style="background-color:#FFFF00;">]</span>;
+            ViewBag.MYNAME = <span style="background-color:#FFFF00;">form[</span><span style="color:#a31515;"><span style="background-color:#FFFF00;">&quot;myName&quot;</span></span><span style="background-color:#FFFF00;">]</span>;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>&nbsp;</p>
+
+<p>三、複雜模型繫結</p>
+
+<p>也是一樣繼承先前例子的View，但我在model新增一個名為Person類別</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">namespace</span> WebApplication1.Models
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> Person
+    &#123;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">int</span> myId &#123; <span style="color:#0000ff;">get</span>; <span style="color:#0000ff;">set</span>; &#125;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">string</span> myName &#123; <span style="color:#0000ff;">get</span>; <span style="color:#0000ff;">set</span>; &#125;
+    &#125;
+&#125;</code></pre>
+
+<p><img height="305" src="1474885560_72036.png" width="679" /></p>
+
+<p>而Controller改成如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System.Web.Mvc;
+<span style="color:#0000ff;"><span style="background-color:#FFFF00;">using</span></span><span style="background-color:#FFFF00;"> WebApplication1.Models;</span>
+
+<span style="color:#0000ff;">namespace</span> WebApplication1.Controllers
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> HomeController : Controller
+    &#123;
+        [HttpGet]
+        <span style="color:#0000ff;">public</span> ActionResult Index()
+        &#123;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+
+        [HttpPost]
+        <span style="color:#0000ff;">public</span> ActionResult Index(<span style="background-color:#FFFF00;">Person form</span>)
+        &#123;
+            ViewBag.MYID = <span style="background-color:#FFFF00;">form.myId</span>;
+            ViewBag.MYNAME = <span style="background-color:#FFFF00;">form.myName</span>;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>這樣也是可以從前端成功傳遞資料到後端的，</p>
+
+<p>但特別要注意person的myId與myName屬性一定要對好View的myId與myName輸入欄位(name屬性)，</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#274796; "> </span><span style="color:#074726; ">action</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;@Url.Action(&quot;</span><span style="color:#274796; ">Index</span><span style="color:#0000e6; ">&quot;)&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">method</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;post&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>ID:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;<span style="background-color:#FFFF00;">myId</span>&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myId&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>NAME:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;<span style="background-color:#FFFF00;">myName</span>&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myName&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;submit&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;送出&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>否則參數將傳遞失敗。</p>
+
+<p>&nbsp;</p>
+
+<p>四、多個複雜模型繫結</p>
+
+<p>model繼承先前例子，Controller改為</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System.Web.Mvc;
+<span style="color:#0000ff;">using</span> WebApplication1.Models;
+
+<span style="color:#0000ff;">namespace</span> WebApplication1.Controllers
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> HomeController : Controller
+    &#123;
+        [HttpGet]
+        <span style="color:#0000ff;">public</span> ActionResult Index()
+        &#123;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+
+        [HttpPost]
+        <span style="color:#0000ff;">public</span> ActionResult Index(Person form1, <span style="background-color:#FFFF00;">Person form2</span>)
+        &#123;
+            ViewBag.MYID = form1.myId;
+            ViewBag.MYNAME = form1.myName;
+
+            ViewBag.MYID2 = <span style="background-color:#FFFF00;">form2</span>.myId;
+            ViewBag.MYNAME2 = <span style="background-color:#FFFF00;">form2</span>.myName;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>View改為</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@{
+    ViewBag<span style="color:#008c00; ">.</span>Title = &quot;Home Page&quot;;
+}
+
+<span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">form</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">action</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;@Url.Action(&quot;</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;">Index</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;)&quot;</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">method</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;post&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>ID:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form1.myId&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myId&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>NAME:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form1.myName&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">id</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;myName&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">fieldset</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>ID:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;<span style="background-color:#FFFF00;">form2.myId</span>&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>NAME:<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">label</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">input</span><span style="color:#274796; "> </span><span style="color:#074726; ">type</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;text&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;form2.myName&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">value</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">fieldset</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">input</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">type</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;submit&quot;</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">value</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;送出&quot;</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">/&gt;</span></span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">form</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">hr</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>@ViewBag<span style="color:#008c00; ">.</span>MYID<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>@ViewBag<span style="color:#008c00; ">.</span>MYNAME<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">hr</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>@ViewBag<span style="color:#008c00; ">.</span>MYID2<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>@ViewBag<span style="color:#008c00; ">.</span>MYNAME2<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>這樣也是可以從前端成功傳遞資料到後端的</p>
+
+<p><img height="422" src="1475029716_83303.png" width="446" /></p>
+
+<p>&nbsp;</p>
+
+<p>五、UpdateModel與tryUpdateModel</p>
+
+<p>使用UpdateModel與tryUpdateModel技術也是可以從前端成功傳遞資料到後端的，</p>
+
+<p>使用UpdateModel可以不用在Action輸入參數，</p>
+
+<p>而tryUpdateModel除了有UpdateModel的特性外，</p>
+
+<p>當繫結失敗時將避免「例外狀況」發生。</p>
+
+<p>&nbsp;</p>
+
+<p>六、使用Bind屬性限制可被更新的資料模型屬性</p>
+
+<p>可用Exclude、Include來排除或包括屬性</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">public</span> ActionResult Create([Bind(Exclude = <span style="color:#a31515;">&quot;ID&quot;</span>)] News n)
+&#123;
+&#125;</code></pre>
+
+<p>&nbsp;</p>
+
+<p>七、ModelState</p>
+
+<p>當Controller在模型繫結完成後，會得到一個完整的ModelState物件，用途如下。</p>
+
+<p>1、判斷模型繫結的驗證結果ModelState.IsValid為true代表通過驗證。</p>
+
+<p>2、如果有錯誤時ModelState.Count會大於零</p>
+
+<p>3、模型繫結驗證失敗的錯誤詳細資料ModelState[&quot;name&quot;].Error</p>
+
+<p>4、清空模型繫結狀態ModelState.Clear()</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/system.web.mvc.bindattribute(v=vs.118).aspx">BindAttribute 類別</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/system.web.mvc.modelstatedictionary(v=vs.118).aspx">ModelStateDictionary 類別</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/system.web.mvc.modelstate(v=vs.118).aspx">ModelState 類別</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/09/23/ActionNameAttribute/" rel="prev" title="ActionNameAttribute">
+                  <i class="fa fa-angle-left"></i> ActionNameAttribute
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/09/29/custom-html-helper/" rel="next" title="自訂 Html Helper - 利用擴充方法去擴充 Html 輔助方法">
+                  自訂 Html Helper - 利用擴充方法去擴充 Html 輔助方法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

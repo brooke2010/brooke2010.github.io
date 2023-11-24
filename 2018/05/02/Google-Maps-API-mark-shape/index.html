@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Maps API - 標記形狀">
+<meta property="og:url" content="https://brooke2010.github.io/2018/05/02/Google-Maps-API-mark-shape/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-05-02T01:40:11.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.181Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="Google API">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2018/05/02/Google-Maps-API-mark-shape/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2018/05/02/Google-Maps-API-mark-shape/","path":"2018/05/02/Google-Maps-API-mark-shape/","title":"Google Maps API - 標記形狀"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Google Maps API - 標記形狀 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2018/05/02/Google-Maps-API-mark-shape/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Google Maps API - 標記形狀 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Google Maps API - 標記形狀
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-05-02 09:40:11" itemprop="dateCreated datePublished" datetime="2018-05-02T09:40:11+08:00">2018-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Google-API/" itemprop="url" rel="index"><span itemprop="name">Google API</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/05/02/Google-Maps-API-mark-shape/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/02/Google-Maps-API-mark-shape/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>Google Maps - Overlays</p>
+
+<p>標記的呈現有多種形狀，分別為Marker、Polyline、Polygon、</p>
+
+<p>Circle and Rectangle、Info Windows、Custom overlays</p>
+
+<p>一、Marker 範例</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #BC7A00">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;html&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;head&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;title&gt;</span>Simple Map<span style="color: #008000; font-weight: bold">&lt;/title&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;meta</span> <span style="color: #7D9029">name=</span><span style="color: #BA2121">&quot;viewport&quot;</span> <span style="color: #7D9029">content=</span><span style="color: #BA2121">&quot;initial-scale=1.0&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;meta</span> <span style="color: #7D9029">charset=</span><span style="color: #BA2121">&quot;utf-8&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;style&gt;</span>
+        <span style="color: #0000FF">#map</span> {
+            <span style="color: #008000; font-weight: bold">width</span><span style="color: #666666">:</span> <span style="color: #666666">500px</span>;
+            <span style="color: #008000; font-weight: bold">height</span><span style="color: #666666">:</span> <span style="color: #666666">380px</span>;
+        }
+    <span style="color: #008000; font-weight: bold">&lt;/style&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/head&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;body&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;div</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">&quot;map&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/div&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;script&gt;</span>
+        <span style="color: #008000; font-weight: bold">function</span> initMap() {
+            <span style="color: #008000; font-weight: bold">var</span> myCenter <span style="color: #666666">=</span> { lat<span style="color: #666666">:</span> <span style="color: #666666">24.930776</span>, lng<span style="color: #666666">:</span> <span style="color: #666666">121.283172</span> };
+            <span style="color: #008000; font-weight: bold">var</span> map <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> google.maps.Map(<span style="color: #008000">document</span>.getElementById(<span style="color: #BA2121">&#39;map&#39;</span>), {
+                center<span style="color: #666666">:</span> { lat<span style="color: #666666">:</span> <span style="color: #666666">24.930776</span>, lng<span style="color: #666666">:</span> <span style="color: #666666">121.283172</span> },
+                zoom<span style="color: #666666">:</span> <span style="color: #666666">15</span>,
+                mapTypeId<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;roadmap&#39;</span>
+            });
+            <span style="color: #008000; font-weight: bold">var</span> marker <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> google.maps.Marker({
+                position<span style="color: #666666">:</span> myCenter,
+                map<span style="color: #666666">:</span> map
+            });
+        }
+    <span style="color: #008000; font-weight: bold">&lt;/script&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;script </span><span style="color: #7D9029">async</span> <span style="color: #7D9029">defer</span> <span style="color: #7D9029">src=</span><span style="color: #BA2121">&quot;https://maps.googleapis.com/maps/api/js?key=&amp;callback=initMap&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/script&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/html&gt;</span>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>二、Polyline 範例</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #BC7A00">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;html&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;head&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;title&gt;</span>Simple Map<span style="color: #008000; font-weight: bold">&lt;/title&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;meta</span> <span style="color: #7D9029">name=</span><span style="color: #BA2121">&quot;viewport&quot;</span> <span style="color: #7D9029">content=</span><span style="color: #BA2121">&quot;initial-scale=1.0&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;meta</span> <span style="color: #7D9029">charset=</span><span style="color: #BA2121">&quot;utf-8&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;style&gt;</span>
+        <span style="color: #0000FF">#map</span> {
+            <span style="color: #008000; font-weight: bold">width</span><span style="color: #666666">:</span> <span style="color: #666666">500px</span>;
+            <span style="color: #008000; font-weight: bold">height</span><span style="color: #666666">:</span> <span style="color: #666666">380px</span>;
+        }
+    <span style="color: #008000; font-weight: bold">&lt;/style&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/head&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;body&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;div</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">&quot;map&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/div&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;script&gt;</span>
+        <span style="color: #008000; font-weight: bold">function</span> initMap() {
+            <span style="color: #008000; font-weight: bold">var</span> myCenter <span style="color: #666666">=</span> { lat<span style="color: #666666">:</span> <span style="color: #666666">24.930776</span>, lng<span style="color: #666666">:</span> <span style="color: #666666">121.283172</span> };
+            <span style="color: #008000; font-weight: bold">var</span> map <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> google.maps.Map(<span style="color: #008000">document</span>.getElementById(<span style="color: #BA2121">&#39;map&#39;</span>), {
+                center<span style="color: #666666">:</span> { lat<span style="color: #666666">:</span> <span style="color: #666666">24.930776</span>, lng<span style="color: #666666">:</span> <span style="color: #666666">121.283172</span> },
+                zoom<span style="color: #666666">:</span> <span style="color: #666666">15</span>,
+                mapTypeId<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;roadmap&#39;</span>
+            });
+            <span style="color: #008000; font-weight: bold">var</span> flightPlanCoordinates <span style="color: #666666">=</span> [
+                { lat<span style="color: #666666">:</span> <span style="color: #666666">24.930000</span>, lng<span style="color: #666666">:</span> <span style="color: #666666">121.283000</span> },
+                { lat<span style="color: #666666">:</span> <span style="color: #666666">24.930999</span>, lng<span style="color: #666666">:</span> <span style="color: #666666">121.283999</span> },
+            ];
+            <span style="color: #008000; font-weight: bold">var</span> flightPath <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> google.maps.Polyline({
+                path<span style="color: #666666">:</span> flightPlanCoordinates,
+                geodesic<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">true</span>,
+                strokeColor<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;#FF0000&#39;</span>,
+                strokeOpacity<span style="color: #666666">:</span> <span style="color: #666666">1.0</span>,
+                strokeWeight<span style="color: #666666">:</span> <span style="color: #666666">2</span>,
+                map<span style="color: #666666">:</span> map
+            });
+        }
+    <span style="color: #008000; font-weight: bold">&lt;/script&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;script </span><span style="color: #7D9029">async</span> <span style="color: #7D9029">defer</span> <span style="color: #7D9029">src=</span><span style="color: #BA2121">&quot;https://maps.googleapis.com/maps/api/js?key=&amp;callback=initMap&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/script&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/html&gt;</span>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/javascript/shapes">https://developers.google.com/maps/documentation/javascript/shapes</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Google-API/" rel="tag"># Google API</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/02/Google-Maps-API-mapTemplate/" rel="prev" title="Google Maps API - 地圖樣式">
+                  <i class="fa fa-angle-left"></i> Google Maps API - 地圖樣式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/05/02/Google-Maps-API-map-class/" rel="next" title="Google Maps API - 地圖類型">
+                  Google Maps API - 地圖類型 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

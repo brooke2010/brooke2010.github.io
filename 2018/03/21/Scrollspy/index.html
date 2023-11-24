@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrollspy (滚动监听)">
+<meta property="og:url" content="https://brooke2010.github.io/2018/03/21/Scrollspy/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-03-21T02:01:16.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.677Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="Bootstrap">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2018/03/21/Scrollspy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2018/03/21/Scrollspy/","path":"2018/03/21/Scrollspy/","title":"Scrollspy (滚动监听)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Scrollspy (滚动监听) | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2018/03/21/Scrollspy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Scrollspy (滚动监听) | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Scrollspy (滚动监听)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-03-21 10:01:16" itemprop="dateCreated datePublished" datetime="2018-03-21T10:01:16+08:00">2018-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Bootstrap/" itemprop="url" rel="index"><span itemprop="name">Bootstrap</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/03/21/Scrollspy/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/21/Scrollspy/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>Scrollspy 通常跟 nav 或 navbar 或 list group 結合呈現，</p>
+
+<p>請參考以下以 navbar 呈現的 Scrollspy 範例。</p>
+
+<pre style="background:#fff;color:#000">
+&lt;!<span style="background:#900;color:#fff">d</span><span style="background:#900;color:#fff">o</span><span style="background:#900;color:#fff">c</span><span style="background:#900;color:#fff">t</span><span style="background:#900;color:#fff">y</span><span style="background:#900;color:#fff">p</span><span style="background:#900;color:#fff">e </span><span style="background:#900;color:#fff">h</span><span style="background:#900;color:#fff">t</span><span style="background:#900;color:#fff">m</span><span style="background:#900;color:#fff">l</span>&gt;
+&lt;html lang=<span style="color:#00a33f">&quot;en&quot;</span>&gt;
+&lt;head&gt;
+    <span style="color:#919191">&lt;!-- Required meta tags --&gt;</span>
+    &lt;meta charset=<span style="color:#00a33f">&quot;utf-8&quot;</span>&gt;
+    &lt;meta name=<span style="color:#00a33f">&quot;viewport&quot;</span> content=<span style="color:#00a33f">&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span>&gt;
+
+    <span style="color:#919191">&lt;!-- Bootstrap CSS --&gt;</span>
+    &lt;link rel=<span style="color:#00a33f">&quot;stylesheet&quot;</span> href=<span style="color:#00a33f">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;
+
+    &lt;style&gt;
+        body {
+            position: relative;
+        }
+
+        .scrollspy-example {
+            height: 200px;
+            overflow: auto;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-spy=<span style="color:#00a33f">&quot;scroll&quot;</span> data-target=<span style="color:#00a33f">&quot;<span style="background-color:#FFFF00;">#bd-example</span>&quot;</span>&gt;
+    &lt;div class=<span style="color:#00a33f">&quot;<span style="background-color:#FFFF00;">bd-example</span>&quot;</span>&gt;
+        &lt;nav id=<span style="color:#00a33f">&quot;<span style="background-color:#00FFFF;">navbar-example2</span>&quot;</span> class=<span style="color:#00a33f">&quot;navbar navbar-light bg-light&quot;</span>&gt;
+            &lt;a class=<span style="color:#00a33f">&quot;navbar-brand&quot;</span> href=<span style="color:#00a33f">&quot;#&quot;</span>&gt;Navbar&lt;/a&gt;
+            &lt;ul class=<span style="color:#00a33f">&quot;nav nav-pills&quot;</span>&gt;
+                &lt;li class=<span style="color:#00a33f">&quot;nav-item&quot;</span>&gt;
+                    &lt;a class=<span style="color:#00a33f">&quot;nav-link active&quot;</span> href=<span style="color:#00a33f">&quot;#fat&quot;</span>&gt;@fat&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=<span style="color:#00a33f">&quot;nav-item&quot;</span>&gt;
+                    &lt;a class=<span style="color:#00a33f">&quot;nav-link&quot;</span> href=<span style="color:#00a33f">&quot;#mdo&quot;</span>&gt;@mdo&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=<span style="color:#00a33f">&quot;nav-item dropdown&quot;</span>&gt;
+                    &lt;a class=<span style="color:#00a33f">&quot;nav-link dropdown-toggle&quot;</span> data-toggle=<span style="color:#00a33f">&quot;dropdown&quot;</span> href=<span style="color:#00a33f">&quot;#&quot;</span> role=<span style="color:#00a33f">&quot;button&quot;</span> aria-haspopup=<span style="color:#00a33f">&quot;true&quot;</span> aria-expanded=<span style="color:#00a33f">&quot;false&quot;</span>&gt;Dropdown&lt;/a&gt;
+                    &lt;div class=<span style="color:#00a33f">&quot;dropdown-menu&quot;</span>&gt;
+                        &lt;a class=<span style="color:#00a33f">&quot;dropdown-item&quot;</span> href=<span style="color:#00a33f">&quot;#one&quot;</span>&gt;one&lt;/a&gt;
+                        &lt;a class=<span style="color:#00a33f">&quot;dropdown-item&quot;</span> href=<span style="color:#00a33f">&quot;#two&quot;</span>&gt;two&lt;/a&gt;
+                        &lt;div role=<span style="color:#00a33f">&quot;separator&quot;</span> class=<span style="color:#00a33f">&quot;dropdown-divider&quot;</span>&gt;&lt;/div&gt;
+                        &lt;a class=<span style="color:#00a33f">&quot;dropdown-item&quot;</span> href=<span style="color:#00a33f">&quot;#three&quot;</span>&gt;three&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;div data-spy=<span style="color:#00a33f">&quot;scroll&quot;</span> data-target=<span style="color:#00a33f">&quot;<span style="background-color:#00FFFF;">#navbar-example2</span>&quot;</span> data-offset=<span style="color:#00a33f">&quot;0&quot;</span> class=<span style="color:#00a33f">&quot;scrollspy-example&quot;</span>&gt;
+            &lt;h4 id=<span style="color:#00a33f">&quot;fat&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;@fat&lt;/h4&gt;
+            &lt;p&gt;Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney&#39;s photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven&#39;t heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.&lt;/p&gt;
+            &lt;h4 id=<span style="color:#00a33f">&quot;mdo&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;@mdo&lt;/h4&gt;
+            &lt;p&gt;Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney&#39;s vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney&#39;s quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.&lt;/p&gt;
+            &lt;h4 id=<span style="color:#00a33f">&quot;one&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;one&lt;/h4&gt;
+            &lt;p&gt;Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.&lt;/p&gt;
+            &lt;h4 id=<span style="color:#00a33f">&quot;two&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;two&lt;/h4&gt;
+            &lt;p&gt;In incididunt echo park, officia deserunt mcsweeney&#39;s proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven&#39;t heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.&lt;/p&gt;
+            &lt;h4 id=<span style="color:#00a33f">&quot;three&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;three&lt;/h4&gt;
+            &lt;p&gt;Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney&#39;s photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven&#39;t heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.&lt;/p&gt;
+            &lt;p&gt;
+                Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven&#39;t heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    <span style="color:#919191">&lt;!-- Optional JavaScript --&gt;</span>
+    <span style="color:#919191">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+    &lt;script src=<span style="color:#00a33f">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;
+    &lt;script src=<span style="color:#00a33f">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;
+    &lt;script src=<span style="color:#00a33f">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>&nbsp;</p>
+
+<p>另一範例&nbsp;nested nav</p>
+
+<pre style="background:#fff;color:#000">
+&lt;!<span style="background:#900;color:#fff">d</span><span style="background:#900;color:#fff">o</span><span style="background:#900;color:#fff">c</span><span style="background:#900;color:#fff">t</span><span style="background:#900;color:#fff">y</span><span style="background:#900;color:#fff">p</span><span style="background:#900;color:#fff">e </span><span style="background:#900;color:#fff">h</span><span style="background:#900;color:#fff">t</span><span style="background:#900;color:#fff">m</span><span style="background:#900;color:#fff">l</span>&gt;
+&lt;html lang=<span style="color:#00a33f">&quot;en&quot;</span>&gt;
+&lt;head&gt;
+    <span style="color:#919191">&lt;!-- Required meta tags --&gt;</span>
+    &lt;meta charset=<span style="color:#00a33f">&quot;utf-8&quot;</span>&gt;
+    &lt;meta name=<span style="color:#00a33f">&quot;viewport&quot;</span> content=<span style="color:#00a33f">&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span>&gt;
+
+    <span style="color:#919191">&lt;!-- Bootstrap CSS --&gt;</span>
+    &lt;link rel=<span style="color:#00a33f">&quot;stylesheet&quot;</span> href=<span style="color:#00a33f">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;
+
+    &lt;style&gt;
+        body {
+            position: relative;
+        }
+
+        .scrollspy-example-3 {
+            height: 370px;
+            overflow: auto;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-spy=<span style="color:#00a33f">&quot;scroll&quot;</span> data-target=<span style="color:#00a33f">&quot;#bd-example&quot;</span>&gt;
+    &lt;div class=<span style="color:#00a33f">&quot;row bd-example&quot;</span>&gt;
+
+        &lt;div class=<span style="color:#00a33f">&quot;col-4&quot;</span>&gt;
+            &lt;nav id=<span style="color:#00a33f">&quot;navbar-example3&quot;</span> class=<span style="color:#00a33f">&quot;navbar navbar-light bg-light flex-column&quot;</span>&gt;
+                &lt;a class=<span style="color:#00a33f">&quot;navbar-brand&quot;</span> href=<span style="color:#00a33f">&quot;#&quot;</span>&gt;Navbar&lt;/a&gt;
+                &lt;nav class=<span style="color:#00a33f">&quot;nav nav-pills flex-column&quot;</span>&gt;
+                    &lt;a class=<span style="color:#00a33f">&quot;nav-link&quot;</span> href=<span style="color:#00a33f">&quot;#item-1&quot;</span>&gt;Item 1&lt;/a&gt;
+                    &lt;nav class=<span style="color:#00a33f">&quot;nav nav-pills flex-column&quot;</span>&gt;
+                        &lt;a class=<span style="color:#00a33f">&quot;nav-link ml-3 my-1&quot;</span> href=<span style="color:#00a33f">&quot;#item-1-1&quot;</span>&gt;Item 1-1&lt;/a&gt;
+                        &lt;a class=<span style="color:#00a33f">&quot;nav-link ml-3 my-1&quot;</span> href=<span style="color:#00a33f">&quot;#item-1-2&quot;</span>&gt;Item 1-2&lt;/a&gt;
+                    &lt;/nav&gt;
+                    &lt;a class=<span style="color:#00a33f">&quot;nav-link&quot;</span> href=<span style="color:#00a33f">&quot;#item-2&quot;</span>&gt;Item 2&lt;/a&gt;
+                    &lt;a class=<span style="color:#00a33f">&quot;nav-link active&quot;</span> href=<span style="color:#00a33f">&quot;#item-3&quot;</span>&gt;Item 3&lt;/a&gt;
+                    &lt;nav class=<span style="color:#00a33f">&quot;nav nav-pills flex-column&quot;</span>&gt;
+                        &lt;a class=<span style="color:#00a33f">&quot;nav-link ml-3 my-1&quot;</span> href=<span style="color:#00a33f">&quot;#item-3-1&quot;</span>&gt;Item 3-1&lt;/a&gt;
+                        &lt;a class=<span style="color:#00a33f">&quot;nav-link ml-3 my-1&quot;</span> href=<span style="color:#00a33f">&quot;#item-3-2&quot;</span>&gt;Item 3-2&lt;/a&gt;
+                    &lt;/nav&gt;
+                &lt;/nav&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+
+        &lt;div class=<span style="color:#00a33f">&quot;col-8&quot;</span>&gt;
+            &lt;div data-spy=<span style="color:#00a33f">&quot;scroll&quot;</span> data-target=<span style="color:#00a33f">&quot;#navbar-example3&quot;</span> data-offset=<span style="color:#00a33f">&quot;0&quot;</span> class=<span style="color:#00a33f">&quot;scrollspy-example-3&quot;</span>&gt;
+                &lt;h4 id=<span style="color:#00a33f">&quot;item-1&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;Item 1&lt;/h4&gt;
+                &lt;p&gt;Ex consequat commodo adipisicing exercitation aute excepteur occaecat ullamco duis aliqua id magna ullamco eu. Do aute ipsum ipsum ullamco cillum consectetur ut et aute consectetur labore. Fugiat laborum incididunt tempor eu consequat enim dolore proident. Qui laborum do non excepteur nulla magna eiusmod consectetur in. Aliqua et aliqua officia quis et incididunt voluptate non anim reprehenderit adipisicing dolore ut consequat deserunt mollit dolore. Aliquip nulla enim veniam non fugiat id cupidatat nulla elit cupidatat commodo velit ut eiusmod cupidatat elit dolore.&lt;/p&gt;
+                &lt;h5 id=<span style="color:#00a33f">&quot;item-1-1&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;Item 1-1&lt;/h5&gt;
+                &lt;p&gt;Amet tempor mollit aliquip pariatur excepteur commodo do ea cillum commodo Lorem et occaecat elit qui et. Aliquip labore ex ex esse voluptate occaecat Lorem ullamco deserunt. Aliqua cillum excepteur irure consequat id quis ea. Sit proident ullamco aute magna pariatur nostrud labore. Reprehenderit aliqua commodo eiusmod aliquip est do duis amet proident magna consectetur consequat eu commodo fugiat non quis. Enim aliquip exercitation ullamco adipisicing voluptate excepteur minim exercitation minim minim commodo adipisicing exercitation officia nisi adipisicing. Anim id duis qui consequat labore adipisicing sint dolor elit cillum anim et fugiat.&lt;/p&gt;
+                &lt;h5 id=<span style="color:#00a33f">&quot;item-1-2&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;Item 2-2&lt;/h5&gt;
+                &lt;p&gt;Cillum nisi deserunt magna eiusmod qui eiusmod velit voluptate pariatur laborum sunt enim. Irure laboris mollit consequat incididunt sint et culpa culpa incididunt adipisicing magna magna occaecat. Nulla ipsum cillum eiusmod sint elit excepteur ea labore enim consectetur in labore anim. Proident ullamco ipsum esse elit ut Lorem eiusmod dolor et eiusmod. Anim occaecat nulla in non consequat eiusmod velit incididunt.&lt;/p&gt;
+                &lt;h4 id=<span style="color:#00a33f">&quot;item-2&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;Item 2&lt;/h4&gt;
+                &lt;p&gt;Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum consequat non elit enim exercitation cillum aliqua consequat id aliqua. Esse ex consectetur mollit voluptate est in duis laboris ad sit ipsum anim Lorem. Incididunt veniam velit elit elit veniam Lorem aliqua quis ullamco deserunt sit enim elit aliqua esse irure. Laborum nisi sit est tempor laborum mollit labore officia laborum excepteur commodo non commodo dolor excepteur commodo. Ipsum fugiat ex est consectetur ipsum commodo tempor sunt in proident.&lt;/p&gt;
+                &lt;h4 id=<span style="color:#00a33f">&quot;item-3&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;Item 3&lt;/h4&gt;
+                &lt;p&gt;Quis anim sit do amet fugiat dolor velit sit ea ea do reprehenderit culpa duis. Nostrud aliqua ipsum fugiat minim proident occaecat excepteur aliquip culpa aute tempor reprehenderit. Deserunt tempor mollit elit ex pariatur dolore velit fugiat mollit culpa irure ullamco est ex ullamco excepteur.&lt;/p&gt;
+                &lt;h5 id=<span style="color:#00a33f">&quot;item-3-1&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;Item 3-1&lt;/h5&gt;
+                &lt;p&gt;Deserunt quis elit Lorem eiusmod amet enim enim amet minim Lorem proident nostrud. Ea id dolore anim exercitation aute fugiat labore voluptate cillum do laboris labore. Ex velit exercitation nisi enim labore reprehenderit labore nostrud ut ut. Esse officia sunt duis aliquip ullamco tempor eiusmod deserunt irure nostrud irure. Ullamco proident veniam laboris ea consectetur magna sunt ex exercitation aliquip minim enim culpa occaecat exercitation. Est tempor excepteur aliquip laborum consequat do deserunt laborum esse eiusmod irure proident ipsum esse qui.&lt;/p&gt;
+                &lt;h5 id=<span style="color:#00a33f">&quot;item-3-2&quot;</span> style=<span style="color:#00a33f">&quot;&quot;</span>&gt;Item 3-2&lt;/h5&gt;
+                &lt;p&gt;Labore sit culpa commodo elit adipisicing sit aliquip elit proident voluptate minim mollit nostrud aute reprehenderit do. Mollit excepteur eu Lorem ipsum anim commodo sint labore Lorem in exercitation velit incididunt. Occaecat consectetur nisi in occaecat proident minim enim sunt reprehenderit exercitation cupidatat et do officia. Aliquip consequat ad labore labore mollit ut amet. Sit pariatur tempor proident in veniam culpa aliqua excepteur elit magna fugiat eiusmod amet officia.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    <span style="color:#919191">&lt;!-- Optional JavaScript --&gt;</span>
+    <span style="color:#919191">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+    &lt;script src=<span style="color:#00a33f">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;
+    &lt;script src=<span style="color:#00a33f">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;
+    &lt;script src=<span style="color:#00a33f">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js&quot;</span> integrity=<span style="color:#00a33f">&quot;sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl&quot;</span> crossorigin=<span style="color:#00a33f">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>&nbsp;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Bootstrap/" rel="tag"># Bootstrap</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/02/23/pointer-events/" rel="prev" title="pointer-events">
+                  <i class="fa fa-angle-left"></i> pointer-events
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/03/22/Collapsing-margins/" rel="next" title="Collapsing margins">
+                  Collapsing margins <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

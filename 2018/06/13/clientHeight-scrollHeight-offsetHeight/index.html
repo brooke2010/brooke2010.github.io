@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="clientHeight、scrollHeight、offsetHeight、innerHeigh、outerHeight、clientTop、scrollTop、offsetTop、offsetParent、scrollIntoView">
+<meta property="og:url" content="https://brooke2010.github.io/2018/06/13/clientHeight-scrollHeight-offsetHeight/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2018/06/13/clientHeight-scrollHeight-offsetHeight/1530085732_26162.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/06/13/clientHeight-scrollHeight-offsetHeight/1529899130_44067.png">
+<meta property="article:published_time" content="2018-06-13T08:08:01.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.158Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="DOM">
+<meta property="article:tag" content="BOM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2018/06/13/clientHeight-scrollHeight-offsetHeight/1530085732_26162.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2018/06/13/clientHeight-scrollHeight-offsetHeight/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2018/06/13/clientHeight-scrollHeight-offsetHeight/","path":"2018/06/13/clientHeight-scrollHeight-offsetHeight/","title":"clientHeight、scrollHeight、offsetHeight、innerHeigh、outerHeight、clientTop、scrollTop、offsetTop、offsetParent、scrollIntoView"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>clientHeight、scrollHeight、offsetHeight、innerHeigh、outerHeight、clientTop、scrollTop、offsetTop、offsetParent、scrollIntoView | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2018/06/13/clientHeight-scrollHeight-offsetHeight/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="clientHeight、scrollHeight、offsetHeight、innerHeigh、outerHeight、clientTop、scrollTop、offsetTop、offsetParent、scrollIntoView | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          clientHeight、scrollHeight、offsetHeight、innerHeigh、outerHeight、clientTop、scrollTop、offsetTop、offsetParent、scrollIntoView
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-06-13 16:08:01" itemprop="dateCreated datePublished" datetime="2018-06-13T16:08:01+08:00">2018-06-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DOM/" itemprop="url" rel="index"><span itemprop="name">DOM</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DOM/BOM/" itemprop="url" rel="index"><span itemprop="name">BOM</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/06/13/clientHeight-scrollHeight-offsetHeight/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/13/clientHeight-scrollHeight-offsetHeight/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>本來想特別去比較&nbsp;clientHeight、scrollHeight、offsetHeight 三者有何不同，</p>
+
+<p>但越去深入了解後，越發現變動因素太大，光是一種&nbsp;clientHeight，</p>
+
+<p>在不同的瀏覽器、對 html tag 取值(document.documentElement.clientHeight)、</p>
+
+<p>對 body tag 取值(document.body.clientHeight)、</p>
+
+<p>對一般元素取值時，都可能會產生不一樣的結果。</p>
+
+<p>此篇文章是在 chrome 底下，對一般元素取值，所測試歸納的結果。</p>
+
+<p>&nbsp;</p>
+
+<p>此文章用字精簡，而且還不保證用字表達一定正確無誤、歸納也僅供參考。</p>
+
+<p>感謝<a target="_blank" rel="noopener" href="http://emn178.pixnet.net/blog">小殘的程式光廊</a>的圖解系列文章，特別是小殘的程式光廊所畫的這張圖</p>
+
+<p><img height="279" src="1530085732_26162.png" width="520" /></p>
+
+<p>讓我對 clientHeight、scrollHeight、offsetHeight 有了些想法。</p>
+
+<p>&nbsp;</p>
+
+<p>一、範例</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #557799">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #007700">&lt;html</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;h&quot;</span><span style="color: #007700">&gt;</span>
+<span style="color: #007700">&lt;head&gt;</span>
+    <span style="color: #007700">&lt;meta</span> <span style="color: #0000CC">charset=</span><span style="background-color: #fff0f0">&quot;utf-8&quot;</span><span style="color: #007700">&gt;</span>
+    <span style="color: #007700">&lt;meta</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;viewport&quot;</span> <span style="color: #0000CC">content=</span><span style="background-color: #fff0f0">&quot;width=device-width&quot;</span><span style="color: #007700">&gt;</span>
+    <span style="color: #007700">&lt;style&gt;</span>
+        <span style="color: #007700">body</span> {
+            <span style="color: #008800; font-weight: bold">margin</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span>;
+            <span style="color: #008800; font-weight: bold">border</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span> <span style="color: #007020">yellow</span> <span style="color: #008800; font-weight: bold">solid</span>;
+            <span style="color: #008800; font-weight: bold">padding</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span>;
+        }
+        <span style="color: #007700">div</span> {
+            <span style="color: #008800; font-weight: bold">margin</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span>;
+            <span style="color: #008800; font-weight: bold">border</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span> <span style="color: #007020">red</span> <span style="color: #008800; font-weight: bold">solid</span>;
+            <span style="color: #008800; font-weight: bold">padding</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span>;
+        }
+        <span style="color: #007700">p</span> {
+            <span style="color: #008800; font-weight: bold">margin</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span>;
+            <span style="color: #008800; font-weight: bold">border</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span> <span style="color: #007020">blue</span> <span style="color: #008800; font-weight: bold">solid</span>;
+            <span style="color: #008800; font-weight: bold">padding</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">10px</span>;
+            <span style="color: #008800; font-weight: bold">height</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">300px</span>;
+            <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">300px</span>;
+        }
+        <span style="color: #0066BB; font-weight: bold">#dh</span> {
+            <span style="color: #008800; font-weight: bold">height</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">200px</span>;
+            <span style="color: #008800; font-weight: bold">overflow</span><span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">hidden</span>;
+        }
+    <span style="color: #007700">&lt;/style&gt;</span>
+<span style="color: #007700">&lt;/head&gt;</span>
+<span style="color: #007700">&lt;body</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;b&quot;</span><span style="color: #007700">&gt;</span>
+    <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;d1&quot;</span><span style="color: #007700">&gt;</span>
+        <span style="color: #007700">&lt;p</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;p1&quot;</span><span style="color: #007700">&gt;</span>width:300px; height:300px; margin:10px; border:10px;<span style="color: #007700">&lt;/p&gt;</span>
+    <span style="color: #007700">&lt;/div&gt;</span>
+    <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;dh&quot;</span><span style="color: #007700">&gt;</span>
+        <span style="color: #007700">&lt;p</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;ph&quot;</span><span style="color: #007700">&gt;</span>width:300px; height:300px; margin:10px; border:10px;<span style="color: #007700">&lt;/p&gt;</span>
+    <span style="color: #007700">&lt;/div&gt;</span>
+<span style="color: #007700">&lt;/body&gt;</span>
+<span style="color: #007700">&lt;/html&gt;</span>
+</pre>
+</div>
+
+<p>試了以下指令後，三者差別歸納如下</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;p1&quot;</span>).clientHeight;
+
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;p1&quot;</span>).scrollHeight;</p>
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;p1&quot;</span>).offsetHeight;</p>
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;d1&quot;</span>).clientHeight;</p>
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;d1&quot;</span>).scrollHeight;</p>
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;d1&quot;</span>).offsetHeight;</p>
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;dh&quot;</span>).clientHeight;</p>
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;dh&quot;</span>).scrollHeight;</p>
+<p><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&quot;dh&quot;</span>).offsetHeight;<br></pre></p>
+</div>
+
+<p>clientHeight 加計捲軸高度、計算自身高度</p>
+
+<p>scrollHeight 不計捲軸高度、不算自身高度</p>
+
+<p>offsetHeight 不計捲軸高度、計算自身高度</p>
+
+<p>&nbsp;</p>
+
+<p>二、clientWidth、scrollWidth、offsetWidth</p>
+
+<p>當知道了&nbsp;clientHeight、scrollHeight、offsetHeight 的用法後，</p>
+
+<p>相同的&nbsp;clientWidth、scrollWidth、offsetWidth 也知道如何用了。</p>
+
+<p>&nbsp;</p>
+
+<p>三、window.innerWidth、window.innerHeight</p>
+
+<p>回傳瀏灠器可視寬度與高度，包括瀏灠器捲軸。</p>
+
+<p>window.innerWidth 也等於&nbsp;innerWidth 寫法；</p>
+
+<p>window.innerHeight 也等於&nbsp;innerHeight 寫法。</p>
+
+<p>&nbsp;</p>
+
+<p>四、window.outerWidth、window.outerHeight</p>
+
+<p>回傳瀏灠器寬度與高度，包括瀏灠器捲軸。</p>
+
+<p>window.outerWidth 也等於&nbsp;outerWidth 寫法；</p>
+
+<p>window.outerHeight 也等於&nbsp;outerHeight 寫法。</p>
+
+<p>outerHeight 和 innerHeight 兩者的不同如下圖</p>
+
+<p><img height="436" src="1529899130_44067.png" width="737" /></p>
+
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/outerHeight">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/outerHeight</a> by <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/profiles/teoli">teoli</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/profiles/AlexChao">AlexChao</a> is licensed under <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/2.5/">CC-BY-SA 2.5</a>.</p>
+
+<p>&nbsp;</p>
+
+<p>但我在chrome 底下實際測試時，outerHeight 的數值跟我所理解的數值卻是沒有邏輯性，數值對不起來。</p>
+
+<p>&nbsp;</p>
+
+<p>五、clientLeft、clientTop、scrollLeft、scrollTop、offsetLeft、offsetTop</p>
+
+<p>clientLeft：表示從元素本身左側 padding 到 margin 的距離，其實就是等於元素本身左側的 border 寬度。</p>
+
+<p>clientTop：已知&nbsp;clientLeft 用法，同理可推。</p>
+
+<p>scrollLeft：對捲軸由左往右推到指定位置。</p>
+
+<p>scrollTop：對捲軸由上往下推到指定位置。</p>
+
+<p>offsetLeft：由元素本身左側的 margin 算起(包含元素本身左側的 margin)，其間所通過 n 個父元素的 padding、border、margin，</p>
+
+<p>直到根元素左側的 margin (包含根元素本身左側的 margin)所經過的距離。</p>
+
+<p>offsetTop：已知&nbsp;offsetLeft 用法，同理可推。</p>
+
+<p>&nbsp;</p>
+
+<p>六、其他</p>
+
+<p>1、offsetParent：用來取出某父元素節點。</p>
+
+<p>用法請參考&nbsp;<a target="_blank" rel="noopener" href="https://www.w3schools.com/jsref/prop_element_offsetparent.asp">Element offsetParent Property</a></p>
+
+<p>2、scrollIntoView</p>
+
+<p>用法請參考&nbsp;<a target="_blank" rel="noopener" href="https://www.w3schools.com/jsref/met_element_scrollintoview.asp">HTML DOM scrollIntoView Method</a></p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://emn178.pixnet.net/blog/post/95297028-%E5%9C%96%E8%A7%A3offsetleft%E3%80%81offsettop%E3%80%81offsetwidth%E5%92%8Coffsetheight">圖解offsetLeft、offsetTop、offsetWidth和offsetHeight</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://emn178.pixnet.net/blog/post/95137696-%E5%9C%96%E8%A7%A3scrollleft%2C-scrolltop%2C-scrollwidth%2C-scrollheight%E5%92%8Cscr">圖解scrollLeft, scrollTop, scrollWidth, scrollHeight和scrollIntoView</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://emn178.pixnet.net/blog/post/95101386">圖解clientLeft, clientTop, clientWidth和clientHeight</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/woxueliuyun/article/details/8638427">offsetHeight, clientHeight与scrollHeight的区别</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DOM/" rel="tag"># DOM</a>
+              <a href="/tags/BOM/" rel="tag"># BOM</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/29/chartjs-example/" rel="prev" title="Chart.js 範例">
+                  <i class="fa fa-angle-left"></i> Chart.js 範例
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/06/19/CSS-attr-Function-use/" rel="next" title="CSS attr() Function 的使用">
+                  CSS attr() Function 的使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

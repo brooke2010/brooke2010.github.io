@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCSS語法 - SassScript - Variables、除減法運算">
+<meta property="og:url" content="https://brooke2010.github.io/2017/12/17/SCSS-SassScript-Variables/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-17T02:32:16.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.664Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="SASS">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2017/12/17/SCSS-SassScript-Variables/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2017/12/17/SCSS-SassScript-Variables/","path":"2017/12/17/SCSS-SassScript-Variables/","title":"SCSS語法 - SassScript - Variables、除減法運算"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SCSS語法 - SassScript - Variables、除減法運算 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2017/12/17/SCSS-SassScript-Variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SCSS語法 - SassScript - Variables、除減法運算 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SCSS語法 - SassScript - Variables、除減法運算
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-17 10:32:16" itemprop="dateCreated datePublished" datetime="2017-12-17T10:32:16+08:00">2017-12-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SASS/" itemprop="url" rel="index"><span itemprop="name">SASS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/12/17/SCSS-SassScript-Variables/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/17/SCSS-SassScript-Variables/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>以下要點不打算多做說明，只列出scss語法與結果</p>
+
+<p>一、SassScript</p>
+
+<p>Scss也提供類似程式化的語法給開發者，目地是讓轉CSS時更有彈性。</p>
+
+<p>我們可以下command line的方式來試著驗證程式寫得對不對，</p>
+
+<p>於command line下打入「$sass -i」，進入sass指令模式，如下範例</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#797997; ">$</span> sass -i
+<span style="color:#e34adc; ">&gt;</span><span style="color:#e34adc; ">&gt;</span> <span style="color:#0000e6; ">&quot;Hello, Sassy World!&quot;</span>
+<span style="color:#0000e6; ">&quot;Hello, Sassy World!&quot;</span>
+<span style="color:#e34adc; ">&gt;</span><span style="color:#e34adc; ">&gt;</span> 1px + 1px + 1px
+3px
+<span style="color:#e34adc; ">&gt;</span><span style="color:#e34adc; ">&gt;</span> <span style="color:#696969; ">#777 + #777</span>
+<span style="color:#696969; ">#eeeeee</span>
+<span style="color:#e34adc; ">&gt;</span><span style="color:#e34adc; ">&gt;</span> <span style="color:#696969; ">#777 + #888</span>
+white
+</pre>
+
+<p>&nbsp;</p>
+
+<p>1、Variables</p>
+
+<p>scss輸入</p>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aa0000">$my-color</span>:<span style="color: #009999">#333</span>;
+
+<p><span style="color: #1e90ff; font-weight: bold">body</span> {<br>  <span style="color: #1e90ff">color</span>: <span style="color: #aa0000">$my-color</span>;<br>}<br></pre></p>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #1e90ff; font-weight: bold">body</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #009999">#333</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>如果想在各個範圍使用該變數的話，除了將變數宣告在最外層的方法之外，</p>
+
+<p>就是外加!global flag，如下範例</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0e84b5; font-weight: bold">#main</span> {
+  <span style="color: #996633">$width</span><span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">5</span><span style="color: #333399; font-weight: bold">em</span> <span style="color: #996633">!global</span>;
+  <span style="color: #0000CC">width</span><span style="color: #333333">:</span> <span style="color: #996633">$width</span>;
+}
+
+<p><span style="color: #0e84b5; font-weight: bold">#sidebar</span> {<br>  <span style="color: #0000CC">width</span><span style="color: #333333">:</span> <span style="color: #996633">$width</span>;<br>}<br></pre></p>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0066BB; font-weight: bold">#main</span> {
+  <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">5em</span>;
+}
+
+<p><span style="color: #0066BB; font-weight: bold">#sidebar</span> {<br>  <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">5em</span>;<br>}<br></pre></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>2、除法運算</p>
+
+<p>SCSS支援除法運算，但是在特定情形下才會被翻成除法，</p>
+
+<p>滿足以上其中一個條件即可，</p>
+
+<p>a、如果「/」符號包含著一個變數或是function的回傳值，則「/」符號被翻成除法</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span> {
+    <span style="color: #996633">$width</span><span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">1000</span><span style="color: #333399; font-weight: bold">px</span>;
+    <span style="color: #0000CC">width</span><span style="color: #333333">:</span> <span style="color: #996633">$width</span><span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>;    
+    <span style="color: #0000CC">width</span><span style="color: #333333">:</span> <span style="color: #0066BB; font-weight: bold">round</span>(<span style="color: #0000DD; font-weight: bold">1</span><span style="color: #6600EE; font-weight: bold">.5</span>)<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>;
+}
+</pre>
+</div>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span> {
+    <span style="color: #996633">$font-size</span><span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">12</span><span style="color: #333399; font-weight: bold">px</span>;
+    <span style="color: #996633">$line-height</span><span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">30</span><span style="color: #333399; font-weight: bold">px</span>;
+    <span style="color: #0000CC">font</span><span style="color: #333333">:</span> <span style="background-color: #eeeeee">#{</span><span style="color: #996633">$font-size</span><span style="background-color: #eeeeee">}</span><span style="color: #333333">/</span><span style="background-color: #eeeeee">#{</span><span style="color: #996633">$line-height</span><span style="background-color: #eeeeee">}</span>; <span style="color: #888888">//注意，使用#{}起來的變數被視為plain css</span>
+}
+</pre>
+</div>
+
+<p>b、如果「/」符號外被括號所括起來，則「/」符號被翻成除法，但不包含外圍被括號所括起來的List</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span> {
+    <span style="color: #0000CC">height</span><span style="color: #333333">:</span> (<span style="color: #0000DD; font-weight: bold">500</span><span style="color: #333399; font-weight: bold">px</span><span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>);
+}
+</pre>
+</div>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span> {
+    <span style="color: #0000CC">font</span><span style="color: #333333">:</span> (<span style="color: #003366; font-weight: bold">italic</span> <span style="color: #003366; font-weight: bold">bold</span> <span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333399; font-weight: bold">px</span><span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">8</span><span style="color: #333399; font-weight: bold">px</span>); <span style="color: #888888">//不被視為除法</span>
+}
+</pre>
+</div>
+
+<p>c、如果「/」符號和其他運算式所結合，則「/」符號被翻成除法</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span> {
+    <span style="color: #0000CC">margin-left</span><span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">5</span><span style="color: #333399; font-weight: bold">px</span> <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">8</span><span style="color: #333399; font-weight: bold">px</span><span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333399; font-weight: bold">px</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>3、減法運算</p>
+
+<p>減法運算應用於屬性值裡基本上都很安全，但以下幾個狀況則不被視別減法運算</p>
+
+<p>a、被視為負數</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span> {
+    <span style="color: #0000CC">width</span><span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">-100</span><span style="color: #333399; font-weight: bold">px</span>;
+}
+</pre>
+</div>
+
+<p>b、被視為identifier</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span> {
+    <span style="color: #0000CC">font-weight</span><span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">100</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>4、字串可以使用「+」來組合字串</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span><span style="color: #555555; font-weight: bold">:before</span> {
+    <span style="color: #0000CC">content</span><span style="color: #333333">:</span> <span style="background-color: #fff0f0">&quot;Foo &quot;</span> <span style="color: #333333">+</span> Bar;
+    <span style="color: #0000CC">font-family</span><span style="color: #333333">:</span> sans- <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;serif&quot;</span>;
+}
+</pre>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">p</span><span style="color: #555555; font-weight: bold">:before</span> {
+  <span style="color: #008800; font-weight: bold">content</span><span style="color: #333333">:</span> <span style="background-color: #fff0f0">&quot;Foo Bar&quot;</span>;
+  <span style="color: #008800; font-weight: bold">font-family</span><span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">sans-serif</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>5、顏色也可以拿來做運算</p>
+
+<p>&nbsp;</p>
+
+<p>6、Variable Defaults</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aa0000">$content</span>: <span style="color: #aa5500">&quot;First content&quot;</span>;
+<span style="color: #aa0000">$content</span>: <span style="color: #aa5500">&quot;Second content?&quot;</span> <span style="color: #aa0000">!default</span>;
+<span style="color: #aa0000">$new_content</span>: <span style="color: #aa5500">&quot;First time reference&quot;</span> <span style="color: #aa0000">!default</span>;
+
+<p><span style="color: #00aaaa; text-decoration: underline">#main</span> {<br>    <span style="color: #1e90ff">content</span>: <span style="color: #aa0000">$content</span>;<br>    <span style="color: #1e90ff">new-content</span>: <span style="color: #aa0000">$new_content</span>;<br>}<br></pre></p>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00">#main</span> {
+  <span style="color: #0000aa">content</span>: <span style="color: #aa5500">&quot;First content&quot;</span>;
+  new-<span style="color: #0000aa">content</span>: <span style="color: #aa5500">&quot;First time reference&quot;</span>;
+}
+</pre>
+</div>
+
+<p>如上範例，加上「!default」修飾詞時表示，該變數值沒被指定時則使用該預設值。</p>
+
+<p>有含「!default」修飾詞的變數與不含「!default」修飾詞的變數誰先宣告並沒有先後順序之分。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SASS/" rel="tag"># SASS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/05/SASS-SCSS-compile-ruby-sass/" rel="prev" title="SASS SCSS 編譯工具安裝教學，使用 Ruby-Sass">
+                  <i class="fa fa-angle-left"></i> SASS SCSS 編譯工具安裝教學，使用 Ruby-Sass
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/12/20/SCSS-at-root-include-Mixin-Directives/" rel="next" title="SCSS語法 - @at-root、@include、Mixin Directives">
+                  SCSS語法 - @at-root、@include、Mixin Directives <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

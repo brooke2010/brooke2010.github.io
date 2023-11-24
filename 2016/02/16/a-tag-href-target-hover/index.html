@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="超連結 a tag、href、target、hover">
+<meta property="og:url" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/1457591899_58832.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/1457593865_12806.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/1457592642_13107.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/1457593550_06324.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/1558421467_31297.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/1558421707_89051.png">
+<meta property="article:published_time" content="2016-02-16T02:58:29.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.985Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/1457591899_58832.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/","path":"2016/02/16/a-tag-href-target-hover/","title":"超連結 a tag、href、target、hover"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>超連結 a tag、href、target、hover | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2016/02/16/a-tag-href-target-hover/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="超連結 a tag、href、target、hover | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          超連結 a tag、href、target、hover
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-02-16 10:58:29" itemprop="dateCreated datePublished" datetime="2016-02-16T10:58:29+08:00">2016-02-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/02/16/a-tag-href-target-hover/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/16/a-tag-href-target-hover/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一般web上的超連結為像下面這種樣式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#800000; font-weight:bold; ">a</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">link</span> <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">green</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">transparent</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">text-decoration</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">none</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">a</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">visited</span> <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">pink</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">transparent</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">text-decoration</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">none</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">a</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">hover</span> <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">transparent</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">text-decoration</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">underline</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#800000; font-weight:bold; ">a</span><span style="color:#800080; ">:</span><span style="color:#800000; font-weight:bold; ">active</span> <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">yellow</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">transparent</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">text-decoration</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">underline</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">a</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">href</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;https://www.google.com.tw/&quot;</span></span><span style="color:#274796; "><span style="background-color:#FFFF00;"> </span></span><span style="color:#074726; "><span style="background-color:#FFFF00;">target</span></span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">&quot;_blank&quot;</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span><span style="background-color:#FFFF00;">google</span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&lt;/</span></span><span style="color:#800000; font-weight:bold; "><span style="background-color:#FFFF00;">a</span></span><span style="color:#a65700; "><span style="background-color:#FFFF00;">&gt;</span></span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>一、我們可以控制超連結樣式經由以下幾種偽類與屬性</p>
+
+<p>1、a:link</p>
+
+<p>當超連結沒被造訪時，預設為藍色有底線</p>
+
+<p><img height="31" src="1457591899_58832.png" width="70" /></p>
+
+<p>&nbsp;</p>
+
+<p>2、a:visited</p>
+
+<p>當超連結被造訪過時，預設為紫色有底線</p>
+
+<p><img height="29" src="1457593865_12806.png" width="62" /></p>
+
+<p>&nbsp;</p>
+
+<p>3、a:hover</p>
+
+<p>當滑鼠移到超連結時，預設為藍色有底線手型指標</p>
+
+<p><img height="41" src="1457592642_13107.png" width="56" /></p>
+
+<p>&nbsp;</p>
+
+<p>4、a:active</p>
+
+<p>對一個超連結按住滑鼠不放時，預設為藍色有底線手型指標</p>
+
+<p><img height="41" src="1457593550_06324.png" width="56" /></p>
+
+<p>注意，chrome預設為紅色有底線手型指標</p>
+
+<p>&nbsp;</p>
+
+<p>5、text-decoration</p>
+
+<p>預設的超連結CSS樣式為有底線，但有時後我們會因美觀需要，而把底線拿掉。</p>
+
+<p>&nbsp;</p>
+
+<p>6、cursor</p>
+
+<p>預設超連結hover與active的cursor&nbsp;CSS樣式為point，也可以更改為其他款式</p>
+
+<p>&nbsp;</p>
+
+<p>二、順序</p>
+
+<p>在編輯 a tag 偽類要注意順序的擺放，</p>
+
+<p>:hover 一定要放在&nbsp;:link 與&nbsp;:visited 的後面，而&nbsp;:active 則一定要放在&nbsp;:hover 的後面，</p>
+
+<p>如果不注意其順序的擺放，則其樣式會被之間的偽類干擾到。</p>
+
+<p>&nbsp;</p>
+
+<p>三、target attribute</p>
+
+<p>先準備以下範例</p>
+
+<p>index.html</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;UTF-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;a.html&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">target</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;_top&quot;</span><span style="color:#a65700; ">&gt;</span>target=&quot;_top&quot; 直接替換本分頁 -<span style="color:#a65700; ">&gt;</span> a<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;a.html&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">target</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;_blank&quot;</span><span style="color:#a65700; ">&gt;</span>target=&quot;_blank&quot; 另開新分頁 -<span style="color:#a65700; ">&gt;</span> a<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">iframe</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;/iframe.html&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">frameborder</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;1&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">width</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;500px&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">iframe</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;a.html&quot;</span><span style="color:#a65700; ">&gt;</span>不指定 target 屬性值時預設值為(target=&quot;_top&quot;) -<span style="color:#a65700; ">&gt;</span> a<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2019-05-21 06:43:28 UTC -->
+
+<p>&nbsp;</p>
+
+<p>iframe.html</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;c.html&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">target</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;_self&quot;</span><span style="color:#a65700; ">&gt;</span>target=&quot;_self&quot; 直接替換本分頁 -<span style="color:#a65700; ">&gt;</span> c<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;c.html&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">target</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;_parent&quot;</span><span style="color:#a65700; ">&gt;</span>target=&quot;_parent&quot; 另開新分頁 -<span style="color:#a65700; ">&gt;</span> c<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;c.html&quot;</span><span style="color:#a65700; ">&gt;</span>不指定 target 屬性值時預設值為(target=&quot;_self&quot;) -<span style="color:#a65700; ">&gt;</span> c<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">br</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2019-05-21 06:44:44 UTC -->
+
+<p>&nbsp;</p>
+
+<p>a.html</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>I&#39;m a<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2019-05-21 06:45:09 UTC -->
+
+<p>&nbsp;</p>
+
+<p>c.html</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>I&#39;m c<span style="color:#008c00; ">.</span>html<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<!--Created using ToHtml.com on 2019-05-21 06:45:30 UTC -->
+
+<p>&nbsp;</p>
+
+<p>說明：</p>
+
+<p>1、注意，以上檔案是借由 IIS 運作，如果自己直接開啟檔案可能無法正常動作。</p>
+
+<p>2、Run 起來的畫面如下圖，當然動作說明也包含在裡面了。</p>
+
+<p><img height="218" src="1558421467_31297.png" width="524" /></p>
+
+<p>3、當點擊「target=&quot;_self&quot; 直接替換本分頁 -&gt; c.html」時，完成動作如下圖</p>
+
+<p><img height="219" src="1558421707_89051.png" width="525" /></p>
+
+<p>&nbsp;</p>
+
+<p>四、使圖片成為超連結</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://www.google.com.tw/&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">target</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;_new&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">img</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">alt</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;google&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>五、有關超連結一些名詞解釋</p>
+
+<p>1、什麼是anchor?</p>
+
+<p>如&lt;A href=&quot;chapter2.html&quot;&gt;，A tag整個就是一個anchor，其中的「chapter2.html」為destination anchor</p>
+
+<p>2、什麼是fragment identifier?</p>
+
+<p>如http://somesite.com/html/top.html#section_2，「#」號後面的section_2就是fragment identifier或叫anchor identifier</p>
+
+<p>3、什麼是anchor name?</p>
+
+<p>如&lt;A name=&quot;section_2&quot;&gt;...&lt;/A&gt;，的section_2則叫作anchor name</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://www.w3.org/TR/html401/struct/links.html">W3C</a><a target="_blank" rel="noopener" href="https://www.w3.org/TR/html401/struct/links.html">&nbsp;Links</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.w3schools.com/jsref/met_win_open.asp">Window open() Method</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.webpage.idv.tw/maillist/maillist2/code/02/02.htm#cc">探討網頁的各種開啟方式與運用技巧！</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.w3schools.com/tags/tag_a.asp">HTML &lt;a&gt; Tag</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.w3schools.com/cssref/pr_class_cursor.asp">CSS cursor Property</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.w3schools.com/css/css_link.asp">CSS Links</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/02/12/Ajax-BeginForm-Html-BeginForm/" rel="prev" title="Ajax.BeginForm、Html.BeginForm的使用">
+                  <i class="fa fa-angle-left"></i> Ajax.BeginForm、Html.BeginForm的使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/02/18/RedirectToRoute/" rel="next" title="RedirectToRoute">
+                  RedirectToRoute <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

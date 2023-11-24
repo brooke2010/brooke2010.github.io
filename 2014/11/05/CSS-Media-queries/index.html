@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Media queries解說與max-width、min-width用法">
+<meta property="og:url" content="https://brooke2010.github.io/2014/11/05/CSS-Media-queries/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2014-11-04T23:55:44.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:53.912Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2014/11/05/CSS-Media-queries/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2014/11/05/CSS-Media-queries/","path":"2014/11/05/CSS-Media-queries/","title":"CSS Media queries解說與max-width、min-width用法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS Media queries解說與max-width、min-width用法 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2014/11/05/CSS-Media-queries/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CSS Media queries解說與max-width、min-width用法 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS Media queries解說與max-width、min-width用法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2014-11-05 07:55:44" itemprop="dateCreated datePublished" datetime="2014-11-05T07:55:44+08:00">2014-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:53" itemprop="dateModified" datetime="2023-11-24T13:45:53+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2014/11/05/CSS-Media-queries/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/11/05/CSS-Media-queries/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、Media queries解說</p>
+
+<p>在CSS2只有media types可用，而在CSS3則包括了media types與media feature兩主部分合稱叫做media</p>
+
+<p>queries，可用來判斷瀏覽器、平板、手機的寬度作相對應的處理，</p>
+
+<p>語法為</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@media not|only mediatype and (media feature) {
+    CSS-Code;
+}
+</pre>
+
+<p>mediatype通常以screen實用居多，media feature則以min-width或max-width實用居多。</p>
+
+<p>&nbsp;</p>
+
+<p>1、media queries查詢條件的使用</p>
+
+<p>Query的語法只有四項：and、or、not、only</p>
+
+<p>(1)、and</p>
+
+<p>如果User Angent為screen且Browser寬度為 500px (含) 以上，就套用這css設定</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@media screen and (min-width:<span style="color:#008c00; ">500</span>px) {
+    CSS-Code;
+}
+</pre>
+
+<p>(2)、or</p>
+
+<p>or用法在這裡是以逗號表示</p>
+
+<p>如果User Angent為screen且Browser寬度為 500px (含) 以上，</p>
+
+<p>或是彩色投影機時，就套用這css設定。請注意，and優先權比or高。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@media screen and (min-width:<span style="color:#008c00; ">500</span>px) , projection and (color) {
+    CSS-Code;
+}
+</pre>
+
+<p>(3)、not</p>
+
+<p>not意思為負邏輯，</p>
+
+<p>彩色螢幕不會套用 css 設定，彩色印表機會套用 css 設定</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@media not screen and (color), print and (color) {
+    CSS-Code;
+}
+</pre>
+
+<p>換個寫法可以釐清and、or、not運算元的優先權</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@media (not (screen and (color))), print and (color) {
+    CSS-Code;
+}
+</pre>
+
+<p>(4)、only</p>
+
+<p>如果你事先知道特定的User Angent不支援你寫的CSS-Code的時候，</p>
+
+<p>這時你就可以使用only來避開他，並專心讓支援你寫的CSS-Code的User Angent來執行即可。</p>
+
+<p>如下意思為，具有彩色螢幕的User Angent直接使用我寫的CSS-Code(example.css)，</p>
+
+<p>至於其他型態的User Angent不需判斷一概跳過。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">link</span><span style="color:#274796; "> </span><span style="color:#074726; ">rel</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;stylesheet&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">media</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;only screen and (color)&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;example.css&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+</pre>
+
+<p>其結果會和沒有關鍵字「only」一樣，但判斷過程可是有差別的。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">link</span><span style="color:#274796; "> </span><span style="color:#074726; ">rel</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;stylesheet&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">media</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;screen and (color)&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;example.css&quot;</span><span style="color:#274796; "> </span><span style="color:#a65700; ">/&gt;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>Media Types如下表</p>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>all</td>
+            <td>Used for all media type devices</td>
+        </tr>
+        <tr>
+            <td>aural</td>
+            <td>Deprecated.&nbsp;Used for speech and sound synthesizers</td>
+        </tr>
+        <tr>
+            <td>braille</td>
+            <td>Deprecated.&nbsp;Used for braille tactile feedback devices</td>
+        </tr>
+        <tr>
+            <td>embossed</td>
+            <td>Deprecated.&nbsp;Used for paged braille printers</td>
+        </tr>
+        <tr>
+            <td>handheld</td>
+            <td>Deprecated.&nbsp;Used for small or handheld devices</td>
+        </tr>
+        <tr>
+            <td>print</td>
+            <td>Used for printers</td>
+        </tr>
+        <tr>
+            <td>projection</td>
+            <td>Deprecated.&nbsp;Used for projected presentations, like slides</td>
+        </tr>
+        <tr>
+            <td>screen</td>
+            <td>Used for computer screens, tablets, smart-phones etc.</td>
+        </tr>
+        <tr>
+            <td>speech</td>
+            <td>Used for screenreaders that &quot;reads&quot; the page out loud</td>
+        </tr>
+        <tr>
+            <td>tty</td>
+            <td>Deprecated.&nbsp;Used for media using a fixed-pitch character grid, like teletypes and terminals</td>
+        </tr>
+        <tr>
+            <td>tv</td>
+            <td>Deprecated.&nbsp;Used for television-type devices</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>media feature如下表</p>
+
+<table class="reference notranslate" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; margin-bottom: 12px; width: 100%; max-width: 100%; border-left-style: solid; border-left-color: rgb(221, 221, 221); border-right-style: solid; border-right-color: rgb(221, 221, 221); border-bottom-style: solid; border-bottom-color: rgb(221, 221, 221); color: rgb(51, 51, 51); font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif; font-size: 15px; line-height: 21.4285717010498px;">
+    <tbody style="box-sizing: border-box;">
+        <tr style="box-sizing: border-box;">
+            <th style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221); width: 203px;">Value</th>
+            <th style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Description</th>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">aspect-ratio</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the ratio between the width and the height of the display area</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">color</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the number of bits per color component for the output device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">color-index</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the number of colors the device can display</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">device-aspect-ratio</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the ratio between the width and the height of the device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">device-height</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the height of the device, such as a computer screen</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">device-width</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the width of the device, such as a computer screen</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">grid</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies whether the device is a grid device or not</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">height</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the height of the display area, such as a browser window</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-aspect-ratio</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum ratio between the width and the height of the display area</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-color</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum number of bits per color component for the output device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-color-index</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum number of colors the device can display</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-device-aspect-ratio</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum ratio between the width and the height of the device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-device-height</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum height of the device, such as a computer screen</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-device-width</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum width of the device, such as a computer screen</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-height</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum height of the display area, such as a browser window</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-monochrome</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum number of bits per &quot;color&quot; on a monochrome (greyscale) device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-resolution</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum resolution of the device, using dpi or dpcm</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">max-width</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the maximum width of the display area, such as a browser window</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-aspect-ratio</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum ratio between the width and the height of the display area</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-color</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum number of bits per color component for the output device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-color-index</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum number of colors the device can display</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-device-aspect-ratio</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum ratio between the width and the height of the device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-device-width</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum width of the device, such as a computer screen</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-device-height</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum height of the device, such as a computer screen</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-height</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum height of the display area, such as a browser window</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-monochrome</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum number of bits per &quot;color&quot; on a monochrome (greyscale) device</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-resolution</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum resolution of the device, using dpi or dpcm</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">min-width</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the minimum width of the display area, such as a browser window</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">monochrome</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the number of bits per &quot;color&quot; on a monochrome (greyscale) device</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">orientation</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the whether the display is in landscape mode or portrait mode</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">resolution</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the resolution of the device, using dpi or dpcm</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">scan</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies progressive or interlaced scanning of a television</td>
+        </tr>
+        <tr style="box-sizing: border-box; background-color: rgb(241, 241, 241);">
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">width</td>
+            <td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top; border-top-style: solid; border-top-color: rgb(221, 221, 221);">Specifies the width of the display area, such as a browser window</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p>二、max-width、min-width用法</p>
+
+<pre style="color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+&lt;!DOCTYPE <span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+        <span style="color: rgb(128, 0, 0); font-weight: bold;">body</span> <span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">lightgreen</span><span style="color: rgb(128, 0, 128);">;</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+
+        <span style="color: rgb(128, 0, 128);">@</span><span style="color: rgb(0, 74, 67);">media</span> <span style="color: rgb(0, 74, 67);">screen and (max-width: 300px) </span><span style="color: rgb(128, 0, 128);">{</span>
+            <span style="color: rgb(128, 0, 0); font-weight: bold;">body</span> <span style="color: rgb(128, 0, 128);">{</span>
+                <span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">lightblue</span><span style="color: rgb(128, 0, 128);">;</span>
+            <span style="color: rgb(128, 0, 128);">}</span>
+        <span style="color: rgb(128, 0, 128);">}</span>
+    &lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">style</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">head</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+
+    &lt;<span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(128, 128, 48);">&gt;</span>Resize the browserwindow<span style="color: rgb(128, 128, 48);">.</span> When the width of this document is less than 300 pixels<span style="color: rgb(128, 128, 48);">,</span> the background-color is &quot;lightblue&quot;<span style="color: rgb(128, 128, 48);">,</span> otherwise it is &quot;lightgreen&quot;<span style="color: rgb(128, 128, 48);">.</span>&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">p</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">body</span><span style="color: rgb(128, 128, 48);">&gt;</span>
+&lt;/<span style="color: rgb(128, 0, 0); font-weight: bold;">html</span><span style="color: rgb(128, 128, 48);">&gt;</span></pre>
+
+<p><a class="jsbin-embed" target="_blank" rel="noopener" href="http://jsbin.com/fidefa/4/embed">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+
+<p>此範例的作用是當@media type為screen(computer、table、smart-phone)畫面</p>
+
+<p>小於等於300px時背景色為lightblue，大於300px以外為背景色亮綠色。</p>
+
+<p>&nbsp;</p>
+
+<p>如果換成min-width呢?</p>
+
+<pre style="color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+<span style="color: rgb(128, 0, 128);">@</span><span style="color: rgb(0, 74, 67);">media</span> <span style="color: rgb(0, 74, 67);">screen and (min-width: 300px) </span><span style="color: rgb(128, 0, 128);">{</span>
+    <span style="color: rgb(128, 0, 0); font-weight: bold;">body</span> <span style="color: rgb(128, 0, 128);">{</span>
+        <span style="color: rgb(187, 121, 119); font-weight: bold;">background-color</span><span style="color: rgb(128, 128, 48);">:</span> <span style="color: rgb(121, 121, 151);">lightblue</span><span style="color: rgb(128, 0, 128);">;</span>
+    <span style="color: rgb(128, 0, 128);">}</span>
+<span style="color: rgb(128, 0, 128);">}</span></pre>
+
+<p>大於等於300px時背景色為lightblue，小於300px以內為背景色亮綠色。</p>
+
+<p>&nbsp;</p>
+
+<p>所以min-width:300px可以解釋的為寬度不低於300px則do somthing；</p>
+
+<p>max-width:300px可以解釋為寬度不高於300px則do somthing。</p>
+
+<p>這簡直就是反邏輯嘛!!!一點都不好理解(怒)</p>
+
+<p>&nbsp;</p>
+
+<p>三、IE trick</p>
+
+<p>雖然IE11可以使用Media queries，</p>
+
+<p>但需注意其格式，多一個空白都不行，機車的很。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#696969; ">/*IE11接受landscape後面沒空白*/</span>
+<span style="color:#800080; ">@</span><span style="color:#004a43; ">media</span> <span style="color:#004a43; ">screen and (orientation: landscape) </span><span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">body</span> <span style="color:#800080; ">{</span>
+        <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#696969; ">/*IE11不接受landscape後面有空白*/</span>
+<span style="color:#800080; ">@</span><span style="color:#004a43; ">media</span> <span style="color:#004a43; ">screen and (orientation: portrait<span style="background-color:#FFFF00;"> </span>) </span><span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">body</span> <span style="color:#800080; ">{</span>
+        <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">blue</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+<p>大家請小心別被IE11陰到了。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/css3-mediaqueries/">W3C Media Queries</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Using media queries</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://tech.mozilla.com.tw/?p=4901">九個適應性設計小撇步，把你的網站打造成變形金剛！（下篇）</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://css.doyoe.com/properties/media-queries/index.htm">CSS Media Queries Module</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/11/03/AngularJS/" rel="prev" title="[AngularJS] 學習資料">
+                  <i class="fa fa-angle-left"></i> [AngularJS] 學習資料
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/11/06/transform-2D/" rel="next" title="transform 2D(變換)">
+                  transform 2D(變換) <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

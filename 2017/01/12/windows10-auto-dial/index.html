@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows 10撥接斷線自動再連線方法">
+<meta property="og:url" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1484201120_34441.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1484202072_60874.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1501750634_38295.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1501750716_41494.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1501751023_22214.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1501751187_02986.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1484203264_9155.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1504475081_79009.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1484203462_94718.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1501751576_24199.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1501751673_18422.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502649675_10282.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502649921_18262.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502650966_81821.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502651536_78267.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502653953_34706.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502653992_82256.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502654112_49379.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502654973_54684.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502654165_81508.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502654217_06323.png">
+<meta property="og:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1502654228_69805.png">
+<meta property="article:published_time" content="2017-01-12T09:41:03.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:56.164Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="OS重灌">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/1484201120_34441.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2017/01/12/windows10-auto-dial/","path":"2017/01/12/windows10-auto-dial/","title":"windows 10撥接斷線自動再連線方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>windows 10撥接斷線自動再連線方法 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2017/01/12/windows10-auto-dial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="windows 10撥接斷線自動再連線方法 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          windows 10撥接斷線自動再連線方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-01-12 17:41:03" itemprop="dateCreated datePublished" datetime="2017-01-12T17:41:03+08:00">2017-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:56" itemprop="dateModified" datetime="2023-11-24T13:45:56+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS%E9%87%8D%E7%81%8C/" itemprop="url" rel="index"><span itemprop="name">OS重灌</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/01/12/windows10-auto-dial/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/12/windows10-auto-dial/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>這問題也不是只有Windows 10才會遇到的，</p>
+
+<p>如果你的網路是動態IP，而ISP業者又會過兩三天自動中斷你網路一次，</p>
+
+<p>變成你還要兩三天再手動撥接上網，真的很麻煩，當網路突然不通時，</p>
+
+<p>可以再自動撥接上去嗎？</p>
+
+<p>&nbsp;</p>
+
+<p>一、20226觸發事件</p>
+
+<p>對寫指令碼比較不熟的人可以利用觸發事件來處理，</p>
+
+<p>可以利用 20226 斷線觸發事件來判斷網路是否突然被中斷；</p>
+
+<p><img height="546" src="1484201120_34441.png" width="628" /></p>
+
+<p>不過保險的作法應該是寫指令碼(Windows Script Host)，定期檢查對外連線的狀況(ping)，一旦發現斷線就自動重新連線。</p>
+
+<p>&nbsp;</p>
+
+<p>利用工作排程器來對20226觸發事件做處理具體做法為</p>
+
+<p>1、使用工作排程器，建立一個工作</p>
+
+<p><img height="274" src="1484202072_60874.png" width="175" /></p>
+
+<p>&nbsp;</p>
+
+<p>2、於「一般」頁籤填入名稱(也可自訂)，其他設定參考下圖</p>
+
+<p><img height="500" src="1501750634_38295.png" width="633" /></p>
+
+<p>&nbsp;</p>
+
+<p>3、新增觸發程序</p>
+
+<p><img height="502" src="1501750716_41494.png" width="634" /></p>
+
+<p><img height="505" src="1501751023_22214.png" width="590" /></p>
+
+<p>&nbsp;</p>
+
+<p>4、當事件被觸發時應該指定有何動作</p>
+
+<p><img height="501" src="1501751187_02986.png" width="632" /></p>
+
+<p>網路被中斷時當然要再自動撥接上去。</p>
+
+<p>&nbsp;</p>
+
+<p>而我先前已經寫好了撥接上網的指令碼</p>
+
+<p><img height="106" src="1484203264_9155.png" width="426" /></p>
+
+<p><strong>語法為&nbsp;rasdial [連線名稱] [帳號] [密碼]。</strong></p>
+
+<p>連線名稱的找尋請看下圖</p>
+
+<p><img height="468" src="1504475081_79009.png" width="903" /></p>
+
+<p>&nbsp;</p>
+
+<p>接下來只要將動作指到這個指定碼就行了</p>
+
+<p><img height="486" src="1484203462_94718.png" width="453" /></p>
+
+<p>&nbsp;</p>
+
+<p>5、其他頁籤設定，請根據自已需求作參考</p>
+
+<p><img height="501" src="1501751576_24199.png" width="633" /></p>
+
+<p><img height="500" src="1501751673_18422.png" width="631" /></p>
+
+<p>&nbsp;</p>
+
+<p>二、20227觸發事件</p>
+
+<p>後來我還幾次遇到就算重撥也會發生「傳回的失敗錯誤碼是 651」問題，其觸發事件為20227，</p>
+
+<p><img height="436" src="1502649675_10282.png" width="625" /></p>
+
+<p>我遇到的情況原因是我的網卡莫名其妙被停用了，</p>
+
+<p>因此解決的方法為，當20227事件被觸發時，就要下指令把網卡再啟用，</p>
+
+<p>也是利用觸發事件來處理，實際操作步驟如下</p>
+
+<p>1、使用工作排程器，建立一個工作</p>
+
+<p><img height="274" src="1502649921_18262.png" width="175" /></p>
+
+<p>&nbsp;</p>
+
+<p>2、於「一般」頁籤填入名稱「Application_RasClient_20227」(也可自訂)，其他設定參考下圖</p>
+
+<p><img height="500" src="1502650966_81821.png" width="630" /></p>
+
+<p>由於被指定執行的程式需要「系統管理員」權限，</p>
+
+<p>所以記得請勾選「以最高權限執行」</p>
+
+<p>&nbsp;</p>
+
+<p>3、新增觸發程序</p>
+
+<p><img height="502" src="1502651536_78267.png" width="634" /></p>
+
+<p><img height="506" src="1502653953_34706.png" width="591" /></p>
+
+<p>&nbsp;</p>
+
+<p>4、當事件被觸發時應該指定有何動作</p>
+
+<p><img height="501" src="1502653992_82256.png" width="632" /></p>
+
+<p>我們指定的動作是再次啟用該網卡，所準備的指令碼為</p>
+
+<p><img height="303" src="1502654112_49379.png" width="772" /></p>
+
+<p>有時候可能需要先停用再啟用該網卡，再附上停用的指令：</p>
+
+<p>powershell &quot;Disable-NetAdapter -Name Ethernet0 -Confirm:0&quot;</p>
+
+<p>&nbsp;</p>
+
+<p>我也看過有人利用netsh來做，其結果也是一樣的，啟用網卡的指令碼為</p>
+
+<p><img height="113" src="1502654973_54684.png" width="501" /></p>
+
+<p>有時候可能需要先停用再啟用該網卡，再附上停用的指令：</p>
+
+<p>netsh interface set interface name=&quot;Ethernet0&quot; admin=DISABLED</p>
+
+<p>&nbsp;</p>
+
+<p>接下來只要將動作指到這個指定碼就行了</p>
+
+<p><img height="487" src="1502654165_81508.png" width="453" /></p>
+
+<p>&nbsp;</p>
+
+<p>5、其他頁籤設定，請根據自已需求作參考</p>
+
+<p><img height="501" src="1502654217_06323.png" width="633" /></p>
+
+<p><img height="501" src="1502654228_69805.png" width="630" /></p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://www.jikker.net/2016/07/windows-10-vpn.html">Windows 10 VPN斷線自動重撥解決方案</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://blog.xuite.net/netpc/twblog/115063687-Windows+PPPoE+%E8%87%AA%E5%8B%95%E9%87%8D%E6%92%A5+Script">Windows PPPoE 自動重撥 Script</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://dyna.jjps.kh.edu.tw/dyna/pub/index_show.php?account=t105&amp;dup=0&amp;id=2665">Windows PPPoE 自動重撥 Script-憂藍夢境</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.james-tw.com/windows/windows-netsh-zhi-ling-cao-zuo">Windows netsh指令操作</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://technet.microsoft.com/zh-tw/library/bb490979.aspx">Rasdial&nbsp;Syntax</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OS%E9%87%8D%E7%81%8C/" rel="tag"># OS重灌</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/30/BOM-Screen-object-Width-Height/" rel="prev" title="BOM-Screen object、Width、Height">
+                  <i class="fa fa-angle-left"></i> BOM-Screen object、Width、Height
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/01/18/BOM-Window-Location-url-redirect/" rel="next" title="BOM-Window Location、url redirect">
+                  BOM-Window Location、url redirect <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

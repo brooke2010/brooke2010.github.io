@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HttpRequestBase類別 屬性演示">
+<meta property="og:url" content="https://brooke2010.github.io/2017/03/27/HttpRequestBase/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-03-27T09:19:39.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.262Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="ASP.NET MVC">
+<meta property="article:tag" content="Internet">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2017/03/27/HttpRequestBase/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2017/03/27/HttpRequestBase/","path":"2017/03/27/HttpRequestBase/","title":"HttpRequestBase類別 屬性演示"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>HttpRequestBase類別 屬性演示 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2017/03/27/HttpRequestBase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="HttpRequestBase類別 屬性演示 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HttpRequestBase類別 屬性演示
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-03-27 17:19:39" itemprop="dateCreated datePublished" datetime="2017-03-27T17:19:39+08:00">2017-03-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Internet/" itemprop="url" rel="index"><span itemprop="name">Internet</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Internet/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/03/27/HttpRequestBase/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/27/HttpRequestBase/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>先準備範例，程式碼很長，甚入</p>
+
+<p>前端 index.cshtml</p>
+
+<pre style="color:#000000;background:#ffffff;">
+@{
+    ViewBag<span style="color:#008c00; ">.</span>Title = &quot;Index&quot;;
+
+    var result = (Dictionary<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">string</span><span style="color:#274796; ">, string</span><span style="color:#a65700; ">&gt;</span>)Model;
+    var browser = (Dictionary<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">string</span><span style="color:#274796; ">, string</span><span style="color:#a65700; ">&gt;</span>)ViewBag<span style="color:#008c00; ">.</span>browser;
+    var headers = (Dictionary<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">string</span><span style="color:#274796; ">, string</span><span style="color:#a65700; ">&gt;</span>)ViewBag<span style="color:#008c00; ">.</span>headers;
+    var _params = (Dictionary<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">string</span><span style="color:#274796; ">, string</span><span style="color:#a65700; ">&gt;</span>)ViewBag<span style="color:#008c00; ">.</span>_params;
+    var serverVariables = (Dictionary<span style="color:#a65700; ">&lt;</span><span style="color:#5f5035; ">string</span><span style="color:#274796; ">, string</span><span style="color:#a65700; ">&gt;</span>)ViewBag<span style="color:#008c00; ">.</span>serverVariables;
+}
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">h2</span><span style="color:#a65700; ">&gt;</span>@ViewBag<span style="color:#008c00; ">.</span>Title<span style="color:#008c00; ">.</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">h2</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span><span style="color:#274796; "> </span><span style="color:#074726; ">solid</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>Request attributes<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>值<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+
+    @{
+        foreach (var item in result)
+        {
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Key<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Value<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        }
+    }
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span><span style="color:#274796; "> </span><span style="color:#074726; ">solid</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>Request<span style="color:#008c00; ">.</span>Browser attributes<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>值<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+
+    @{
+        foreach (var item in browser)
+        {
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Key<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Value<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        }
+    }
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span><span style="color:#274796; "> </span><span style="color:#074726; ">solid</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>Request<span style="color:#008c00; ">.</span>Headers attributes<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>值<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+
+    @{
+        foreach (var item in headers)
+        {
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Key<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Value<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        }
+    }
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span><span style="color:#274796; "> </span><span style="color:#074726; ">solid</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>Request<span style="color:#008c00; ">.</span>Params attributes<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>值<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+
+    @{
+        foreach (var item in _params)
+        {
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Key<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Value<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        }
+    }
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span><span style="color:#274796; "> </span><span style="color:#074726; ">solid</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>Request<span style="color:#008c00; ">.</span>serverVariables attributes<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>值<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">th</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+
+    @{
+        foreach (var item in serverVariables)
+        {
+            <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Key<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+                <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>@item<span style="color:#008c00; ">.</span>Value<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">td</span><span style="color:#a65700; ">&gt;</span>
+            <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">tr</span><span style="color:#a65700; ">&gt;</span>
+        }
+    }
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">table</span><span style="color:#a65700; ">&gt;</span>
+
+@section styles{
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#800000; font-weight:bold; ">table</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">th</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">td</span> <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">border</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">1</span><span style="color:#006600; ">px</span> <span style="color:#074726; ">solid</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">border-collapse</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">separate</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+}
+</pre>
+
+<p>&nbsp;</p>
+
+<p>後端&nbsp;HomeController.cs</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+<span style="color:#0000ff;">using</span> System.Collections.Generic;
+<span style="color:#0000ff;">using</span> System.Linq;
+<span style="color:#0000ff;">using</span> System.Web;
+<span style="color:#0000ff;">using</span> System.Web.Mvc;
+
+<span style="color:#0000ff;">namespace</span> WebApplication1.Controllers
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> HomeController : Controller
+    &#123;
+        <span style="color:#0000ff;">public</span> ActionResult Index()
+        &#123;
+            Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt; result = <span style="color:#0000ff;">new</span> Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt;();
+
+            result.Add(nameof(Request.AcceptTypes), <span style="color:#0000ff;">string</span>.Join(<span style="color:#a31515;">&quot; &quot;</span>, Request.AcceptTypes));
+            result.Add(nameof(Request.AnonymousID), Request.AnonymousID);
+            result.Add(nameof(Request.ApplicationPath), Request.ApplicationPath);
+            result.Add(nameof(Request.AppRelativeCurrentExecutionFilePath), Request.AppRelativeCurrentExecutionFilePath);
+
+            HttpBrowserCapabilitiesBase Browser = Request.Browser;
+            Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt; browser = <span style="color:#0000ff;">new</span> Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt;();
+            browser.Add(nameof(Request.Browser.ActiveXControls), Request.Browser.ActiveXControls.ToString());
+            browser.Add(nameof(Request.Browser.Adapters) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.Browser.Adapters.Count.ToString());
+            browser.Add(nameof(Request.Browser.AOL), Request.Browser.AOL.ToString());
+            browser.Add(nameof(Request.Browser.BackgroundSounds), Request.Browser.BackgroundSounds.ToString());
+            browser.Add(nameof(Request.Browser.Beta), Request.Browser.Beta.ToString());
+            browser.Add(nameof(Request.Browser.Browser), Request.Browser.Browser);
+            browser.Add(nameof(Request.Browser.Browsers) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.Browser.Browsers.Count.ToString());
+            browser.Add(nameof(Request.Browser.CanCombineFormsInDeck), Request.Browser.CanCombineFormsInDeck.ToString());
+            browser.Add(nameof(Request.Browser.CanInitiateVoiceCall), Request.Browser.CanInitiateVoiceCall.ToString());
+            browser.Add(nameof(Request.Browser.CanRenderAfterInputOrSelectElement), Request.Browser.CanRenderAfterInputOrSelectElement.ToString());
+            browser.Add(nameof(Request.Browser.CanRenderEmptySelects), Request.Browser.CanRenderEmptySelects.ToString());
+            browser.Add(nameof(Request.Browser.CanRenderInputAndSelectElementsTogether), Request.Browser.CanRenderInputAndSelectElementsTogether.ToString());
+            browser.Add(nameof(Request.Browser.CanRenderMixedSelects), Request.Browser.CanRenderMixedSelects.ToString());
+            browser.Add(nameof(Request.Browser.CanRenderOneventAndPrevElementsTogether), Request.Browser.CanRenderOneventAndPrevElementsTogether.ToString());
+            browser.Add(nameof(Request.Browser.CanRenderPostBackCards), Request.Browser.CanRenderPostBackCards.ToString());
+            browser.Add(nameof(Request.Browser.CanRenderSetvarZeroWithMultiSelectionList), Request.Browser.CanRenderSetvarZeroWithMultiSelectionList.ToString());
+            browser.Add(nameof(Request.Browser.CanSendMail), Request.Browser.CanSendMail.ToString());
+            browser.Add(nameof(Request.Browser.Capabilities) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.Browser.Capabilities.Count.ToString());
+            browser.Add(nameof(Request.Browser.CDF), Request.Browser.CDF.ToString());
+            browser.Add(nameof(Request.Browser.ClrVersion) + <span style="color:#a31515;">&quot; Build&quot;</span>, Request.Browser.ClrVersion.Build.ToString());
+            browser.Add(nameof(Request.Browser.Cookies), Request.Browser.Cookies.ToString());
+            browser.Add(nameof(Request.Browser.Crawler), Request.Browser.Crawler.ToString());
+            browser.Add(nameof(Request.Browser.DefaultSubmitButtonLimit), Request.Browser.DefaultSubmitButtonLimit.ToString());
+            browser.Add(nameof(Request.Browser.EcmaScriptVersion) + <span style="color:#a31515;">&quot; Major&quot;</span>, Request.Browser.EcmaScriptVersion.Major.ToString());
+            browser.Add(nameof(Request.Browser.Frames), Request.Browser.Frames.ToString());
+            browser.Add(nameof(Request.Browser.GatewayMajorVersion), Request.Browser.GatewayMajorVersion.ToString());
+            browser.Add(nameof(Request.Browser.GatewayMinorVersion), Request.Browser.GatewayMinorVersion.ToString());
+            browser.Add(nameof(Request.Browser.GatewayVersion), Request.Browser.GatewayVersion);
+            browser.Add(nameof(Request.Browser.HasBackButton), Request.Browser.HasBackButton.ToString());
+            browser.Add(nameof(Request.Browser.HidesRightAlignedMultiselectScrollbars), Request.Browser.HidesRightAlignedMultiselectScrollbars.ToString());
+            browser.Add(nameof(Request.Browser.HtmlTextWriter), Request.Browser.HtmlTextWriter);
+            browser.Add(nameof(Request.Browser.Id), Request.Browser.Id);
+            browser.Add(nameof(Request.Browser.InputType), Request.Browser.InputType);
+            browser.Add(nameof(Request.Browser.IsColor), Request.Browser.IsColor.ToString());
+            browser.Add(nameof(Request.Browser.IsMobileDevice), Request.Browser.IsMobileDevice.ToString());
+            browser.Add(nameof(Request.Browser.JavaApplets), Request.Browser.JavaApplets.ToString());
+            browser.Add(nameof(Request.Browser.JScriptVersion) + <span style="color:#a31515;">&quot; Major&quot;</span>, Request.Browser.JScriptVersion.Major.ToString());
+            browser.Add(nameof(Request.Browser.MajorVersion), Request.Browser.MajorVersion.ToString());
+            browser.Add(nameof(Request.Browser.MaximumHrefLength), Request.Browser.MaximumHrefLength.ToString());
+            browser.Add(nameof(Request.Browser.MaximumRenderedPageSize), Request.Browser.MaximumRenderedPageSize.ToString());
+            browser.Add(nameof(Request.Browser.MaximumSoftkeyLabelLength), Request.Browser.MaximumSoftkeyLabelLength.ToString());
+            browser.Add(nameof(Request.Browser.MinorVersion), Request.Browser.MinorVersion.ToString());
+            browser.Add(nameof(Request.Browser.MinorVersionString), Request.Browser.MinorVersionString);
+            browser.Add(nameof(Request.Browser.MobileDeviceManufacturer), Request.Browser.MobileDeviceManufacturer);
+            browser.Add(nameof(Request.Browser.MobileDeviceModel), Request.Browser.MobileDeviceModel);
+            browser.Add(nameof(Request.Browser.MSDomVersion) + <span style="color:#a31515;">&quot; Major&quot;</span>, Request.Browser.MSDomVersion.Major.ToString());
+            browser.Add(nameof(Request.Browser.NumberOfSoftkeys), Request.Browser.NumberOfSoftkeys.ToString());
+            browser.Add(nameof(Request.Browser.Platform), Request.Browser.Platform);
+            browser.Add(nameof(Request.Browser.PreferredImageMime), Request.Browser.PreferredImageMime);
+            browser.Add(nameof(Request.Browser.PreferredRenderingMime), Request.Browser.PreferredRenderingMime);
+            browser.Add(nameof(Request.Browser.PreferredRenderingType), Request.Browser.PreferredRenderingType);
+            browser.Add(nameof(Request.Browser.PreferredRequestEncoding), Request.Browser.PreferredRequestEncoding);
+            browser.Add(nameof(Request.Browser.PreferredResponseEncoding), Request.Browser.PreferredResponseEncoding);
+            browser.Add(nameof(Request.Browser.RendersBreakBeforeWmlSelectAndInput), Request.Browser.RendersBreakBeforeWmlSelectAndInput.ToString());
+            browser.Add(nameof(Request.Browser.RendersBreaksAfterHtmlLists), Request.Browser.RendersBreaksAfterHtmlLists.ToString());
+            browser.Add(nameof(Request.Browser.RendersBreaksAfterWmlAnchor), Request.Browser.RendersBreaksAfterWmlAnchor.ToString());
+            browser.Add(nameof(Request.Browser.RendersBreaksAfterWmlInput), Request.Browser.RendersBreaksAfterWmlInput.ToString());
+            browser.Add(nameof(Request.Browser.RendersWmlDoAcceptsInline), Request.Browser.RendersWmlDoAcceptsInline.ToString());
+            browser.Add(nameof(Request.Browser.RendersWmlSelectsAsMenuCards), Request.Browser.RendersWmlSelectsAsMenuCards.ToString());
+            browser.Add(nameof(Request.Browser.RequiredMetaTagNameValue), Request.Browser.RequiredMetaTagNameValue);
+            browser.Add(nameof(Request.Browser.RequiresAttributeColonSubstitution), Request.Browser.RequiresAttributeColonSubstitution.ToString());
+            browser.Add(nameof(Request.Browser.RequiresContentTypeMetaTag), Request.Browser.RequiresContentTypeMetaTag.ToString());
+            browser.Add(nameof(Request.Browser.RequiresControlStateInSession), Request.Browser.RequiresControlStateInSession.ToString());
+            browser.Add(nameof(Request.Browser.RequiresDBCSCharacter), Request.Browser.RequiresDBCSCharacter.ToString());
+            browser.Add(nameof(Request.Browser.RequiresHtmlAdaptiveErrorReporting), Request.Browser.RequiresHtmlAdaptiveErrorReporting.ToString());
+            browser.Add(nameof(Request.Browser.RequiresLeadingPageBreak), Request.Browser.RequiresLeadingPageBreak.ToString());
+            browser.Add(nameof(Request.Browser.RequiresNoBreakInFormatting), Request.Browser.RequiresNoBreakInFormatting.ToString());
+            browser.Add(nameof(Request.Browser.RequiresOutputOptimization), Request.Browser.RequiresOutputOptimization.ToString());
+            browser.Add(nameof(Request.Browser.RequiresPhoneNumbersAsPlainText), Request.Browser.RequiresPhoneNumbersAsPlainText.ToString());
+            browser.Add(nameof(Request.Browser.RequiresSpecialViewStateEncoding), Request.Browser.RequiresSpecialViewStateEncoding.ToString());
+            browser.Add(nameof(Request.Browser.RequiresUniqueFilePathSuffix), Request.Browser.RequiresUniqueFilePathSuffix.ToString());
+            browser.Add(nameof(Request.Browser.RequiresUniqueHtmlCheckboxNames), Request.Browser.RequiresUniqueHtmlCheckboxNames.ToString());
+            browser.Add(nameof(Request.Browser.RequiresUniqueHtmlInputNames), Request.Browser.RequiresUniqueHtmlInputNames.ToString());
+            browser.Add(nameof(Request.Browser.RequiresUrlEncodedPostfieldValues), Request.Browser.RequiresUrlEncodedPostfieldValues.ToString());
+            browser.Add(nameof(Request.Browser.ScreenBitDepth), Request.Browser.ScreenBitDepth.ToString());
+            browser.Add(nameof(Request.Browser.ScreenCharactersHeight), Request.Browser.ScreenCharactersHeight.ToString());
+            browser.Add(nameof(Request.Browser.ScreenCharactersWidth), Request.Browser.ScreenCharactersWidth.ToString());
+            browser.Add(nameof(Request.Browser.ScreenPixelsHeight), Request.Browser.ScreenPixelsHeight.ToString());
+            browser.Add(nameof(Request.Browser.ScreenPixelsWidth), Request.Browser.ScreenPixelsWidth.ToString());
+            browser.Add(nameof(Request.Browser.SupportsAccesskeyAttribute), Request.Browser.SupportsAccesskeyAttribute.ToString());
+            browser.Add(nameof(Request.Browser.SupportsBodyColor), Request.Browser.SupportsBodyColor.ToString());
+            browser.Add(nameof(Request.Browser.SupportsBold), Request.Browser.SupportsBold.ToString());
+            browser.Add(nameof(Request.Browser.SupportsCacheControlMetaTag), Request.Browser.SupportsCacheControlMetaTag.ToString());
+            browser.Add(nameof(Request.Browser.SupportsCallback), Request.Browser.SupportsCallback.ToString());
+            browser.Add(nameof(Request.Browser.SupportsCss), Request.Browser.SupportsCss.ToString());
+            browser.Add(nameof(Request.Browser.SupportsDivAlign), Request.Browser.SupportsDivAlign.ToString());
+            browser.Add(nameof(Request.Browser.SupportsDivNoWrap), Request.Browser.SupportsDivNoWrap.ToString());
+            browser.Add(nameof(Request.Browser.SupportsEmptyStringInCookieValue), Request.Browser.SupportsEmptyStringInCookieValue.ToString());
+            browser.Add(nameof(Request.Browser.SupportsFontColor), Request.Browser.SupportsFontColor.ToString());
+            browser.Add(nameof(Request.Browser.SupportsFontName), Request.Browser.SupportsFontName.ToString());
+            browser.Add(nameof(Request.Browser.SupportsFontSize), Request.Browser.SupportsFontSize.ToString());
+            browser.Add(nameof(Request.Browser.SupportsImageSubmit), Request.Browser.SupportsImageSubmit.ToString());
+            browser.Add(nameof(Request.Browser.SupportsIModeSymbols), Request.Browser.SupportsIModeSymbols.ToString());
+            browser.Add(nameof(Request.Browser.SupportsInputIStyle), Request.Browser.SupportsInputIStyle.ToString());
+            browser.Add(nameof(Request.Browser.SupportsInputMode), Request.Browser.SupportsInputMode.ToString());
+            browser.Add(nameof(Request.Browser.SupportsItalic), Request.Browser.SupportsItalic.ToString());
+            browser.Add(nameof(Request.Browser.SupportsJPhoneMultiMediaAttributes), Request.Browser.SupportsJPhoneMultiMediaAttributes.ToString());
+            browser.Add(nameof(Request.Browser.SupportsJPhoneSymbols), Request.Browser.SupportsJPhoneSymbols.ToString());
+            browser.Add(nameof(Request.Browser.SupportsQueryStringInFormAction), Request.Browser.SupportsQueryStringInFormAction.ToString());
+            browser.Add(nameof(Request.Browser.SupportsRedirectWithCookie), Request.Browser.SupportsRedirectWithCookie.ToString());
+            browser.Add(nameof(Request.Browser.SupportsSelectMultiple), Request.Browser.SupportsSelectMultiple.ToString());
+            browser.Add(nameof(Request.Browser.SupportsUncheck), Request.Browser.SupportsUncheck.ToString());
+            browser.Add(nameof(Request.Browser.SupportsXmlHttp), Request.Browser.SupportsXmlHttp.ToString());
+            browser.Add(nameof(Request.Browser.Tables), Request.Browser.Tables.ToString());
+            browser.Add(nameof(Request.Browser.TagWriter), Request.Browser.TagWriter.FullName);
+            browser.Add(nameof(Request.Browser.Type), Request.Browser.Type);
+            browser.Add(nameof(Request.Browser.UseOptimizedCacheKey), Request.Browser.UseOptimizedCacheKey.ToString());
+            browser.Add(nameof(Request.Browser.VBScript), Request.Browser.VBScript.ToString());
+            browser.Add(nameof(Request.Browser.Version), Request.Browser.Version);
+            browser.Add(nameof(Request.Browser.W3CDomVersion) + <span style="color:#a31515;">&quot; Major&quot;</span>, Request.Browser.W3CDomVersion.Major.ToString());
+            browser.Add(nameof(Request.Browser.Win16), Request.Browser.Win16.ToString());
+            browser.Add(nameof(Request.Browser.Win32), Request.Browser.Win32.ToString());
+
+            HttpClientCertificate ClientCertificate = Request.ClientCertificate;
+            result.Add(nameof(Request.ClientCertificate) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.ClientCertificate.Count.ToString());
+
+            result.Add(nameof(Request.ContentEncoding), Request.ContentEncoding.ToString());
+            result.Add(nameof(Request.ContentLength), Request.ContentLength.ToString());
+            result.Add(nameof(Request.ContentType), Request.ContentType);
+
+            HttpCookieCollection Cookies = Request.Cookies;
+            result.Add(nameof(Request.Cookies) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.Cookies.Count.ToString());
+
+            result.Add(nameof(Request.CurrentExecutionFilePath), Request.CurrentExecutionFilePath);
+            result.Add(nameof(Request.CurrentExecutionFilePathExtension), Request.CurrentExecutionFilePathExtension);
+            result.Add(nameof(Request.FilePath), Request.FilePath);
+
+            HttpFileCollectionBase Files = Request.Files;
+            result.Add(nameof(Request.Files) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.Files.Count.ToString());
+
+            System.IO.Stream Filter = Request.Filter;
+            result.Add(nameof(Request.Filter) + <span style="color:#a31515;">&quot; Length&quot;</span>, Request.Filter.Length.ToString());
+
+            System.Collections.Specialized.NameValueCollection Form = Request.Form;
+            result.Add(nameof(Request.Form) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.Form.Count.ToString());
+
+            Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt; headers = <span style="color:#0000ff;">new</span> Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt;();
+            System.Collections.Specialized.NameValueCollection Headers = Request.Headers;
+            <span style="color:#0000ff;">foreach</span> (<span style="color:#0000ff;">var</span> item <span style="color:#0000ff;">in</span> Request.Headers.AllKeys)
+            &#123;
+                headers.Add(nameof(Request.Headers) + <span style="color:#a31515;">&quot;.&quot;</span> + item, Request.Headers[item]);
+            &#125;
+
+            System.Security.Authentication.ExtendedProtection.ChannelBinding HttpChannelBinding = Request.HttpChannelBinding;
+            result.Add(nameof(Request.HttpChannelBinding) + <span style="color:#a31515;">&quot; Size&quot;</span>, Request.HttpChannelBinding.Size.ToString());
+
+            result.Add(nameof(Request.HttpMethod), Request.HttpMethod);
+
+            System.IO.Stream InputStream = Request.InputStream;
+            result.Add(nameof(Request.InputStream), Request.InputStream.Length.ToString());
+
+            result.Add(nameof(Request.IsAuthenticated), Request.IsAuthenticated.ToString());
+            result.Add(nameof(Request.IsLocal), Request.IsLocal.ToString());
+            result.Add(nameof(Request.IsSecureConnection), Request.IsSecureConnection.ToString());
+
+            <span style="color:#008000;">//Request.Item[String]</span>
+
+            System.Security.Principal.WindowsIdentity LogonUserIdentity = Request.LogonUserIdentity;
+            result.Add(nameof(Request.LogonUserIdentity) + <span style="color:#a31515;">&quot; Name&quot;</span>, Request.LogonUserIdentity.Name.ToString());
+
+            Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt; _params = <span style="color:#0000ff;">new</span> Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt;();
+            System.Collections.Specialized.NameValueCollection Params = Request.Params;
+            <span style="color:#0000ff;">foreach</span> (<span style="color:#0000ff;">var</span> item <span style="color:#0000ff;">in</span> Request.Params.AllKeys)
+            &#123;
+                _params.Add(nameof(Request.Params) + <span style="color:#a31515;">&quot;.&quot;</span> + item, Request.Params[item]);
+            &#125;
+
+            result.Add(nameof(Request.Path), Request.Path);
+            result.Add(nameof(Request.PathInfo), Request.PathInfo);
+            result.Add(nameof(Request.PhysicalApplicationPath), Request.PhysicalApplicationPath);
+            result.Add(nameof(Request.PhysicalPath), Request.PhysicalPath);
+
+            System.Collections.Specialized.NameValueCollection QueryString = Request.QueryString;
+            result.Add(nameof(Request.QueryString) + <span style="color:#a31515;">&quot; Count&quot;</span>, Request.QueryString.Count.ToString());
+
+            result.Add(nameof(Request.RawUrl), Request.RawUrl);
+
+            System.Web.ReadEntityBodyMode ReadEntityBodyMode = Request.ReadEntityBodyMode;
+            result.Add(nameof(Request.ReadEntityBodyMode), Request.ReadEntityBodyMode.ToString());
+
+            System.Web.Routing.RequestContext RequestContext = Request.RequestContext;
+
+            result.Add(nameof(Request.RequestType), Request.RequestType);
+
+            Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt; serverVariables = <span style="color:#0000ff;">new</span> Dictionary&lt;<span style="color:#0000ff;">string</span>, <span style="color:#0000ff;">string</span>&gt;();
+            System.Collections.Specialized.NameValueCollection ServerVariables = Request.ServerVariables;
+            <span style="color:#0000ff;">foreach</span> (<span style="color:#0000ff;">var</span> item <span style="color:#0000ff;">in</span> Request.ServerVariables.AllKeys)
+            &#123;
+                serverVariables.Add(nameof(Request.ServerVariables) + <span style="color:#a31515;">&quot;.&quot;</span> + item, Request.ServerVariables[item]);
+            &#125;
+
+            System.Threading.CancellationToken TimedOutToken = Request.TimedOutToken;
+            result.Add(nameof(Request.TimedOutToken) + <span style="color:#a31515;">&quot;.IsCancellationRequested&quot;</span>, Request.TimedOutToken.IsCancellationRequested.ToString());
+
+            result.Add(nameof(Request.TotalBytes), Request.TotalBytes.ToString());
+
+            UnvalidatedRequestValuesBase Unvalidated = Request.Unvalidated;
+            Uri Url = Request.Url;
+            Uri UrlReferrer = Request.UrlReferrer;
+
+            result.Add(nameof(Request.UserAgent), Request.UserAgent);
+            result.Add(nameof(Request.UserHostAddress), Request.UserHostAddress);
+            result.Add(nameof(Request.UserHostName), Request.UserHostName);
+            result.Add(nameof(Request.UserLanguages), <span style="color:#0000ff;">string</span>.Join(<span style="color:#a31515;">&quot; &quot;</span>, Request.UserLanguages));
+
+            ViewBag.browser = browser;
+            ViewBag.headers = headers;
+            ViewBag._params = _params;
+            ViewBag.serverVariables = serverVariables;
+
+            <span style="color:#0000ff;">return</span> View(result);
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>HttpRequestBase 類別 (就是Controller底下的Request屬性) 可以用來</p>
+
+<p>1、取使用者IP (UserHostAddress)</p>
+
+<p>2、判斷使用者的作業系統、瀏灠器版本為何 (UserAgent)</p>
+
+<p>3、判斷使用者是否使用手持裝置 (IsMobileDevice)</p>
+
+<p>4、是否開啟或支援java、JavaScript (Request.Browser.JavaApplets)</p>
+
+<p>5、取得cookies、QueryString、header等資訊</p>
+
+<p>&nbsp;</p>
+
+<p>HttpRequestBase 類別的屬性很多，但並不是所有資訊都正確，僅供參考。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/system.web.httprequestbase(v=vs.110).aspx">HttpRequestBase 類別</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-us/library/ms525396(v=vs.90).aspx">Request.ServerVariables Collection</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://mirlab.org/jang/books/asp/example/request/serverVariables.asp">列出 Request.ServerVariables</a></p>
+
+<p><a target="_blank" rel="noopener" href="http://devco.re/blog/2014/06/19/client-ip-detection/">如何正確的取得使用者 IP？</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/system.web.httprequest%28v=vs.110%29.aspx?f=255&amp;MSPPError=-2147217396">HttpRequest 類別 (System.Web)</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/system.web.httpresponse%28v=vs.110%29.aspx?f=255&amp;MSPPError=-2147217396">HttpResponse 類別 (System.Web)</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+              <a href="/tags/Internet/" rel="tag"># Internet</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/21/Loading-animation/" rel="prev" title="Loading動畫範例">
+                  <i class="fa fa-angle-left"></i> Loading動畫範例
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/03/28/Dictionary/" rel="next" title="Dictionary 類別的使用">
+                  Dictionary 類別的使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

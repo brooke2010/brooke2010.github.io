@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCSS語法 - @at-root、@include、Mixin Directives">
+<meta property="og:url" content="https://brooke2010.github.io/2017/12/20/SCSS-at-root-include-Mixin-Directives/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-20T02:27:46.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.664Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="SASS">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2017/12/20/SCSS-at-root-include-Mixin-Directives/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2017/12/20/SCSS-at-root-include-Mixin-Directives/","path":"2017/12/20/SCSS-at-root-include-Mixin-Directives/","title":"SCSS語法 - @at-root、@include、Mixin Directives"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SCSS語法 - @at-root、@include、Mixin Directives | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2017/12/20/SCSS-at-root-include-Mixin-Directives/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SCSS語法 - @at-root、@include、Mixin Directives | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SCSS語法 - @at-root、@include、Mixin Directives
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-12-20 10:27:46" itemprop="dateCreated datePublished" datetime="2017-12-20T10:27:46+08:00">2017-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SASS/" itemprop="url" rel="index"><span itemprop="name">SASS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/12/20/SCSS-at-root-include-Mixin-Directives/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/20/SCSS-at-root-include-Mixin-Directives/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、@Rules and Directives</p>
+
+<p>1、@at-root</p>
+
+<p>在@at-root指示詞範圍內，其樣式在編譯後將獨立出來，</p>
+
+<p>並不會被包在父層裡面。</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.error</span> {
+    <span style="color: #1e90ff">border</span>: <span style="color: #009999">1</span><span style="color: #00aaaa">px</span> <span style="color: #009999">#f00</span>;
+    <span style="color: #1e90ff">background-color</span>: <span style="color: #009999">#fdd</span>;
+    <span style="color: #0000aa">@at-root</span> {
+        <span style="color: #00aa00; text-decoration: underline"><span style="background-color:#FFFF00;">.child</span></span><span style="background-color:#FFFF00;"> {</span>
+        <span style="background-color:#FFFF00;">    </span><span style="color: #1e90ff"><span style="background-color:#FFFF00;">color</span></span><span style="background-color:#FFFF00;">: </span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">red</span></span><span style="background-color:#FFFF00;">;</span>
+        <span style="background-color:#FFFF00;">}</span>
+    }
+}
+</pre>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.error</span> {
+  <span style="color: #1e90ff">border</span>: <span style="color: #009999">1</span><span style="color: #00aaaa">px</span> <span style="color: #009999">#f00</span>;
+  <span style="color: #1e90ff">background-color</span>: <span style="color: #009999">#fdd</span>;
+}
+<span style="color: #00aa00; text-decoration: underline"><span style="background-color:#FFFF00;">.child</span></span><span style="background-color:#FFFF00;"> {</span>
+<span style="background-color:#FFFF00;">  </span><span style="color: #1e90ff"><span style="background-color:#FFFF00;">color</span></span><span style="background-color:#FFFF00;">: </span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">red</span></span><span style="background-color:#FFFF00;">;</span>
+<span style="background-color:#FFFF00;">}</span>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>在@media裡面則使用@at-root指示詞加上「(with)或(without)」則可以達成不同目地，羅列如下</p>
+
+<p>a、</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@media</span> <span style="color: #1e90ff; font-weight: bold">print</span> {
+    <span style="color: #00aa00; text-decoration: underline">.error</span> {
+        <span style="color: #1e90ff">border</span>: <span style="color: #009999">1</span><span style="color: #00aaaa">px</span> <span style="color: #009999">#f00</span>;
+        <span style="color: #1e90ff">background-color</span>: <span style="color: #009999">#fdd</span>;
+        <span style="color: #0000aa">@at-root</span> (<span style="color: #1e90ff; font-weight: bold"><span style="background-color:#FFFF00;">without</span></span><span style="color: #888888"><span style="background-color:#FFFF00;">:</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #1e90ff; font-weight: bold"><span style="background-color:#FFFF00;">rule</span></span>) {
+            <span style="color: #00aa00; text-decoration: underline">.child</span> {
+                <span style="color: #1e90ff">color</span>: <span style="color: #00aaaa">red</span>;
+            }
+        }
+    }
+}
+</pre>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@media</span> <span style="color: #1e90ff; font-weight: bold">print</span> {
+  <span style="color: #00aa00; text-decoration: underline">.error</span> {
+    <span style="color: #0000aa">border</span>: <span style="color: #009999">1px</span> <span style="color: #009999">#f00</span>;
+    <span style="color: #0000aa">background-color</span>: <span style="color: #009999">#fdd</span>;
+  }
+  <span style="color: #00aa00; text-decoration: underline">.child</span> {
+    <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">red</span>;
+  }
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>b、</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@media</span> <span style="color: #1e90ff; font-weight: bold">print</span> {
+    <span style="color: #00aa00; text-decoration: underline">.error</span> {
+        <span style="color: #1e90ff">border</span>: <span style="color: #009999">1</span><span style="color: #00aaaa">px</span> <span style="color: #009999">#f00</span>;
+        <span style="color: #1e90ff">background-color</span>: <span style="color: #009999">#fdd</span>;
+        <span style="color: #0000aa">@at-root</span> (<span style="color: #1e90ff; font-weight: bold"><span style="background-color:#FFFF00;">without</span></span><span style="color: #888888"><span style="background-color:#FFFF00;">:</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #1e90ff; font-weight: bold"><span style="background-color:#FFFF00;">media</span></span>) {
+            <span style="color: #00aa00; text-decoration: underline">.child</span> {
+                <span style="color: #1e90ff">color</span>: <span style="color: #00aaaa">red</span>;
+            }
+        }
+    }
+}
+</pre>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@media</span> <span style="color: #1e90ff; font-weight: bold">print</span> {
+  <span style="color: #00aa00; text-decoration: underline">.error</span> {
+    <span style="color: #0000aa">border</span>: <span style="color: #009999">1px</span> <span style="color: #009999">#f00</span>;
+    <span style="color: #0000aa">background-color</span>: <span style="color: #009999">#fdd</span>;
+  }
+}
+<span style="color: #00aa00; text-decoration: underline">.error</span> <span style="color: #00aa00; text-decoration: underline">.child</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">red</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>c、</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@media</span> <span style="color: #1e90ff; font-weight: bold">print</span> {
+    <span style="color: #00aa00; text-decoration: underline">.error</span> {
+        <span style="color: #1e90ff">border</span>: <span style="color: #009999">1</span><span style="color: #00aaaa">px</span> <span style="color: #009999">#f00</span>;
+        <span style="color: #1e90ff">background-color</span>: <span style="color: #009999">#fdd</span>;
+        <span style="color: #0000aa">@at-root</span> (<span style="color: #1e90ff; font-weight: bold"><span style="background-color:#FFFF00;">without</span></span><span style="color: #888888"><span style="background-color:#FFFF00;">:</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #1e90ff; font-weight: bold"><span style="background-color:#FFFF00;">all</span></span>) {
+            <span style="color: #00aa00; text-decoration: underline">.child</span> {
+                <span style="color: #1e90ff">color</span>: <span style="color: #00aaaa">red</span>;
+            }
+        }
+    }
+}
+</pre>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@media</span> <span style="color: #1e90ff; font-weight: bold">print</span> {
+  <span style="color: #00aa00; text-decoration: underline">.error</span> {
+    <span style="color: #0000aa">border</span>: <span style="color: #009999">1px</span> <span style="color: #009999">#f00</span>;
+    <span style="color: #0000aa">background-color</span>: <span style="color: #009999">#fdd</span>;
+  }
+}
+<span style="color: #00aa00; text-decoration: underline">.child</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">red</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>2、@debug、@warn、@error</p>
+
+<p>@debug、@warn、@error這三個指示詞都對於scss偵錯都很有幫助，暫不舉例。</p>
+
+<p>&nbsp;</p>
+
+<p>二、Miinx directive</p>
+
+<p>@mixin指示詞的用途類似「方法」，需搭配@include使用，</p>
+
+<p>可以跟@extend、function比較看看。</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aaaaaa; font-style: italic">/*裡面可以只放屬性*/</span>
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> red-property</span> {
+    <span style="color: #1e90ff">color</span>: <span style="color: #00aaaa">red</span>;
+}
+
+<p><span style="color: #00aa00; text-decoration: underline">.page-title</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> red-property</span>;<br>}</p>
+<p><span style="color: #aaaaaa; font-style: italic">&#x2F;<em>裡面可以包含元素</em>&#x2F;</span><br><span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> red-element</span> {<br>    <span style="color: #1e90ff; font-weight: bold">p</span> {<br>        <span style="color: #1e90ff">color</span>: <span style="color: #00aaaa">red</span>;<br>    }<br>}</p>
+<p><span style="color: #00aa00; text-decoration: underline">.page-title2</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> red-element</span>;<br>}</p>
+<p><span style="color: #aaaaaa; font-style: italic">&#x2F;<em>可以單獨使用include</em>&#x2F;</span><br><span style="color: #0000aa">@include</span><span style="color: #888888"> red-element</span>;<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@charset</span> <span style="color: #aa5500">&quot;UTF-8&quot;</span>;
+<span style="color: #aaaaaa; font-style: italic">/*裡面可以只放屬性*/</span>
+<span style="color: #00aa00; text-decoration: underline">.page-title</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">red</span>;
+}
+
+<p><span style="color: #aaaaaa; font-style: italic">&#x2F;<em>裡面可以包含元素</em>&#x2F;</span><br><span style="color: #00aa00; text-decoration: underline">.page-title2</span> <span style="color: #1e90ff; font-weight: bold">p</span> {<br>  <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">red</span>;<br>}</p>
+<p><span style="color: #aaaaaa; font-style: italic">&#x2F;<em>可以單獨使用include</em>&#x2F;</span><br><span style="color: #1e90ff; font-weight: bold">p</span> {<br>  <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">red</span>;<br>}<br></pre></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>另外@include也可以配合參數使用</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> mack-color</span>(<span style="color: #aa0000">$value</span>) {
+    <span style="color: #1e90ff">color</span>: <span style="color: #aa0000">$value</span>;
+}
+
+<p><span style="color: #00aa00; text-decoration: underline">.box</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> mack-color</span>(<span style="color: #009999">#fff</span>);<br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.box</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #009999">#fff</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>對於所定義的參數可以設定預設值</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> mack-color</span>(<span style="color: #aa0000">$value</span>, <span style="color: #aa0000"><span style="background-color:#FFFF00;">$width</span></span><span style="background-color:#FFFF00;">: </span><span style="color: #009999"><span style="background-color:#FFFF00;">100</span></span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">px</span></span>) {
+    <span style="color: #1e90ff">color</span>: <span style="color: #aa0000">$value</span>;
+    <span style="color: #1e90ff">width</span>: <span style="color: #aa0000">$width</span>;
+}
+
+<p><span style="color: #00aa00; text-decoration: underline">.box</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> mack-color</span>(<span style="color: #009999">#fff</span>);<br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.box</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #009999">#fff</span>;
+  <span style="color: #0000aa">width</span>: <span style="color: #009999">100px</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>可以特別註明參數名稱</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> mack-color</span>(<span style="color: #aa0000"><span style="background-color:#FFFF00;">$value</span></span>, <span style="color: #aa0000">$width</span>: <span style="color: #009999">100</span><span style="color: #00aaaa">px</span>) {
+    <span style="color: #1e90ff">color</span>: <span style="color: #aa0000">$value</span>;
+    <span style="color: #1e90ff">width</span>: <span style="color: #aa0000">$width</span>;
+}
+
+<p><span style="color: #00aa00; text-decoration: underline">.box</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> mack-color</span>(<span style="color: #aa0000"><span style="background-color:#FFFF00;">$value</span></span><span style="background-color:#FFFF00;">:</span><span style="color: #009999"><span style="background-color:#FFFF00;">#fff</span></span>);<br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.box</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #009999">#fff</span>;
+  <span style="color: #0000aa">width</span>: <span style="color: #009999">100px</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>Variable Arguments</p>
+
+<p>如果參數是變動的，可以使用如「$args...」形式放入@mixin來代入</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> box-shadow</span>(<span style="color: #aa0000"><span style="background-color:#FFFF00;">$shadows</span></span><span style="background-color:#FFFF00;">...</span>) {
+    <span style="color: #1e90ff">-moz-box-shadow</span>: <span style="color: #aa0000">$shadows</span>;
+    <span style="color: #1e90ff">-webkit-box-shadow</span>: <span style="color: #aa0000">$shadows</span>;
+    <span style="color: #1e90ff">box-shadow</span>: <span style="color: #aa0000">$shadows</span>;
+}
+
+<p><span style="color: #00aa00; text-decoration: underline">.shadows</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> box-shadow</span>(<span style="color: #009999"><span style="background-color:#FFFF00;">0</span></span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">px</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #009999"><span style="background-color:#FFFF00;">4</span></span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">px</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #009999"><span style="background-color:#FFFF00;">5</span></span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">px</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #009999"><span style="background-color:#FFFF00;">#666</span></span><span style="background-color:#FFFF00;">, </span><span style="color: #009999"><span style="background-color:#FFFF00;">2</span></span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">px</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #009999"><span style="background-color:#FFFF00;">6</span></span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">px</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #009999"><span style="background-color:#FFFF00;">10</span></span><span style="color: #00aaaa"><span style="background-color:#FFFF00;">px</span></span><span style="background-color:#FFFF00;"> </span><span style="color: #009999"><span style="background-color:#FFFF00;">#999</span></span>);<br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.shadows</span> {
+  -moz-box-shadow: <span style="color: #009999">0px</span> <span style="color: #009999">4px</span> <span style="color: #009999">5px</span> <span style="color: #009999">#666</span>, <span style="color: #009999">2px</span> <span style="color: #009999">6px</span> <span style="color: #009999">10px</span> <span style="color: #009999">#999</span>;
+  -webkit-box-shadow: <span style="color: #009999">0px</span> <span style="color: #009999">4px</span> <span style="color: #009999">5px</span> <span style="color: #009999">#666</span>, <span style="color: #009999">2px</span> <span style="color: #009999">6px</span> <span style="color: #009999">10px</span> <span style="color: #009999">#999</span>;
+  box-shadow: <span style="color: #009999">0px</span> <span style="color: #009999">4px</span> <span style="color: #009999">5px</span> <span style="color: #009999">#666</span>, <span style="color: #009999">2px</span> <span style="color: #009999">6px</span> <span style="color: #009999">10px</span> <span style="color: #009999">#999</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>另一種「$args...」是放在@include裡</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> colors</span>(<span style="color: #aa0000">$text</span>, <span style="color: #aa0000">$background</span>, <span style="color: #aa0000">$border</span>) {
+    <span style="color: #1e90ff">color</span>: <span style="color: #aa0000">$text</span>;
+    <span style="color: #1e90ff">background-color</span>: <span style="color: #aa0000">$background</span>;
+    <span style="color: #1e90ff">border-color</span>: <span style="color: #aa0000">$border</span>;
+}
+
+<p><span style="color: #aa0000"><span style="background-color:#FFFF00;">$values</span></span>: <span style="color: #009999">#ff0000</span>, <span style="color: #009999">#00ff00</span>, <span style="color: #009999">#0000ff</span>;</p>
+<p><span style="color: #00aa00; text-decoration: underline">.primary</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> colors</span>(<span style="color: #aa0000"><span style="background-color:#FFFF00;">$values</span></span><span style="background-color:#FFFF00;">…</span>);<br>}</p>
+<p><span style="color: #aa0000"><span style="background-color:#00FFFF;">$value-map</span></span>: (<span style="color: #aa0000">text</span>: <span style="color: #009999">#00ff00</span>, <span style="color: #aa0000">background</span>: <span style="color: #009999">#0000ff</span>, <span style="color: #aa0000">border</span>: <span style="color: #009999">#ff0000</span>);</p>
+<p><span style="color: #00aa00; text-decoration: underline">.secondary</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> colors</span>(<span style="color: #aa0000"><span style="background-color:#00FFFF;">$value-map</span></span><span style="background-color:#00FFFF;">…</span>);<br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.primary</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #009999">#ff0000</span>;
+  <span style="color: #0000aa">background-color</span>: <span style="color: #009999">#00ff00</span>;
+  <span style="color: #0000aa">border-color</span>: <span style="color: #009999">#0000ff</span>;
+}
+
+<p><span style="color: #00aa00; text-decoration: underline">.secondary</span> {<br>  <span style="color: #0000aa">color</span>: <span style="color: #009999">#00ff00</span>;<br>  <span style="color: #0000aa">background-color</span>: <span style="color: #009999">#0000ff</span>;<br>  <span style="color: #0000aa">border-color</span>: <span style="color: #009999">#ff0000</span>;<br>}<br></pre></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>另一種「$args...」例子</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> stylish-mixin</span>(<span style="color: #aa0000">$color</span>,<span style="color: #aa0000">$width</span>) {
+    <span style="color: #1e90ff">color</span>: <span style="color: #aa0000">$color</span>;
+    <span style="color: #1e90ff">width</span>: <span style="color: #aa0000">width</span>;
+}
+
+<p><span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> wrapped-stylish-mixin</span>(<span style="color: #aa0000"><span style="background-color:#FFFF00;">$args</span></span><span style="background-color:#FFFF00;">…</span>) {<br>    <span style="color: #1e90ff">font-weight</span>: <span style="color: #aa0000">bold</span>;<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> stylish-mixin</span>(<span style="color: #aa0000"><span style="background-color:#FFFF00;">$args</span></span><span style="background-color:#FFFF00;">…</span>);<br>}</p>
+<p><span style="color: #00aa00; text-decoration: underline">.stylish</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> wrapped-stylish-mixin</span>(<span style="color: #009999">#00ff00</span>, <span style="color: #aa0000">$width</span>: <span style="color: #009999">100</span><span style="color: #00aaaa">px</span>);<br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.stylish</span> {
+  <span style="color: #0000aa">font-weight</span>: <span style="color: #0000aa">bold</span>;
+  <span style="color: #0000aa">color</span>: <span style="color: #009999">#00ff00</span>;
+  <span style="color: #0000aa">width</span>: <span style="color: #0000aa">width</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>可以利用@content指示詞來把@include指定的內容代入</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> apply-to-ie6-only</span> {
+    <span style="color: #1e90ff; font-weight: bold">p</span> {
+        <span style="color: #0000aa"><span style="background-color:#FFFF00;">@content</span></span><span style="background-color:#FFFF00;">;</span>
+    }
+}
+
+<p><span style="color: #0000aa">@include</span><span style="color: #888888"> apply-to-ie6-only</span> {<br>    <span style="color: #00aaaa; text-decoration: underline"><span style="background-color:#FFFF00;">#logo</span></span><span style="background-color:#FFFF00;"> {</span><br>    <span style="background-color:#FFFF00;">    </span><span style="color: #1e90ff"><span style="background-color:#FFFF00;">background-image</span></span><span style="background-color:#FFFF00;">: </span><span style="color: #aa5500"><span style="background-color:#FFFF00;">url(&#x2F;logo.gif)</span></span><span style="background-color:#FFFF00;">;</span><br>    <span style="background-color:#FFFF00;">}</span><br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #1e90ff; font-weight: bold">p</span> <span style="color: #00aa00">#logo</span> {
+  <span style="color: #0000aa">background-image</span>: <span style="color: #aa5500">url(/logo.gif)</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>@content指示詞與變數範圍的關係</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aa0000">$color</span>: <span style="color: #00aaaa">white</span>;
+
+<p><span style="color: #0000aa">@mixin</span><span style="color: #00aa00"> colors</span>(<span style="color: #aa0000">$color</span>: <span style="color: #00aaaa">blue</span>) {<br>    <span style="color: #1e90ff">background-color</span>: <span style="color: #aa0000">$color</span>;<br>    <span style="color: #0000aa">@content</span>;<br>    <span style="color: #1e90ff; font-weight: bold">border-color</span><span style="color: #888888">:</span> <span style="color: #FF0000; background-color: #FFAAAA">$</span><span style="color: #1e90ff; font-weight: bold">color</span>;<br>}</p>
+<p><span style="color: #00aa00; text-decoration: underline">.colors</span> {<br>    <span style="color: #0000aa">@include</span><span style="color: #888888"> colors</span> {<br>        <span style="color: #1e90ff">color</span>: <span style="color: #aa0000">$color</span>;<br>    }<br>}<br></pre></p>
+</div>
+
+<p>css輸出</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #00aa00; text-decoration: underline">.colors</span> {
+  <span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">blue</span>;
+  <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">white</span>;
+  <span style="color: #0000aa">border-color</span>: <span style="color: #00aaaa">blue</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://blog.gtwang.org/web-development/autoprefixer-css-vender-prefixes/">Autoprefixer：最佳的 CSS 供應商前綴（Vender Prefixes）後處理器</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SASS/" rel="tag"># SASS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/17/SCSS-SassScript-Variables/" rel="prev" title="SCSS語法 - SassScript - Variables、除減法運算">
+                  <i class="fa fa-angle-left"></i> SCSS語法 - SassScript - Variables、除減法運算
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/12/20/SCSS-import-media-extend/" rel="next" title="SCSS語法 - @import、@media、@extend">
+                  SCSS語法 - @import、@media、@extend <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

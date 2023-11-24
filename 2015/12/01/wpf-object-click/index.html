@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WPF屬性與基本物件點選操作">
+<meta property="og:url" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448953666_25993.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448955410_09138.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448955610_7433.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448956342_47767.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448956616_57318.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448962963_10968.png">
+<meta property="og:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448965029_02488.png">
+<meta property="article:published_time" content="2015-12-01T04:07:28.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:56.182Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="WPF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2015/12/01/wpf-object-click/1448953666_25993.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2015/12/01/wpf-object-click/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2015/12/01/wpf-object-click/","path":"2015/12/01/wpf-object-click/","title":"WPF屬性與基本物件點選操作"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>WPF屬性與基本物件點選操作 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2015/12/01/wpf-object-click/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="WPF屬性與基本物件點選操作 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WPF屬性與基本物件點選操作
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-12-01 12:07:28" itemprop="dateCreated datePublished" datetime="2015-12-01T12:07:28+08:00">2015-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:56" itemprop="dateModified" datetime="2023-11-24T13:45:56+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/WPF/" itemprop="url" rel="index"><span itemprop="name">WPF</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2015/12/01/wpf-object-click/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/01/wpf-object-click/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>wpf中有兩種屬性名詞還蠻值得探討的。</p>
+
+<p>一、附加屬性(attached property)</p>
+
+<p>指使用父項型別的屬性來做為附加屬性(用法有點像靜態屬性)，</p>
+
+<p>例如當設定了之後，父元素移動位置時，子元素也會做相對位置的移動。</p>
+
+<p>設定方法為</p>
+
+<p><img height="482" src="1448953666_25993.png" width="697" /></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">&lt;</span>Canvas x<span style="color:#808030; ">:</span>Name<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Canvas1</span><span style="color:#800000; ">&quot;</span>  HorizontalAlignment<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Left</span><span style="color:#800000; ">&quot;</span> Height<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> Margin<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">190,100,0,0</span><span style="color:#800000; ">&quot;</span> VerticalAlignment<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Top</span><span style="color:#800000; ">&quot;</span> Width<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">&gt;</span>
+    <span style="color:#808030; ">&lt;</span>Canvas x<span style="color:#808030; ">:</span>Name<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Canvas2</span><span style="color:#800000; ">&quot;</span> Height<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> Width<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> <span style="background-color:#FFFF00;">Canvas</span><span style="color:#808030; "><span style="background-color:#FFFF00;">.</span></span><span style="background-color:#FFFF00;">Top</span><span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">-65</span><span style="color:#800000; ">&quot;</span> <span style="background-color:#FFFF00;">Canvas</span><span style="color:#808030; "><span style="background-color:#FFFF00;">.</span></span><span style="background-color:#FFFF00;">Left</span><span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">60</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">&gt;</span>
+        <span style="color:#808030; ">&lt;</span>Canvas x<span style="color:#808030; ">:</span>Name<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Canvas3</span><span style="color:#800000; ">&quot;</span>  Height<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> Canvas<span style="color:#808030; ">.</span>Left<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> Canvas<span style="color:#808030; ">.</span>Top<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">80</span><span style="color:#800000; ">&quot;</span> Width<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">/</span><span style="color:#808030; ">&gt;</span>
+    <span style="color:#808030; ">&lt;</span><span style="color:#808030; ">/</span>Canvas<span style="color:#808030; ">&gt;</span>
+<span style="color:#808030; ">&lt;</span><span style="color:#808030; ">/</span>Canvas<span style="color:#808030; ">&gt;</span>
+</pre>
+
+<p>如上例，</p>
+
+<p>Canvas2的Canvas.Top=&quot;-65&quot;，意思為Canvas2距離Canvas1上緣往上推65距離的位置為起點，</p>
+
+<p>Canvas2的Canvas.Left=&quot;60&quot;，意思為Canvas2距離Canvas1左側往右推60距離的位置為起點。</p>
+
+<p>&nbsp;</p>
+
+<p>二、相依屬性(dependency property)</p>
+
+<p>相依屬性是很自然而然地發生的，承上例，</p>
+
+<p><img height="214" src="1448955410_09138.png" width="345" /></p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#808030; ">&lt;</span>Canvas x<span style="color:#808030; ">:</span>Name<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Canvas1</span><span style="color:#800000; ">&quot;</span>  HorizontalAlignment<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Left</span><span style="color:#800000; ">&quot;</span> Height<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> Margin<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">114,97,0,0</span><span style="color:#800000; ">&quot;</span> VerticalAlignment<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Top</span><span style="color:#800000; ">&quot;</span> Width<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> <span style="background-color:#FFFF00;">Background</span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#800000; "><span style="background-color:#FFFF00;">&quot;</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">AliceBlue</span></span><span style="color:#800000; "><span style="background-color:#FFFF00;">&quot;</span></span><span style="color:#808030; ">&gt;</span>
+    <span style="color:#808030; ">&lt;</span>Canvas x<span style="color:#808030; ">:</span>Name<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">Canvas2</span><span style="color:#800000; ">&quot;</span> Height<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> Width<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">100</span><span style="color:#800000; ">&quot;</span> Canvas<span style="color:#808030; ">.</span>Left<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">65</span><span style="color:#800000; ">&quot;</span> Canvas<span style="color:#808030; ">.</span>Top<span style="color:#808030; ">=</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">-65</span><span style="color:#800000; ">&quot;</span> <span style="background-color:#FFFF00;">Background</span><span style="color:#808030; "><span style="background-color:#FFFF00;">=</span></span><span style="color:#800000; "><span style="background-color:#FFFF00;">&quot;</span></span><span style="color:#0000e6; "><span style="background-color:#FFFF00;">Aqua</span></span><span style="color:#800000; "><span style="background-color:#FFFF00;">&quot;</span></span><span style="color:#808030; ">&gt;</span>
+    <span style="color:#808030; ">&lt;</span><span style="color:#808030; ">/</span>Canvas<span style="color:#808030; ">&gt;</span>
+<span style="color:#808030; ">&lt;</span><span style="color:#808030; ">/</span>Canvas<span style="color:#808030; ">&gt;</span>
+</pre>
+
+<p>Canvas2指定背景色為Aqua，當把Canvas2的背景色屬性移除時，</p>
+
+<p><img height="210" src="1448955610_7433.png" width="348" />會發現Canvas2變透明了，但其左下角的顏色卻不是也變成透明，</p>
+
+<p>反而是繼承了Canvas1的顏色，這就是相依屬性的作用，</p>
+
+<p>但是以「人」的觀點來看，這是很自然發生的。</p>
+
+<p>&nbsp;</p>
+
+<p>三、物件點選</p>
+
+<p>當你想要於Design區域藉由點擊某物件來找尋該物件的XAML代碼時，</p>
+
+<p><img height="506" src="1448956342_47767.png" width="459" />可以直接在XAML Code反灰區域發現該物件代碼起始位置，</p>
+
+<p>然後再按一下右側卷軸即可出現編輯游標</p>
+
+<p><img height="188" src="1448956616_57318.png" width="318" /></p>
+
+<p>&nbsp;</p>
+
+<p>若想移動某物件卻發現移不了時，</p>
+
+<p>請務必將滑鼠游標放在該物件的邊界上，此時滑鼠圖示變成類似下圖圖案時，</p>
+
+<p>再按住該物件不放才可移動該物件。</p>
+
+<p><img height="231" src="1448962963_10968.png" width="242" /></p>
+
+<p>四、距離與刻度</p>
+
+<p>於Blend操作時會發現Design區域會有許多刻度，如下圖，</p>
+
+<p><img height="458" src="1448965029_02488.png" width="500" />1~3項與4~6項刻度是以整個mainwindow畫布來當作絕對位置，</p>
+
+<p>7項與14項為畫布X軸原點到canvas物件的距離108，</p>
+
+<p>10項與13項為畫布Y軸原點到canvas物件的距離24，</p>
+
+<p>8項表示canvas物件的寬度為100，</p>
+
+<p>11項表示canvas物件的高度為100，</p>
+
+<p>至於第9與第12項我就不知道是什麼意思了。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/library/ms749011(v=vs.100).aspx">附加屬性概觀</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/ms751709(v=vs.110).aspx">對齊、邊界和填補概觀</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/zh-tw/library/ms754152(v=vs.110).aspx">面板概觀</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WPF/" rel="tag"># WPF</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/11/09/Hello-Codova/" rel="prev" title="[Codova] Hello Codova">
+                  <i class="fa fa-angle-left"></i> [Codova] Hello Codova
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/12/16/git-commit-a-amend-git-reset/" rel="next" title="git commit -a --amend與git reset的使用">
+                  git commit -a --amend與git reset的使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

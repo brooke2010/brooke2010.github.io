@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack 的使用">
+<meta property="og:url" content="https://brooke2010.github.io/2018/08/22/webpack-use/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535434621_82451.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535425463_88856.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535425534_99728.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535426021_86501.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535426102_07985.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535426259_81728.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535426734_79434.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535427043_67345.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535427309_36368.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535431019_05828.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535432146_79863.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535432298_54755.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535432410_75111.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535432807_436.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535434489_22032.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535433337_74151.png">
+<meta property="og:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535435892_90053.png">
+<meta property="article:published_time" content="2018-08-22T00:24:57.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:56.139Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="webpack">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2018/08/22/webpack-use/1535434621_82451.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2018/08/22/webpack-use/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2018/08/22/webpack-use/","path":"2018/08/22/webpack-use/","title":"webpack 的使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>webpack 的使用 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2018/08/22/webpack-use/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="webpack 的使用 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          webpack 的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-08-22 08:24:57" itemprop="dateCreated datePublished" datetime="2018-08-22T08:24:57+08:00">2018-08-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:56" itemprop="dateModified" datetime="2023-11-24T13:45:56+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/webpack/" itemprop="url" rel="index"><span itemprop="name">webpack</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/08/22/webpack-use/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/22/webpack-use/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>此文章主要記述使用 webpack 的基本流程，用 step by step 方式介紹，</p>
+
+<p>為避免文章失焦，故跟&nbsp;webpack 主題無關的，皆當大家都知道了，不再特別說明。</p>
+
+<p>&nbsp;</p>
+
+<p>一、安裝npm</p>
+
+<p>webpack 套件需經由 npm 安裝，故請先把 npm裝好。</p>
+
+<p><img height="77" src="1535434621_82451.png" width="91" /></p>
+
+<p>&nbsp;</p>
+
+<p>二、新增一個&nbsp;webpack-demo 資料夾</p>
+
+<p>資料夾名稱目前不接受中文。</p>
+
+<p>&nbsp;</p>
+
+<p>三、並到資料夾下執行 $ npm init -y</p>
+
+<p><img height="320" src="1535425463_88856.png" width="468" /></p>
+
+<p>&nbsp;</p>
+
+<p>四、此時 webpack-demo 資料夾結構為</p>
+
+<p><img height="103" src="1535425534_99728.png" width="206" /></p>
+
+<p>&nbsp;</p>
+
+<p>五、webpack 可支持預設的「進入點」與結構</p>
+
+<p>可以無需再添加&nbsp;webpack.config.js ，但為了更能細部控制 webpack，</p>
+
+<p>webpack.config.js 的設定以後還是需要的。</p>
+
+<p>webpack.config.js 內容與檔案放置的位址請看第十七項。</p>
+
+<p>&nbsp;</p>
+
+<p>六、新增 src 與 dist 資料夾</p>
+
+<p><img height="139" src="1535426021_86501.png" width="252" /></p>
+
+<p>webpack 會將 src 裡的來源檔轉譯出的檔案放到 dist 資料夾裡</p>
+
+<p>&nbsp;</p>
+
+<p>七、src 資料夾放入 index.js</p>
+
+<p><img height="88" src="1535426102_07985.png" width="209" /></p>
+
+<p>內容為(ES6 語法)</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#696969; ">// ES6 modules imports</span>
+<span style="color:#800000; font-weight:bold; ">import</span> <span style="color:#800080; ">{</span> library<span style="color:#808030; ">,</span> dom <span style="color:#800080; ">}</span> from <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">@fortawesome/fontawesome-svg-core</span><span style="color:#800000; ">&#39;</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">import</span> <span style="color:#800080; ">{</span> faCoffee <span style="color:#800080; ">}</span> from <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">@fortawesome/free-solid-svg-icons/faCoffee</span><span style="color:#800000; ">&#39;</span><span style="color:#800080; ">;</span>
+library<span style="color:#808030; ">.</span>add<span style="color:#808030; ">(</span>faCoffee<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+dom<span style="color:#808030; ">.</span>i2svg<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+<!--Created using ToHtml.com on 2019-06-11 08:20:27 UTC -->
+
+<p>&nbsp;</p>
+
+<p>也等於 commonJS 語法</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#696969; ">// CommonJS modules imports</span>
+<span style="color:#800000; font-weight:bold; ">const</span> <span style="color:#800080; ">{</span> library<span style="color:#808030; ">,</span> dom <span style="color:#800080; ">}</span> <span style="color:#808030; ">=</span> require<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">@fortawesome/fontawesome-svg-core</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">const</span> <span style="color:#800080; ">{</span> faCoffee <span style="color:#800080; ">}</span> <span style="color:#808030; ">=</span> require<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">@fortawesome/free-solid-svg-icons/faCoffee</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+library<span style="color:#808030; ">.</span>add<span style="color:#808030; ">(</span>faCoffee<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+dom<span style="color:#808030; ">.</span>i2svg<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+<!--Created using ToHtml.com on 2019-06-11 08:17:46 UTC -->
+
+<p>&nbsp;</p>
+
+<p>八、dist 資料夾放入 index.html</p>
+
+<p><img height="85" src="1535426259_81728.png" width="184" /></p>
+
+<p>內容為</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!doctype html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+  <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>Getting Started<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+  <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">i</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fas fa-coffee&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">i</span><span style="color:#a65700; ">&gt;</span>
+  <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">i</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;fas fa-coffee&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">i</span><span style="color:#a65700; ">&gt;</span>
+  <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;main.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>九、安裝 webpack 套件</p>
+
+<p>$ npm install webpack --save-dev</p>
+
+<p><img height="252" src="1535426734_79434.png" width="986" /></p>
+
+<p>&nbsp;</p>
+
+<p>十、此時資料夾多了 node_modules、package-lock.json</p>
+
+<p><img height="161" src="1535427043_67345.png" width="215" /></p>
+
+<p>&nbsp;</p>
+
+<p>十一、此時&nbsp;package.json 也有了些改變</p>
+
+<p><img height="371" src="1535427309_36368.png" width="611" /></p>
+
+<p>&nbsp;</p>
+
+<p>十二、我們在&nbsp;src 資料夾的&nbsp;index.js 裡有使用 fontawesome 套件，別忘了用 npm 安裝上去</p>
+
+<p>$ npm install @fortawesome/fontawesome-svg-core</p>
+
+<p>$ npm install @fortawesome/free-solid-svg-icons</p>
+
+<p><img height="381" src="1535431019_05828.png" width="981" /></p>
+
+<p>&nbsp;</p>
+
+<p>十三、安裝&nbsp;webpack CLI</p>
+
+<p>由於要執行&nbsp;webpack 需要安裝&nbsp;webpack CLI，所以請執行以下指令</p>
+
+<p>$ npm install webpack-cli --save-dev</p>
+
+<p><img height="236" src="1535432146_79863.png" width="981" /></p>
+
+<p>&nbsp;</p>
+
+<p>十四、執行 webpack</p>
+
+<p>$ npx webpack</p>
+
+<p><img height="331" src="1535432298_54755.png" width="981" /></p>
+
+<p>&nbsp;</p>
+
+<p>也等於以下指令</p>
+
+<p>$ ./node_modules/.bin/webpack</p>
+
+<p>&nbsp;</p>
+
+<p>十五、transpiler 完，這時會產生目地檔 main.js</p>
+
+<p><img height="101" src="1535432410_75111.png" width="186" /></p>
+
+<p>&nbsp;</p>
+
+<p>十六、最後執行 index.html 即可完成</p>
+
+<p><img height="37" src="1535432807_436.png" width="71" /></p>
+
+<p>&nbsp;</p>
+
+<p>十七、加上 webpack.config.js 來執行 webpack 也可以&nbsp;transpiler</p>
+
+<p>新增&nbsp;webpack.config.js 檔案位置如下</p>
+
+<p><img height="188" src="1535434489_22032.png" width="215" /></p>
+
+<p>內容為</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">const</span> path <span style="color:#808030; ">=</span> require<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">path</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+module<span style="color:#808030; ">.</span>exports <span style="color:#808030; ">=</span> <span style="color:#800080; ">{</span>
+    entry<span style="color:#800080; ">:</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">./src/index.js</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">,</span>
+    output<span style="color:#800080; ">:</span> <span style="color:#800080; ">{</span>
+        filename<span style="color:#800080; ">:</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">main.js</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">,</span>
+        path<span style="color:#800080; ">:</span> path<span style="color:#808030; ">.</span>resolve<span style="color:#808030; ">(</span>__dirname<span style="color:#808030; ">,</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">dist</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span>
+    <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span><span style="color:#800080; ">;</span>
+</pre>
+<!--Created using ToHtml.com on 2018-10-30 08:03:26 UTC -->
+
+<p>也等於</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#800000; font-weight:bold; ">const</span> path <span style="color:#808030; ">=</span> require<span style="color:#808030; ">(</span><span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">path</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+module<span style="color:#808030; ">.</span>exports <span style="color:#808030; ">=</span> <span style="color:#800080; ">{</span>
+    entry<span style="color:#800080; ">:</span> <span style="color:#800080; ">{</span>
+        <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">main</span><span style="color:#800000; ">&#39;</span><span style="color:#800080; ">:</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">./src/index.js</span><span style="color:#800000; ">&#39;</span>
+    <span style="color:#800080; ">}</span><span style="color:#808030; ">,</span>
+    output<span style="color:#800080; ">:</span> <span style="color:#800080; ">{</span>
+        filename<span style="color:#800080; ">:</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">main.js</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">,</span>
+        path<span style="color:#800080; ">:</span> path<span style="color:#808030; ">.</span>resolve<span style="color:#808030; ">(</span>__dirname<span style="color:#808030; ">,</span> <span style="color:#800000; ">&#39;</span><span style="color:#0000e6; ">dist</span><span style="color:#800000; ">&#39;</span><span style="color:#808030; ">)</span>
+    <span style="color:#800080; ">}</span>
+<span style="color:#800080; ">}</span><span style="color:#800080; ">;</span>
+</pre>
+<!--Created using ToHtml.com on 2019-06-18 19:28:32 UTC -->
+
+<p>加上 webpack.config.js 來執行 webpack，指令為</p>
+
+<p>$ npx webpack --config webpack.config.js</p>
+
+<p>其結果也可以產生轉譯檔。</p>
+
+<p>&nbsp;</p>
+
+<p>十八、利用 NPM Scripts 也可以產生轉譯檔</p>
+
+<p>我們可在&nbsp;package.json 裡增加一段&nbsp;&quot;build&quot;: &quot;webpack&quot;</p>
+
+<p><img height="529" src="1535433337_74151.png" width="616" /></p>
+
+<p>完成後，執行 $ npm run build 也可以產生轉譯檔</p>
+
+<p><img height="392" src="1535435892_90053.png" width="981" /></p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://webpack.js.org/concepts/">https://webpack.js.org/concepts/</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://docs.npmjs.com/getting-started/what-is-npm">npm&nbsp;Getting started</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v10.x/docs/api/">Node.js v10.9.0 Documentation</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10192578">Webpack 零設定，入門教學</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://1drv.ms/u/s!Au3E0pOlHdyLhGZPceZri2eRAiad">基本的 webpack 資料夾結構</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://webpack.js.org/concepts/mode/#usage">Mode</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/webpack/" rel="tag"># webpack</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/08/14/Vuejs-Helloworld/" rel="prev" title="Vue.js Hello world">
+                  <i class="fa fa-angle-left"></i> Vue.js Hello world
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/08/28/ES6-Modules-samples-demo/" rel="next" title="ES6 Modules 各種寫法的範例展示">
+                  ES6 Modules 各種寫法的範例展示 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

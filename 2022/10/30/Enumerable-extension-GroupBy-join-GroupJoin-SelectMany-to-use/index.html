@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enumerable 的擴充方法 - GroupBy、join、GroupJoin、SelectMany方法的使用">
+<meta property="og:url" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/1666646659.png">
+<meta property="og:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/1666646660.png">
+<meta property="og:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/1667098586.png">
+<meta property="og:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/1667098764.png">
+<meta property="og:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/1667098824.png">
+<meta property="og:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/1667098852.png">
+<meta property="og:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/20230528162740.png">
+<meta property="article:published_time" content="2022-10-30T15:06:44.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.111Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="LINQ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/1666646659.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/","path":"2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/","title":"Enumerable 的擴充方法 - GroupBy、join、GroupJoin、SelectMany方法的使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Enumerable 的擴充方法 - GroupBy、join、GroupJoin、SelectMany方法的使用 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Enumerable 的擴充方法 - GroupBy、join、GroupJoin、SelectMany方法的使用 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Enumerable 的擴充方法 - GroupBy、join、GroupJoin、SelectMany方法的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-30 23:06:44" itemprop="dateCreated datePublished" datetime="2022-10-30T23:06:44+08:00">2022-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LINQ/" itemprop="url" rel="index"><span itemprop="name">LINQ</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/10/30/Enumerable-extension-GroupBy-join-GroupJoin-SelectMany-to-use/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>資料準備</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">USE [testDB]</span><br><span class="line">GO</span><br><span class="line"><span class="comment">/****** Object:  Table [dbo].[Score]    Script Date: 2022/10/30 上午 10:51:43 ******/</span></span><br><span class="line"><span class="keyword">SET</span> ANSI_NULLS <span class="keyword">ON</span></span><br><span class="line">GO</span><br><span class="line"><span class="keyword">SET</span> QUOTED_IDENTIFIER <span class="keyword">ON</span></span><br><span class="line">GO</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> [dbo].[Score](</span><br><span class="line">    [StudentID] [<span class="type">int</span>] <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    [Class] [nvarchar](<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    [TheScore] [<span class="type">int</span>] <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">) <span class="keyword">ON</span> [<span class="keyword">PRIMARY</span>]</span><br><span class="line">GO</span><br><span class="line"><span class="comment">/****** Object:  Table [dbo].[Student]    Script Date: 2022/10/30 上午 10:51:43 ******/</span></span><br><span class="line"><span class="keyword">SET</span> ANSI_NULLS <span class="keyword">ON</span></span><br><span class="line">GO</span><br><span class="line"><span class="keyword">SET</span> QUOTED_IDENTIFIER <span class="keyword">ON</span></span><br><span class="line">GO</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> [dbo].[Student](</span><br><span class="line">    [ID] [<span class="type">int</span>] <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    [Name] [nvarchar](<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    [Sex] [nvarchar](<span class="number">50</span>) <span class="keyword">NULL</span>,</span><br><span class="line">    [Age] [<span class="type">int</span>] <span class="keyword">NULL</span></span><br><span class="line">) <span class="keyword">ON</span> [<span class="keyword">PRIMARY</span>]</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Score] ([StudentID], [Class], [TheScore]) <span class="keyword">VALUES</span> (<span class="number">1</span>, N<span class="string">&#x27;國文&#x27;</span>, <span class="number">100</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Score] ([StudentID], [Class], [TheScore]) <span class="keyword">VALUES</span> (<span class="number">1</span>, N<span class="string">&#x27;英文&#x27;</span>, <span class="number">60</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Score] ([StudentID], [Class], [TheScore]) <span class="keyword">VALUES</span> (<span class="number">2</span>, N<span class="string">&#x27;國文&#x27;</span>, <span class="number">50</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Score] ([StudentID], [Class], [TheScore]) <span class="keyword">VALUES</span> (<span class="number">2</span>, N<span class="string">&#x27;英文&#x27;</span>, <span class="number">40</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Score] ([StudentID], [Class], [TheScore]) <span class="keyword">VALUES</span> (<span class="number">3</span>, N<span class="string">&#x27;國文&#x27;</span>, <span class="number">60</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Score] ([StudentID], [Class], [TheScore]) <span class="keyword">VALUES</span> (<span class="number">3</span>, N<span class="string">&#x27;英文&#x27;</span>, <span class="number">80</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Student] ([ID], [Name], [Sex], [Age]) <span class="keyword">VALUES</span> (<span class="number">1</span>, N<span class="string">&#x27;Bill&#x27;</span>, N<span class="string">&#x27;male&#x27;</span>, <span class="number">25</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Student] ([ID], [Name], [Sex], [Age]) <span class="keyword">VALUES</span> (<span class="number">2</span>, N<span class="string">&#x27;Mary&#x27;</span>, N<span class="string">&#x27;female&#x27;</span>, <span class="number">30</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Student] ([ID], [Name], [Sex], [Age]) <span class="keyword">VALUES</span> (<span class="number">3</span>, N<span class="string">&#x27;Tim&#x27;</span>, N<span class="string">&#x27;female&#x27;</span>, <span class="number">30</span>)</span><br><span class="line">GO</span><br><span class="line"><span class="keyword">INSERT</span> [dbo].[Student] ([ID], [Name], [Sex], [Age]) <span class="keyword">VALUES</span> (<span class="number">4</span>, N<span class="string">&#x27;John&#x27;</span>, N<span class="string">&#x27;male&#x27;</span>, <span class="number">28</span>)</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<p>一、GroupBy<br>範例1、針對 group key 去做群組，並對每組去計算出平均值</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Scores.Dump();</span><br><span class="line">    Scores.GroupBy(o =&gt; o.Class)</span><br><span class="line">          .Select(o =&gt; <span class="keyword">new</span></span><br><span class="line">          &#123;</span><br><span class="line">              Class = o.Key,</span><br><span class="line">              Avg = o.Average(m =&gt; m.TheScore)</span><br><span class="line">          &#125;)</span><br><span class="line">          .Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也等於以下寫法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Scores.Dump();</span><br><span class="line">    Scores.GroupBy(o =&gt; o.Class,</span><br><span class="line">        (key, scores) =&gt; <span class="keyword">new</span></span><br><span class="line">        &#123;</span><br><span class="line">            Class = key,</span><br><span class="line">            Avg = scores.Average(s =&gt; s.TheScore)</span><br><span class="line">        &#125;).Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image image-style-align-left"><img src="1666646659.png"></figure>
+
+<p>範例2、針對每組年齡去計算出學生數量</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Students.Dump();</span><br><span class="line">    Students.GroupBy(o =&gt; o.Age)</span><br><span class="line">          .Select(o =&gt; <span class="keyword">new</span></span><br><span class="line">          &#123;</span><br><span class="line">              Age = o.Key,</span><br><span class="line">              Count = o.Count()</span><br><span class="line">          &#125;)</span><br><span class="line">          .Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image image-style-align-left"><img src="1666646660.png"></figure>
+
+<p>範例3、<br>GroupBy 的 Key 的值可以是多個 key 組成</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Students.Dump();</span><br><span class="line">    Students.GroupBy(s =&gt; <span class="keyword">new</span> &#123; s.Sex, s.Age &#125;)</span><br><span class="line">    .Select(x =&gt; <span class="keyword">new</span></span><br><span class="line">    &#123;</span><br><span class="line">        Key = x.Key,</span><br><span class="line">        Names = x.Select(x =&gt; x.Name)</span><br><span class="line">    &#125;)</span><br><span class="line">    .Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image image-style-align-left"><img src="1667098586.png"></figure>
+
+<p>二、Join</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Scores.Dump();</span><br><span class="line">    Students.Dump();</span><br><span class="line">    Scores.Join(Students, score =&gt; score.StudentID, stud =&gt; stud.ID, (score, stud) =&gt; <span class="keyword">new</span></span><br><span class="line">    &#123;</span><br><span class="line">        score.Class,</span><br><span class="line">        score.TheScore,</span><br><span class="line">        stud.Name</span><br><span class="line">    &#125;).Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image image-style-align-left"><img src="1667098764.png"></figure>
+
+
+<p>三、GroupJoin<br>要達成Left join 必須依靠GroupJoin來完成。</p>
+<p>GroupJoin 顧名思義就是先Group 在做 Join ，與Join的不同處在於Join會得到一個一對一的新物件集合 (List<T>)，而GroupJoin 則會得到一對多的物件集合({key,List<T>})。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Students.Dump();</span><br><span class="line">    Scores.Dump();</span><br><span class="line">    Students.GroupJoin(Scores, stud =&gt; stud.ID, score =&gt; score.StudentID, (stud, score) =&gt; <span class="keyword">new</span></span><br><span class="line">    &#123;</span><br><span class="line">        stud.ID,</span><br><span class="line">        stud.Name,</span><br><span class="line">        Details = score.DefaultIfEmpty()</span><br><span class="line">    &#125;).Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image image-style-align-left"><img src="1667098824.png"></figure>
+
+<p>四、SelectMany方法的使用<br>其SelectMany方法專門對GroupJoin方法，所群組出來的資料做扁平化處理</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Students.Dump();</span><br><span class="line">    Scores.Dump();</span><br><span class="line">    Students.GroupJoin(Scores, stud =&gt; stud.ID, score =&gt; score.StudentID, (stud, score) =&gt; <span class="keyword">new</span></span><br><span class="line">    &#123;</span><br><span class="line">        stud.ID,</span><br><span class="line">        stud.Name,</span><br><span class="line">        Details = score.DefaultIfEmpty()</span><br><span class="line">    &#125;)</span><br><span class="line">    .SelectMany(stud =&gt; stud.Details.DefaultIfEmpty(), (stud, score) =&gt; <span class="keyword">new</span></span><br><span class="line">    &#123;</span><br><span class="line">        stud.ID,</span><br><span class="line">        stud.Name,</span><br><span class="line">        Class = (score == <span class="literal">null</span> || score.Class == <span class="literal">null</span> ? <span class="string">&quot;N/A&quot;</span> : score.Class),</span><br><span class="line">        Score = (score == <span class="literal">null</span> || score.TheScore == <span class="literal">null</span> ? <span class="keyword">new</span> Nullable&lt;<span class="built_in">int</span>&gt;() : score.TheScore)</span><br><span class="line">    &#125;)</span><br><span class="line">    .Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image image-style-align-left"><img src="1667098852.png"></figure>
+
+<p>五、SelectMany方法的另一種寫法<br>如果不對 null 紀錄做特別處理的話，可以使用以下寫法    </p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Students.Dump();</span><br><span class="line">    Scores.Dump();</span><br><span class="line">    Students.GroupJoin(Scores, stud =&gt; stud.ID, score =&gt; score.StudentID, (stud, score) =&gt; <span class="keyword">new</span></span><br><span class="line">    &#123;</span><br><span class="line">        stud.ID,</span><br><span class="line">        stud.Name,</span><br><span class="line">        Details = score.DefaultIfEmpty()</span><br><span class="line">    &#125;)</span><br><span class="line">    .SelectMany(stud =&gt; stud.Details.DefaultIfEmpty())</span><br><span class="line">    .Dump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image image-style-align-left"><img src="20230528162740.png"></figure>
+    
+   
+<p>參考資料：<br><a target="_blank" rel="noopener" href="https://ad57475747.medium.com/linq%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-7-%E5%AF%A6%E4%BD%9Cleft-join-1-join%E8%88%87group-join-47e187d80894">LINQ學習筆記(7)實作Left join(1) Join與Group join</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jasperstudy.com/2015/01/c-linq-groupby.html">C# LINQ: GroupBy</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LINQ/" rel="tag"># LINQ</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/30/MemoryStream-to-use/" rel="prev" title="MemoryStream 的使用">
+                  <i class="fa fa-angle-left"></i> MemoryStream 的使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/12/GETDATE-DATEPART-to-use/" rel="next" title="GETDATE、DATEPART">
+                  GETDATE、DATEPART <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自訂型別轉換運算子 (user-defined type conversion operator)">
+<meta property="og:url" content="https://brooke2010.github.io/2019/02/10/user-defined-type-conversion-operator/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-10T09:02:54.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:56.095Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2019/02/10/user-defined-type-conversion-operator/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2019/02/10/user-defined-type-conversion-operator/","path":"2019/02/10/user-defined-type-conversion-operator/","title":"自訂型別轉換運算子 (user-defined type conversion operator)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>自訂型別轉換運算子 (user-defined type conversion operator) | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2019/02/10/user-defined-type-conversion-operator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="自訂型別轉換運算子 (user-defined type conversion operator) | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自訂型別轉換運算子 (user-defined type conversion operator)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-10 17:02:54" itemprop="dateCreated datePublished" datetime="2019-02-10T17:02:54+08:00">2019-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:56" itemprop="dateModified" datetime="2023-11-24T13:45:56+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/02/10/user-defined-type-conversion-operator/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/10/user-defined-type-conversion-operator/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、explicit 明確轉型</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+
+<span style="color:#0000ff;">namespace</span> ConsoleApp1
+&#123;
+    <span style="color:#0000ff;">class</span> Program
+    &#123;
+        <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">void</span> Main(<span style="color:#0000ff;">string</span>[] args)
+        &#123;
+            Celsius c1 = <span style="color:#0000ff;">new</span> Celsius(5f);
+            Console.Write($<span style="color:#a31515;">&quot;&#123;c1.Degrees&#125; Celsius&quot;</span>);
+            Fahrenheit f1 = <span style="background-color:#FFFF00;">(Fahrenheit)</span>c1;
+            Console.WriteLine($<span style="color:#a31515;">&quot; = &#123;f1.Degrees&#125; Fahrenheit&quot;</span>);
+
+            Fahrenheit f2 = <span style="color:#0000ff;">new</span> Fahrenheit(100.0f);
+            Console.Write($<span style="color:#a31515;">&quot;&#123;f2.Degrees&#125; Fahrenheit&quot;</span>);
+            Celsius c2 = (Celsius)f2;
+            Console.WriteLine($<span style="color:#a31515;">&quot; = &#123;c2.Degrees&#125; Celsius&quot;</span>);
+
+            Console.ReadKey();
+        &#125;
+    &#125;
+
+    <span style="color:#008000;">// 1度C等於1.8度F</span>
+    <span style="color:#0000ff;">class</span> Celsius
+    &#123;
+        <span style="color:#0000ff;">public</span> Celsius(<span style="color:#0000ff;">float</span> temp)
+        &#123;
+            Degrees = temp;
+        &#125;
+
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">float</span> Degrees &#123; <span style="color:#0000ff;">get</span>; &#125;
+    &#125;
+
+    <span style="color:#0000ff;">class</span> Fahrenheit
+    &#123;
+        <span style="color:#0000ff;">public</span> Fahrenheit(<span style="color:#0000ff;">float</span> temp)
+        &#123;
+            Degrees = temp;
+        &#125;
+
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">float</span> Degrees &#123; <span style="color:#0000ff;">get</span>; &#125;
+
+        <span style="color:#008000;">// convert celsius to fahrenheit</span>
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">explicit</span> <span style="color:#0000ff;">operator</span> Fahrenheit(Celsius c)
+        &#123;
+            <span style="color:#0000ff;">return</span> <span style="color:#0000ff;">new</span> Fahrenheit((9.0f / 5.0f) * c.Degrees + 32);
+        &#125;
+
+        <span style="color:#008000;">// convert fahrenheit to celsius</span>
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">explicit</span> <span style="color:#0000ff;">operator</span> Celsius(Fahrenheit fahr)
+        &#123;
+            <span style="color:#0000ff;">return</span> <span style="color:#0000ff;">new</span> Celsius((5.0f / 9.0f) * (fahr.Degrees - 32));
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<p>說明：</p>
+
+<p>明確轉型方法可以放在來源類別或是目地類別皆可。</p>
+
+<p>&nbsp;</p>
+
+<p>二、implicit 隱含轉型</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+
+<span style="color:#0000ff;">namespace</span> ConsoleApp1
+&#123;
+    <span style="color:#0000ff;">class</span> Program
+    &#123;
+        <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">void</span> Main(<span style="color:#0000ff;">string</span>[] args)
+        &#123;
+            Digit dig = <span style="color:#0000ff;">new</span> Digit(7);
+            <span style="color:#008000;">//This call invokes the implicit &quot;double&quot; operator</span>
+            <span style="color:#0000ff;">double</span> num = dig;
+            <span style="color:#008000;">//This call invokes the implicit &quot;Digit&quot; operator</span>
+            Digit dig2 = 12;
+            Console.WriteLine(<span style="color:#a31515;">&quot;num = &#123;0&#125; dig2 = &#123;1&#125;&quot;</span>, num, dig2.val);
+
+            Console.ReadKey();
+        &#125;
+    &#125;
+
+    <span style="color:#0000ff;">class</span> Digit
+    &#123;
+        <span style="color:#0000ff;">public</span> Digit(<span style="color:#0000ff;">double</span> d) &#123; val = d; &#125;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">double</span> val;
+        <span style="color:#008000;">// ...other members</span>
+
+        <span style="color:#008000;">// User-defined conversion from Digit to double</span>
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">implicit</span> <span style="color:#0000ff;">operator</span> <span style="color:#0000ff;">double</span>(Digit d)
+        &#123;
+            <span style="color:#0000ff;">return</span> d.val;
+        &#125;
+        <span style="color:#008000;">//  User-defined conversion from double to Digit</span>
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">implicit</span> <span style="color:#0000ff;">operator</span> Digit(<span style="color:#0000ff;">double</span> d)
+        &#123;
+            <span style="color:#0000ff;">return</span> <span style="color:#0000ff;">new</span> Digit(d);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>三、operator&nbsp;運算子多載</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+
+<span style="color:#0000ff;">namespace</span> ConsoleApp1
+&#123;
+    <span style="color:#0000ff;">class</span> Program
+    &#123;
+        <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">void</span> Main(<span style="color:#0000ff;">string</span>[] args)
+        &#123;
+            Fraction a = <span style="color:#0000ff;">new</span> Fraction(1, 2);
+            Fraction b = <span style="color:#0000ff;">new</span> Fraction(3, 7);
+            Fraction c = <span style="color:#0000ff;">new</span> Fraction(2, 3);
+            Console.WriteLine((<span style="color:#0000ff;">double</span>)(a * b + c));
+
+            Console.ReadKey();
+        &#125;
+    &#125;
+
+    <span style="color:#0000ff;">class</span> Fraction
+    &#123;
+        <span style="color:#0000ff;">int</span> num, den;
+        <span style="color:#0000ff;">public</span> Fraction(<span style="color:#0000ff;">int</span> num, <span style="color:#0000ff;">int</span> den)
+        &#123;
+            <span style="color:#0000ff;">this</span>.num = num;
+            <span style="color:#0000ff;">this</span>.den = den;
+        &#125;
+
+        <span style="color:#008000;">// overload operator +</span>
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> Fraction <span style="color:#0000ff;"><span style="background-color:#FFFF00;">operator</span></span><span style="background-color:#FFFF00;"> +</span>(Fraction a, Fraction b)
+        &#123;
+            <span style="color:#0000ff;">return</span> <span style="color:#0000ff;">new</span> Fraction(a.num * b.den + b.num * a.den,
+               a.den * b.den);
+        &#125;
+
+        <span style="color:#008000;">// overload operator *</span>
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> Fraction <span style="color:#0000ff;">operator</span> *(Fraction a, Fraction b)
+        &#123;
+            <span style="color:#0000ff;">return</span> <span style="color:#0000ff;">new</span> Fraction(a.num * b.num, a.den * b.den);
+        &#125;
+
+        <span style="color:#008000;">// user-defined conversion from Fraction to double</span>
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">implicit</span> <span style="color:#0000ff;">operator</span> <span style="color:#0000ff;">double</span>(Fraction f)
+        &#123;
+            <span style="color:#0000ff;">return</span> (<span style="color:#0000ff;">double</span>)f.num / f.den;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<p>說明：</p>
+
+<p>上面範例為利用&nbsp;operator 關鍵字來多載運算子。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/explicit">explicit (C# Reference)</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/implicit">implicit (C# Reference)</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/operator">operator (C# Reference)</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/overloadable-operators">Overloadable operators (C# Programming Guide)</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C#</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/02/06/Metadata-Using-Attributes/" rel="prev" title="Metadata Using - Attributes">
+                  <i class="fa fa-angle-left"></i> Metadata Using - Attributes
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/02/13/OWIN-Startup-Class-Detection/" rel="next" title="OWIN Startup Class Detection">
+                  OWIN Startup Class Detection <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

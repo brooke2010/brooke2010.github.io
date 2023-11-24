@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="X.pagedList的使用">
+<meta property="og:url" content="https://brooke2010.github.io/2018/05/06/XpagedList-use/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2018/05/06/XpagedList-use/1525742916_67968.png">
+<meta property="article:published_time" content="2018-05-06T08:12:39.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.971Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="ASP.NET MVC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2018/05/06/XpagedList-use/1525742916_67968.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2018/05/06/XpagedList-use/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2018/05/06/XpagedList-use/","path":"2018/05/06/XpagedList-use/","title":"X.pagedList的使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>X.pagedList的使用 | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2018/05/06/XpagedList-use/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="X.pagedList的使用 | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          X.pagedList的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-05-06 16:12:39" itemprop="dateCreated datePublished" datetime="2018-05-06T16:12:39+08:00">2018-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/05/06/XpagedList-use/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/06/XpagedList-use/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>此為&nbsp;X.pagedList 搭配&nbsp;bootstrap 4 範例，</p>
+
+<p>資料庫的部份，我則借用<a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2015/06/17/151585">北風資料庫</a>，</p>
+
+<p>第一步先於 package manager console 安裝&nbsp;X.pagedList，指令如下</p>
+
+<p>Install-Package X.PagedList.Mvc -Version 7.2.0</p>
+
+<p><img height="169" src="1525742916_67968.png" width="354" /></p>
+
+<p>可能需要等個幾分鐘才安裝完成。</p>
+
+<p>&nbsp;</p>
+
+<p>Model 端的前期準備就不談了，接下來於 controller 端撰寫程式如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System.Linq;
+<span style="color:#0000ff;">using</span> System.Web.Mvc;
+
+<span style="color:#0000ff;">using</span> WebApplication1.Models;
+<span style="color:#0000ff;">using</span> X.PagedList;
+
+<span style="color:#0000ff;">namespace</span> WebApplication1.Controllers
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> HomeController : Controller
+    &#123;
+        <span style="color:#0000ff;">private</span> NorthwindEntities db = <span style="color:#0000ff;">new</span> NorthwindEntities();
+        <span style="color:#0000ff;">private</span> <span style="color:#0000ff;">int</span> pageSize = 5;
+
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">object</span> Index(<span style="color:#0000ff;">int</span>? page)
+        &#123;
+            <span style="color:#0000ff;">var</span> products = db.Products.OrderBy(x =&gt; x.ProductID);
+
+            <span style="color:#0000ff;">var</span> pageNumber = page ?? 1; <span style="color:#008000;">// if no page was specified in the querystring, default to the first page (1)</span>
+            <span style="color:#0000ff;">var</span> onePageOfProducts = products.ToPagedList(pageNumber, pageSize); <span style="color:#008000;">// will only contain 5 products max because of the pageSize</span>
+
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+
+        <span style="color:#0000ff;">public</span> ActionResult About()
+        &#123;
+            ViewBag.Message = <span style="color:#a31515;">&quot;Your application description page.&quot;</span>;
+
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+
+        <span style="color:#0000ff;">public</span> ActionResult Contact()
+        &#123;
+            ViewBag.Message = <span style="color:#a31515;">&quot;Your contact page.&quot;</span>;
+
+            <span style="color:#0000ff;">return</span> View();
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>&nbsp;</p>
+
+<p>View 端程式如下</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+@{
+    ViewBag.Title = &quot;Product Listing&quot;;
+}
+
+<p>@using X.PagedList.Mvc;<br>@using X.PagedList;</p>
+<p><span style="color: #408080; font-style: italic">&lt;!– loop through each of your products and display it however you want. we&#39;re just printing the name here –&gt;</span><br><span style="color: #008000; font-weight: bold">&lt;h2&gt;</span>List of Products<span style="color: #008000; font-weight: bold">&lt;&#x2F;h2&gt;</span><br><span style="color: #008000; font-weight: bold">&lt;ul&gt;</span><br>    @foreach (var product in ViewBag.OnePageOfProducts)<br>    {<br>        <span style="color: #008000; font-weight: bold">&lt;li&gt;</span>@product.ProductName<span style="color: #008000; font-weight: bold">&lt;&#x2F;li&gt;</span><br>    }<br><span style="color: #008000; font-weight: bold">&lt;&#x2F;ul&gt;</span></p>
+<p><span style="color: #408080; font-style: italic">&lt;!– output a paging control that lets the user navigation to the previous page, next page, etc –&gt;</span><br>@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts,<br>    page &#x3D;&gt; Url.Action(&quot;Index&quot;, new { page }),<br>    new <span style="background-color:#FFFF00;">PagedListRenderOptions</span><br>    {<br>        ContainerDivClasses &#x3D; new[] { &quot;&quot; },<br>        LiElementClasses &#x3D; new[] { &quot;page-item&quot; },<br>        PageClasses &#x3D; new[] { &quot;page-link&quot; },<br>        MaximumPageNumbersToDisplay &#x3D; 5<br>    })<br></pre></p>
+</div>
+
+<p>X.pagedList 提供了&nbsp;PagedListRenderOptions 讓開發者做客制化，</p>
+
+<p>這對開發者來說非常方便。</p>
+
+<p>&nbsp;</p>
+
+<p>2018/11/08：注意，X.pagedList 7.6.0 版本有問題，不要去升級成該版本。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/dncuug/X.PagedList">dncuug/X.PagedList</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10104729">LINQ自學筆記-語法應用-分頁方法-Take、Skip、TakeWhile、SkipWhile</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/06/SCSS-comment-function-directives/" rel="prev" title="SCSS語法 - comment、function directives、Nesting、Nested Properties、Parent Selectors">
+                  <i class="fa fa-angle-left"></i> SCSS語法 - comment、function directives、Nesting、Nested Properties、Parent Selectors
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/05/12/Bootstrap4-forms-point/" rel="next" title="Bootstrap4 forms 重點摘要">
+                  Bootstrap4 forms 重點摘要 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

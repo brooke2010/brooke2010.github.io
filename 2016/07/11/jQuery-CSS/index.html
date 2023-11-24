@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS">
+<meta property="og:url" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469175078_67556.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469175396_94654.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469176593_72704.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469176662_0234.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469176727_65084.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469177770_40651.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469336131_16445.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469177094_06965.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469177159_57912.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469337247_04683.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469337360_68641.png">
+<meta property="og:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469177200_06956.png">
+<meta property="article:published_time" content="2016-07-11T13:36:32.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:55.577Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="jQuery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2016/07/11/jQuery-CSS/1469175078_67556.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2016/07/11/jQuery-CSS/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2016/07/11/jQuery-CSS/","path":"2016/07/11/jQuery-CSS/","title":"CSS"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2016/07/11/jQuery-CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CSS | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-11 21:36:32" itemprop="dateCreated datePublished" datetime="2016-07-11T21:36:32+08:00">2016-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:55" itemprop="dateModified" datetime="2023-11-24T13:45:55+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/jQuery/" itemprop="url" rel="index"><span itemprop="name">jQuery</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/11/jQuery-CSS/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/11/jQuery-CSS/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>由於時間有限，所以一些比較簡單的用法就儘量簡述或跳過囉。</p>
+
+<p>一、.addClass()</p>
+
+<p>替元素增加屬性。有兩項多載</p>
+
+<p>1、.addClass( String&nbsp;className )</p>
+
+<p>2、.addClass(&nbsp;Function&nbsp;function )</p>
+
+<p>對於批次添加屬性特別有用，如下範例</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">ul li</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>addClass<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span> <span style="color:#797997; ">index</span> <span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">item-</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">+</span> <span style="color:#797997; ">index</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>二、.css()</p>
+
+<p>1、.css( propertyName )</p>
+
+<p>取得單一css樣式的值</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">p</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>css<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">background-color</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p><img height="44" src="1469175078_67556.png" width="243" /></p>
+
+<p>&nbsp;</p>
+
+<p>2、.css( propertyNames )</p>
+
+<p>取得多組css樣式的值</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">p</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>css<span style="color:#808030; ">(</span><span style="color:#808030; ">[</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">background-color</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">color</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span>
+</pre>
+
+<p><img height="49" src="1469175396_94654.png" width="523" /></p>
+
+<p>&nbsp;</p>
+
+<p>3、.css( propertyName, value )</p>
+
+<p>設定單一css樣式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">p</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>css<span style="color:#808030; ">(</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">color</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">red</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>4、.css( propertyName, function )</p>
+
+<p>設定多組css樣式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">div.example</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>css<span style="color:#808030; ">(</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">width</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span> <span style="color:#797997; ">index</span> <span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+  <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#797997; ">index</span> <span style="color:#808030; ">*</span> <span style="color:#008c00; ">50</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>5、.css( PlainObject&nbsp;properties )</p>
+
+<p>設定多組css樣式</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span> <span style="color:#800000; font-weight:bold; ">this</span> <span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>css<span style="color:#808030; ">(</span><span style="color:#800080; ">{</span>
+  <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">background-color</span><span style="color:#800000; ">&quot;</span><span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">yellow</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">,</span>
+  <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">font-weight</span><span style="color:#800000; ">&quot;</span><span style="color:#800080; ">:</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">bolder</span><span style="color:#800000; ">&quot;</span>
+<span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>三、.hasClass()</p>
+
+<p>boolean .hasClass( className )</p>
+
+<p>用來判斷該元素是否含有所指定的class名稱。</p>
+
+<p>&nbsp;</p>
+
+<p>四、.height()</p>
+
+<p>用來取得或設定元素的高度</p>
+
+<p><img height="134" src="1469176593_72704.png" width="353" /></p>
+
+<p>&nbsp;</p>
+
+<p>五、.innerHeight()</p>
+
+<p>用來取得或設定元素的高度</p>
+
+<p><img height="134" src="1469176662_0234.png" width="353" /></p>
+
+<p>&nbsp;</p>
+
+<p>六、.innerWidth()</p>
+
+<p>用來取得或設定元素的寬度</p>
+
+<p><img height="148" src="1469176727_65084.png" width="272" /></p>
+
+<p>&nbsp;</p>
+
+<p>七、jQuery.cssHooks</p>
+
+<p>用來客制化css樣式名稱。</p>
+
+<p>&nbsp;</p>
+
+<p>八、jQuery.cssNumber</p>
+
+<p>用來決定指定css樣式值時，是否自動附加單位，預設為true。</p>
+
+<p>&nbsp;</p>
+
+<p>九、jQuery.escapeSelector()</p>
+
+<p>轉譯跳脫字元</p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">.</span>escapeSelector<span style="color:#808030; ">(</span> <span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">#target</span><span style="color:#800000; ">&quot;</span> <span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+
+<p><img height="43" src="1469177770_40651.png" width="247" /></p>
+
+<p>&nbsp;</p>
+
+<p>十、.offset()</p>
+
+<p>取得該元素左上角的點跟根元素的距離(絕對座標)。</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.0.0.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>JS Bin<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; "> type=&quot;text/css&quot;&gt;</span>
+        <span style="color:#808030; ">.</span>p1 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">18</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">margin</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>p2 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">18</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">margin</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;p1&quot;</span><span style="color:#a65700; ">&gt;</span>aaa<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;p2&quot;</span><span style="color:#a65700; ">&gt;</span>bbb<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">position</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#074726; ">absolute</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">top</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">200px</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">left</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">200px</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sub&quot;</span><span style="color:#a65700; ">&gt;</span>ccc<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.sub</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>offset<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>top<span style="color:#800080; ">;</span>
+</pre>
+
+<p><img height="35" src="1469336131_16445.png" width="198" /></p>
+
+<p>請參考<a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2015/12/29/055409">.offset()的用法</a></p>
+
+<p>&nbsp;</p>
+
+<p>十一、.outerHeight()</p>
+
+<p>用來取得或設定元素的高度</p>
+
+<p><img height="134" src="1469177094_06965.png" width="353" /></p>
+
+<p>&nbsp;</p>
+
+<p>十二、.outerWidth()</p>
+
+<p>用來取得或設定元素的寬度</p>
+
+<p><img height="166" src="1469177159_57912.png" width="272" /></p>
+
+<p>&nbsp;</p>
+
+<p>十三、.position()</p>
+
+<p>取得該元素左上角的margin點跟父元素的距離(相對位置)</p>
+
+<pre style="color:#000000;background:#ffffff;">
+<span style="color:#004a43; ">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#274796; "> </span><span style="color:#074726; ">src</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;https://code.jquery.com/jquery-3.0.0.js&quot;</span><span style="color:#a65700; ">&gt;</span><span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">script</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">charset</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;utf-8&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">meta</span><span style="color:#274796; "> </span><span style="color:#074726; ">name</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;viewport&quot;</span><span style="color:#274796; "> </span><span style="color:#074726; ">content</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;width=device-width&quot;</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>JS Bin<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">title</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; "> type=&quot;text/css&quot;&gt;</span>
+        <span style="color:#808030; ">.</span>p1 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">18</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">margin</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+
+        <span style="color:#808030; ">.</span>p2 <span style="color:#800080; ">{</span>
+            <span style="color:#bb7977; font-weight:bold; ">background-color</span><span style="color:#808030; ">:</span> <span style="color:#797997; ">red</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">height</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">18</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+            <span style="color:#bb7977; font-weight:bold; ">margin</span><span style="color:#808030; ">:</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">16</span><span style="color:#006600; ">px</span> <span style="color:#008c00; ">0</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">style</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">head</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;p1&quot;</span><span style="color:#a65700; ">&gt;</span>aaa<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;p2&quot;</span><span style="color:#a65700; ">&gt;</span>bbb<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">p</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">style</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;</span><span style="color:#bb7977; font-weight:bold; ">position</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#074726; ">absolute</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">top</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">200</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span><span style="color:#274796; "> </span><span style="color:#bb7977; font-weight:bold; ">left</span><span style="color:#808030; ">:</span><span style="color:#274796; "> </span><span style="color:#008c00; ">200</span><span style="color:#006600; ">px</span><span style="color:#800080; ">;</span><span style="color:#0000e6; ">&quot;</span><span style="color:#a65700; ">&gt;</span>
+        <span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> </span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">&quot;sub&quot;</span><span style="color:#a65700; ">&gt;</span>ccc<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+    <span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">body</span><span style="color:#a65700; ">&gt;</span>
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">html</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+
+<p><img height="200" src="1469337247_04683.png" width="316" /></p>
+
+<pre style="color:#000000;background:#ffffff;">
+$<span style="color:#808030; ">(</span><span style="color:#800000; ">&quot;</span><span style="color:#0000e6; ">.p2</span><span style="color:#800000; ">&quot;</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>position<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>top<span style="color:#800080; ">;</span>
+</pre>
+
+<p><img height="41" src="1469337360_68641.png" width="204" /></p>
+
+<p>&nbsp;</p>
+
+<p>十四、.removeClass()</p>
+
+<p>針對元素class內容，移除指定css樣式。</p>
+
+<p>1、.removeClass( [className ] )</p>
+
+<p>2、.removeClass( function )</p>
+
+<p>&nbsp;</p>
+
+<p>十五、.scrollLeft()</p>
+
+<p>請先參考<a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2015/12/28/153449">scrollTop、scrollLeft的用法</a></p>
+
+<p>&nbsp;</p>
+
+<p>十六、.scrollTop()</p>
+
+<p>請先參考<a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2015/12/28/153449">scrollTop、scrollLeft的用法</a></p>
+
+<p>&nbsp;</p>
+
+<p>十七、.toggleClass()</p>
+
+<p>請先參考<a target="_blank" rel="noopener" href="https://dotblogs.com.tw/brooke/2016/01/01/042158">SideBar如何做</a></p>
+
+<p>&nbsp;</p>
+
+<p>十八、.width()</p>
+
+<p>用來取得或設定元素的寬度</p>
+
+<p><img height="148" src="1469177200_06956.png" width="272" /></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/07/11/jQuery-Data/" rel="prev" title="Data">
+                  <i class="fa fa-angle-left"></i> Data
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/07/11/jQuery-Core/" rel="next" title="Core">
+                  Core <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

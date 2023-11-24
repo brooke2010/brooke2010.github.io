@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shared Project v.s. Class Library Project">
+<meta property="og:url" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559026229_76875.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559026254_01052.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559026974_96993.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559026992_49992.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559027006_9265.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559028019_46481.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559028214_09332.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559028798_05343.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559029115_74488.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559029471_51969.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559029769_1444.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559038222_40227.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559038446_16533.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559030308_49774.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559031319_19233.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559049167_30079.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559029471_51969.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559036828_56855.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559037790_29125.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559049521_42842.png">
+<meta property="og:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559049938_20847.png">
+<meta property="article:published_time" content="2019-05-25T08:13:14.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.728Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="Visual Studio IDE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/1559026229_76875.png">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/","path":"2019/05/25/SharedProject-vs-ClassLibraryProject/","title":"Shared Project v.s. Class Library Project"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Shared Project v.s. Class Library Project | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2019/05/25/SharedProject-vs-ClassLibraryProject/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Shared Project v.s. Class Library Project | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Shared Project v.s. Class Library Project
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-25 16:13:14" itemprop="dateCreated datePublished" datetime="2019-05-25T16:13:14+08:00">2019-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Visual-Studio-IDE/" itemprop="url" rel="index"><span itemprop="name">Visual Studio IDE</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/05/25/SharedProject-vs-ClassLibraryProject/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/25/SharedProject-vs-ClassLibraryProject/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>一、範例準備</p>
+
+<p>準備一個空的 solution 好方便後續 Demo</p>
+
+<p><img height="698" src="1559026229_76875.png" width="1027" /></p>
+
+<p><img height="702" src="1559026254_01052.png" width="1024" /></p>
+
+<p>&nbsp;</p>
+
+<p>1、create Class Library Project</p>
+
+<p><img height="483" src="1559026974_96993.png" width="707" /></p>
+
+<p>&nbsp;</p>
+
+<p><img height="703" src="1559026992_49992.png" width="1027" /></p>
+
+<p>&nbsp;</p>
+
+<p><img height="383" src="1559027006_9265.png" width="702" /></p>
+
+<p>&nbsp;</p>
+
+<p>ClassLibrary.cs 內容如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">namespace</span> ClassLibrary1
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">class</span> ClassLibrary
+    &#123;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">string</span> Show()
+        &#123;
+            <span style="color:#0000ff;">return</span> <span style="color:#a31515;">&quot;ClassLibrary&quot;</span>;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>2、create Shared Project</p>
+
+<p><img height="705" src="1559028019_46481.png" width="1030" /></p>
+
+<p>&nbsp;</p>
+
+<p><img height="387" src="1559028214_09332.png" width="712" /></p>
+
+<p>&nbsp;</p>
+
+<p>SharedProject.cs&nbsp;內容如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+<span style="color:#0000ff;">using</span> System.Collections.Generic;
+<span style="color:#0000ff;">using</span> System.Text;
+
+<span style="color:#0000ff;">namespace</span> SharedProject1
+&#123;
+    <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">class</span> SharedProject
+    &#123;
+        <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">string</span> Show()
+        &#123;
+            <span style="color:#0000ff;">return</span> <span style="color:#a31515;">&quot;SharedProject&quot;</span>;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>3、create Console App</p>
+
+<p><img height="701" src="1559028798_05343.png" width="1022" /></p>
+
+<p>&nbsp;</p>
+
+<p><img height="391" src="1559029115_74488.png" width="733" /></p>
+
+<p>&nbsp;</p>
+
+<p>二、use&nbsp;Shared Project and&nbsp;Class Library Project</p>
+
+<p>1、使用&nbsp;ClassLibrary 元件</p>
+
+<p><img height="323" src="1559029471_51969.png" width="467" /></p>
+
+<p>add reference 方法之一</p>
+
+<p><img height="341" src="1559029769_1444.png" width="924" /></p>
+
+<p>add reference 方法之二</p>
+
+<p>當 build 完後，Class Library 會產生 .dll 檔，</p>
+
+<p><img height="126" src="1559038222_40227.png" width="652" /></p>
+
+<p>所以第二種方法 add reference 也可以使用以下方式加入</p>
+
+<p><img height="345" src="1559038446_16533.png" width="1054" /></p>
+
+<p>&nbsp;</p>
+
+<p>記得設好 ConsoleApp1 為&nbsp;StartUp Project</p>
+
+<p><img height="703" src="1559030308_49774.png" width="676" /></p>
+
+<p>&nbsp;</p>
+
+<p>Program.cs 內容改成如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+<span style="color:#0000ff;"><span style="background-color:#FFFF00;">using</span></span><span style="background-color:#FFFF00;"> ClassLibrary1;</span>
+
+<span style="color:#0000ff;">namespace</span> ConsoleApp1
+&#123;
+    <span style="color:#0000ff;">class</span> Program
+    &#123;
+        <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">void</span> Main(<span style="color:#0000ff;">string</span>[] args)
+        &#123;
+            Console.WriteLine(<span style="background-color:#FFFF00;">ClassLibrary.Show()</span>);
+            Console.ReadKey();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>執行結果成功使用 Class Library</p>
+
+<p><img height="75" src="1559031319_19233.png" width="521" /></p>
+
+<p>&nbsp;</p>
+
+<p>在 Debug 資料夾會發現&nbsp;ClassLibrary1.dll 檔</p>
+
+<p><img height="231" src="1559049167_30079.png" width="666" /></p>
+
+<p>&nbsp;</p>
+
+<p>2、使用&nbsp;Shared Project</p>
+
+<p>承上，</p>
+
+<p><img height="323" src="1559029471_51969.png" width="467" /></p>
+
+<p><img height="363" src="1559036828_56855.png" width="948" /></p>
+
+<p>&nbsp;</p>
+
+<p>Program.cs 內容改成如下</p>
+
+<pre style="margin:0em; overflow:auto; background-color:#ffffff;">
+<code style="font-family:Consolas,&quot;Courier New&quot;,Courier,Monospace; font-size:10pt; color:#000000;"><span style="color:#0000ff;">using</span> System;
+<span style="color:#0000ff;">using</span> ClassLibrary1;
+<span style="color:#0000ff;"><span style="background-color:#FFFF00;">using</span></span><span style="background-color:#FFFF00;"> SharedProject1;</span>
+
+<span style="color:#0000ff;">namespace</span> ConsoleApp1
+&#123;
+    <span style="color:#0000ff;">class</span> Program
+    &#123;
+        <span style="color:#0000ff;">static</span> <span style="color:#0000ff;">void</span> Main(<span style="color:#0000ff;">string</span>[] args)
+        &#123;
+            <span style="color:#008000;">//Console.WriteLine(ClassLibrary.Show());</span>
+            Console.WriteLine(<span style="background-color:#FFFF00;">SharedProject.Show()</span>);
+            Console.ReadKey();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>執行結果成功引用 Shared Project</p>
+
+<p><img height="64" src="1559037790_29125.png" width="494" /></p>
+
+<p>&nbsp;</p>
+
+<p>在沒有加入&nbsp;Class Library 參考時，</p>
+
+<p><img height="503" src="1559049521_42842.png" width="863" /></p>
+
+<p>在 Debug 資料夾不會有其他 .dll 檔</p>
+
+<p><img height="192" src="1559049938_20847.png" width="664" /></p>
+
+<p>&nbsp;</p>
+
+<p>三、the feature of&nbsp;Shared Project and&nbsp;Class Library Project</p>
+
+<p>Class Library Project 可用來製作 .dll 檔讓其他專案使用。</p>
+
+<p>Shared Project 它可以在同一個 Project 裏頭包含許多種類型的程式碼，類如：Typescript, Javascript, C#, VB, XAML, HTML&hellip;等。</p>
+
+<p>&nbsp;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Visual-Studio-IDE/" rel="tag"># Visual Studio IDE</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/05/22/charset/" rel="prev" title="charset">
+                  <i class="fa fa-angle-left"></i> charset
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/05/29/asp-read-db-syntax/" rel="next" title="歷史記錄 - ASP 讀取 .mdb 語法">
+                  歷史記錄 - ASP 讀取 .mdb 語法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

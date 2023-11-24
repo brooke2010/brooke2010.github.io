@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brooke2010.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"JS57BHFO5T","apiKey":"7a2e70e25612bc7da95051e7c75b96ce","indexName":"test_NAME","hits":{"per_page":15}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCSS語法 - comment、function directives、Nesting、Nested Properties、Parent Selectors">
+<meta property="og:url" content="https://brooke2010.github.io/2018/05/06/SCSS-comment-function-directives/index.html">
+<meta property="og:site_name" content="御茶香">
+<meta property="og:description" content="&nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-05-06T01:32:35.000Z">
+<meta property="article:modified_time" content="2023-11-24T05:45:54.665Z">
+<meta property="article:author" content="B">
+<meta property="article:tag" content="SASS">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://brooke2010.github.io/2018/05/06/SCSS-comment-function-directives/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://brooke2010.github.io/2018/05/06/SCSS-comment-function-directives/","path":"2018/05/06/SCSS-comment-function-directives/","title":"SCSS語法 - comment、function directives、Nesting、Nested Properties、Parent Selectors"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SCSS語法 - comment、function directives、Nesting、Nested Properties、Parent Selectors | 御茶香</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86880134-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-86880134-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">御茶香</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">76</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">B</p>
+  <div class="site-description" itemprop="description">^^</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">777</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://brooke2010.github.io/2018/05/06/SCSS-comment-function-directives/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="B">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="御茶香">
+      <meta itemprop="description" content="^^">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SCSS語法 - comment、function directives、Nesting、Nested Properties、Parent Selectors | 御茶香">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SCSS語法 - comment、function directives、Nesting、Nested Properties、Parent Selectors
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-05-06 09:32:35" itemprop="dateCreated datePublished" datetime="2018-05-06T09:32:35+08:00">2018-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-24 13:45:54" itemprop="dateModified" datetime="2023-11-24T13:45:54+08:00">2023-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SASS/" itemprop="url" rel="index"><span itemprop="name">SASS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/05/06/SCSS-comment-function-directives/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/06/SCSS-comment-function-directives/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&nbsp;</p>
+
+<span id="more"></span>
+
+<p>以下要點不打算多做說明，只列出scss語法與結果</p>
+
+<p>一、Comments: /* */ and //</p>
+
+<p>scss也支援單行註解，不過並不會主動轉換到css裡</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aaaaaa; font-style: italic">/* This comment is</span>
+<span style="color: #aaaaaa; font-style: italic"> * several lines long.</span>
+<span style="color: #aaaaaa; font-style: italic"> * since it uses the CSS comment syntax,</span>
+<span style="color: #aaaaaa; font-style: italic"> * it will appear in the CSS output. */</span>
+<span style="color: #1e90ff; font-weight: bold">body</span> { <span style="color: #1e90ff">color</span>: <span style="color: #00aaaa">black</span>; }
+
+<p><span style="color: #aaaaaa; font-style: italic">&#x2F;&#x2F; These comments are only one line long each.</span><br><span style="color: #aaaaaa; font-style: italic">&#x2F;&#x2F; They won&#39;t appear in the CSS output,</span><br><span style="color: #aaaaaa; font-style: italic">&#x2F;&#x2F; since they use the single-line comment syntax.</span><br><span style="color: #1e90ff; font-weight: bold">a</span> { <span style="color: #1e90ff">color</span>: <span style="color: #00aaaa">green</span>; }<br></pre></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aaaaaa; font-style: italic">/* This comment is</span>
+<span style="color: #aaaaaa; font-style: italic"> * several lines long.</span>
+<span style="color: #aaaaaa; font-style: italic"> * since it uses the CSS comment syntax,</span>
+<span style="color: #aaaaaa; font-style: italic"> * it will appear in the CSS output. */</span>
+<span style="color: #1e90ff; font-weight: bold">body</span> {
+    <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">black</span>;
+}
+
+<p><span style="color: #1e90ff; font-weight: bold">a</span> {<br>    <span style="color: #0000aa">color</span>: <span style="color: #00aaaa">green</span>;<br>}<br></pre></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>另外註解也可放變數</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aa0000">$version</span>: <span style="color: #aa5500">&quot;1.2.3&quot;</span>;
+<span style="color: #aaaaaa; font-style: italic">/* This CSS is generated by My Snazzy Framework version #{$version}. */</span>
+</pre>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #aaaaaa; font-style: italic">/* This CSS is generated by My Snazzy Framework version 1.2.3. */</span>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>二、function directives</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #008800; font-weight: bold">@function</span> <span style="color: #007700">grid-width</span><span style="color: #333333">(</span><span style="color: #FF0000; background-color: #FFAAAA">$</span><span style="color: #007700">n</span><span style="color: #333333">)</span> {
+    <span style="color: #008800; font-weight: bold">@return</span> <span style="color: #FF0000; background-color: #FFAAAA">$</span><span style="color: #007700">n</span> <span style="color: #333333">*</span> <span style="color: #007700">10px</span><span style="color: #333333">;</span>
+}
+
+<p><span style="color: #0e84b5; font-weight: bold">#sidebar</span> {<br>    <span style="color: #0000CC">width</span><span style="color: #333333">:</span> <span style="color: #0066BB; font-weight: bold">grid-width</span>(<span style="color: #0000DD; font-weight: bold">5</span>);<br>}<br></pre></p>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #0066BB; font-weight: bold">#sidebar</span> {
+  <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">50px</span>;
+}
+
+<p><span style="color: #888888">&#x2F;*# sourceMappingURL&#x3D;output.css.map *&#x2F;</span><br></pre></p>
+</div>
+
+<p>說明：</p>
+
+<p>a、function內可以接受function外的全域變數。</p>
+
+<p>b、function名稱的命名建議其前置詞使用連字號，如</p>
+
+<p>@function <span style="background-color:#FFFF00;">-</span>grid-width($n)</p>
+
+<p>以便用來跟@mixin的名稱命名有所區別。</p>
+
+<p>&nbsp;</p>
+
+<p>三、Nesting</p>
+
+<p>scss輸入</p>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #1e90ff; font-weight: bold">div</span> {
+    <span style="color: #1e90ff">background-color</span>: <span style="color: #009999">#333</span>;
+
+<pre><code>&lt;span style=&quot;color: #1e90ff; font-weight: bold&quot;&gt;p&lt;/span&gt; &#123;
+    &lt;span style=&quot;color: #1e90ff&quot;&gt;color&lt;/span&gt;: &lt;span style=&quot;color: #009999&quot;&gt;#fff&lt;/span&gt;;
+&#125;
+</code></pre>
+<p>}<br></pre></p>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #1e90ff; font-weight: bold">div</span> {
+  <span style="color: #0000aa">background-color</span>: <span style="color: #009999">#333</span>;
+}
+<span style="color: #1e90ff; font-weight: bold">div</span> <span style="color: #1e90ff; font-weight: bold">p</span> {
+  <span style="color: #0000aa">color</span>: <span style="color: #009999">#fff</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>四、Nested Properties</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #1e90ff; font-weight: bold">li</span> {
+    <span style="color: #1e90ff">font</span><span style="background-color:#FFFF00;">:</span> {
+        <span style="color: #1e90ff">family</span>: <span style="color: #aa0000">serif</span>;
+        <span style="color: #1e90ff">weight</span>: <span style="color: #aa0000">bold</span>;
+        <span style="color: #1e90ff">size</span>: <span style="color: #009999">1.3</span><span style="color: #00aaaa">em</span>;
+    }
+}
+</pre>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #1e90ff; font-weight: bold">li</span> {
+    <span style="color: #0000aa">font-family</span>: <span style="color: #0000aa">serif</span>;
+    <span style="color: #0000aa">font-weight</span>: <span style="color: #0000aa">bold</span>;
+    <span style="color: #0000aa">font-size</span>: <span style="color: #009999">1.3em</span>;
+}
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>五、Referencing Parent Selectors: &amp;</p>
+
+<p>scss輸入</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">a</span> {
+    <span style="color: #0000CC">font-weight</span><span style="color: #333333">:</span> <span style="color: #003366; font-weight: bold">bold</span>;
+    <span style="color: #0000CC">text-decoration</span><span style="color: #333333">:</span> <span style="color: #003366; font-weight: bold">none</span>;
+    <span style="color: #008800; font-weight: bold"><span style="background-color:#FFFF00;">&amp;</span></span><span style="color: #555555; font-weight: bold">:hover</span> {
+        <span style="color: #0000CC">text-decoration</span><span style="color: #333333">:</span> <span style="color: #003366; font-weight: bold">underline</span>;
+    }
+    <span style="color: #007700">body</span><span style="color: #BB0066; font-weight: bold">.firefox</span> <span style="color: #008800; font-weight: bold"><span style="background-color:#FFFF00;">&amp;</span></span> {
+        <span style="color: #0000CC">font-weight</span><span style="color: #333333">:</span> <span style="color: #003366; font-weight: bold">normal</span>;
+    }
+}
+</pre>
+</div>
+
+<p>輸出css</p>
+<!-- HTML generated using hilite.me -->
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%">
+<span style="color: #007700">a</span> {
+  <span style="color: #008800; font-weight: bold">font-weight</span><span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">bold</span>;
+  <span style="color: #008800; font-weight: bold">text-decoration</span><span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">none</span>;
+}
+<span style="color: #007700"><span style="background-color:#FFFF00;">a</span></span><span style="color: #555555; font-weight: bold">:hover</span> {
+  <span style="color: #008800; font-weight: bold">text-decoration</span><span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">underline</span>;
+}
+<span style="color: #007700">body</span><span style="color: #BB0066; font-weight: bold">.firefox</span> <span style="color: #007700"><span style="background-color:#FFFF00;">a</span></span> {
+  <span style="color: #008800; font-weight: bold">font-weight</span><span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">normal</span>;
+}
+
+<p><span style="color: #888888">&#x2F;*# sourceMappingURL&#x3D;output.css.map *&#x2F;</span><br></pre></p>
+</div>
+
+<p>上例中，「&amp;」符號是指parent selector，也就是元素 a。</p>
+
+<p>&nbsp;</p>
+
+<p>參考資料：</p>
+
+<p><a target="_blank" rel="noopener" href="http://blog.kdchang.cc/2016/10/11/sass-scss-tutorial-introduction/">Sass/SCSS 簡明入門教學</a></p>
+
+<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20040221/ironman/562?page=3">30天掌握Sass語法 系列</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SASS/" rel="tag"># SASS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/02/Google-Maps-API-functions/" rel="prev" title="Google Maps API - 程式庫">
+                  <i class="fa fa-angle-left"></i> Google Maps API - 程式庫
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/05/06/XpagedList-use/" rel="next" title="X.pagedList的使用">
+                  X.pagedList的使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">B</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.24/dist/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.57.0/dist/instantsearch.production.min.js" integrity="sha256-foJtB+Wd0wvvK+VU3KO0/H6CjwSwJfB1RnWlgx0Ov9U=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-app-compat.js" integrity="sha256-kv9gfd+UUnUqqJ2d478LEHzOijuUbZOVdEkuXSMm4qM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.4.0/firebase-firestore-compat.js" integrity="sha256-sS/hkEB7nn47hhc//PNKfXiRX2YMEe4rBqUIqEhMYA8=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBTuwqj10h1dBCKUa8xB1kEa1RroIN9i-o","projectId":"tecblog-3dd18"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"tecblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
